@@ -1,4 +1,5 @@
 import { getBlogPost, getAllBlogPosts } from "@/lib/blog";
+import { notFound } from "next/navigation";
 import BlogPostPageClient from "./blog-post-page-client";
 
 interface BlogPostPageProps {

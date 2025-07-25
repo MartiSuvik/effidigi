@@ -6,6 +6,7 @@ import { CalProvider } from '@/components/cal-provider';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://effidigi.com'),
   title: 'EFFI - AI-põhine 24/7 vastamisteenus Tallinn, Eestis',
   description: 'Parandage klienditeenindust ja suurendage tulu meie AI telefonisüsteemiga Tallinnas ja üle Eesti. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööblipoodidele. Teenindame kogu Eestit.',
   keywords: [
