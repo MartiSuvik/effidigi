@@ -23,7 +23,7 @@ export function Footer() {
 	
 	const footerLinks: FooterSection[] = [
 		{
-			label: t('footer.solutions', 'Teenused'),
+			label: t('footer.solutions'),
 			links: [
 				{ title: 'AI Phone Agent', href: '/#services' },
 				{ title: 'Data AI Analytics', href: '/services/data-ai' },
@@ -32,10 +32,10 @@ export function Footer() {
 			],
 		},
 		{
-			label: t('footer.company', 'Ettevõte'),
+			label: t('footer.company'),
 			links: [
-				{ title: t('navigation.blog', 'Blogi'), href: '/blog' },
-				{ title: t('navigation.contact', 'Kontakt'), href: '/#contact' },
+				{ title: t('navigation.blog'), href: '/blog' },
+				{ title: t('navigation.contact'), href: '/#contact' },
 			],
 		},
 	];
@@ -67,7 +67,7 @@ export function Footer() {
 						</div>
 					</div>
 					<p className="text-muted-foreground mt-8 text-sm">
-						© {currentYear} EFFI. {t('footer.rights', 'Kõik õigused kaitstud.')}
+						© {currentYear} EFFI. {t('footer.rights')}
 					</p>
 				</AnimatedContainer>
 

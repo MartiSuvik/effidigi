@@ -29,35 +29,35 @@ export function SiteHeader() {
   
   const services = [
     {
-      title: t('services.dataAI.name', 'Karl - Data AI'),
-      description: t('services.dataAI.description', 'Analüüsib kliendiandmeid ja loob detailseid raporteid teie äri optimeerimiseks.'),
+      title: t('services.dataAI.name'),
+      description: t('services.dataAI.description'),
       href: "/services/data-ai",
       src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/d2fzxkwdvndlenhlezxy.png",
     },
     {
-      title: t('services.phoneAI.name', 'Sandra - Phone AI'),
-      description: t('services.phoneAI.description', '24/7 telefonivastamisteenus, mis käsitleb kõiki kõnesid professionaalselt.'),
+      title: t('services.phoneAI.name'),
+      description: t('services.phoneAI.description'),
       href: "/#services", 
-      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/ck7yx757bjfj6uihrdyj.png",
+      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/sandra_headshot_lk8glf.png",
     },
     {
-      title: t('services.chatAI.name', 'Silver - Chat AI'),
-      description: t('services.chatAI.description', 'Nutika vestlusrobot, mis vastab küsimustele ja aitab kliente reaalajas.'),
+      title: t('services.chatAI.name'),
+      description: t('services.chatAI.description'),
       href: "/#services",
       src: "https://res.cloudinary.com/effichat/image/upload/v1751621635/g4v24ilp1cno7r9qyvct.png",
     },
     {
-      title: t('services.crmAI.name', 'Helen - CRM AI'),
-      description: t('services.crmAI.description', 'Haldab kliendisuhteid ja automatiseerib müügiprotsesse tõhusalt.'),
+      title: t('services.crmAI.name'),
+      description: t('services.crmAI.description'),
       href: "/#services",
       src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/xr2xiyciubgjfwsk2qju.png",
     }
   ];
 
   const mobileNavItems = [
-    { label: t('navigation.home', 'Avaleht'), href: "/" },
-    { label: t('navigation.solutions', 'Lahendused'), href: "/#services" },
-    { label: t('navigation.blog', 'Blogi'), href: "/blog" }
+    { label: t('navigation.home'), href: "/" },
+    { label: t('navigation.solutions'), href: "/#services" },
+    { label: t('navigation.blog'), href: "/blog" }
   ];
 
   return (
@@ -101,7 +101,7 @@ export function SiteHeader() {
             )}>
               {/* Logo - Left */}
               <Link href="/" className="flex items-center gap-2">
-                <span className="text-2xl font-bold terminal-text">{t('site.brand', 'EFFI')}</span>
+                <span className="text-2xl font-bold terminal-text">{t('site.brand')}</span>
               </Link>
               
               {/* Navigation - Center */}
@@ -112,12 +112,12 @@ export function SiteHeader() {
                     href="/"
                     className="text-foreground hover:text-primary transition-colors font-medium"
                   >
-                    {t('navigation.home', 'Avaleht')}
+                    {t('navigation.home')}
                   </Link>
                   
                   {/* Menu with dropdowns for other items */}
                   <Menu setActive={setActive} className="flex items-center space-x-8">
-                    <MenuItem setActive={setActive} active={active} item={t('navigation.solutions', 'Lahendused')}>
+                    <MenuItem setActive={setActive} active={active} item={t('navigation.solutions')}>
                       <div className="grid grid-cols-2 gap-3 p-3">
                         {services.map((service, index) => (
                           <ProductItem
@@ -131,11 +131,11 @@ export function SiteHeader() {
                       </div>
                     </MenuItem>
                     
-                    <MenuItem setActive={setActive} active={active} item={t('navigation.blog', 'Blogi')}>
+                    <MenuItem setActive={setActive} active={active} item={t('navigation.blog')}>
                       <div className="flex flex-col space-y-2 min-w-[200px]">
-                        <HoveredLink href="/blog">{t('blog.allArticles', 'Kõik artiklid')}</HoveredLink>
-                        <HoveredLink href="/blog/ai-lahendused-toitlustuses">{t('blog.aiRestaurants', 'AI restoranides')}</HoveredLink>
-                        <HoveredLink href="/blog/ai-autoteenused">{t('blog.aiAutomotive', 'AI autoteenused')}</HoveredLink>
+                        <HoveredLink href="/blog">{t('blog.allArticles')}</HoveredLink>
+                        <HoveredLink href="/blog/ai-lahendused-toitlustuses">{t('blog.aiRestaurants')}</HoveredLink>
+                        <HoveredLink href="/blog/ai-autoteenused">{t('blog.aiAutomotive')}</HoveredLink>
                       </div>
                     </MenuItem>
                   </Menu>
@@ -150,7 +150,7 @@ export function SiteHeader() {
                   className="gap-2"
                   onClick={openCalModal}
                 >
-                  {t('navigation.contact', 'Võta Ühendust')}
+                  {t('navigation.contact')}
                 </GradientButton>
               </div>
             </div>
@@ -186,7 +186,7 @@ export function SiteHeader() {
                   }}
                 >
                   <PhoneCall className="w-4 h-4" />
-                  {t('navigation.contact', 'Võta Ühendust')}
+                  {t('navigation.contact')}
                 </GradientButton>
               </div>
             </motion.div>
