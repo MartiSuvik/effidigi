@@ -38,7 +38,7 @@ export function SiteHeader() {
       title: t('services.phoneAI.name'),
       description: t('services.phoneAI.description'),
       href: "/#services", 
-      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/sandra_headshot_lk8glf.png",
+      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/ck7yx757bjfj6uihrdyj.png",
     },
     {
       title: t('services.chatAI.name'),
