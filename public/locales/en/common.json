@@ -1,0 +1,264 @@
+{
+  "site": {
+    "title": "EFFI - AI-powered 24/7 answering service in Tallinn, Estonia",
+    "description": "Improve customer service and increase revenue with our AI phone system in Tallinn and across Estonia. Perfect for restaurants, dental clinics, car sales, and furniture stores.",
+    "brand": "EFFI"
+  },
+  "navigation": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "blog": "Blog",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "AI-powered",
+    "subtitle1": "24/7 answering service",
+    "subtitle2": "call automation",
+    "subtitle3": "revenue growth",
+    "subtitle4": "for Tallinn businesses",
+    "description": "We build AI systems so you can earn more, spend less, and grow faster. Now available in Tallinn!",
+    "ctaMain": "Talk to AI",
+    "ctaSecondary": "Request Quote",
+    "connecting": "Connecting...",
+    "endCall": "End Call",
+    "trustedClients": "Our trusted clients and partners",
+    "testTitle": "Try our AI phone system now",
+    "testSubtitle": "Enter your phone number and receive a call from our AI agent within 30 seconds.",
+    "testPhone": {
+      "title": "Test our AI phone system!",
+      "subtitle": "Enter your number and get a call within 30 seconds",
+      "phoneLabel": "Phone number",
+      "placeholder": "+372 5XXX XXXX",
+      "button": "Test with AI",
+      "calling": "Calling...",
+      "freeCall": "Test call is completely free.",
+      "enterPhone": "Please enter your phone number",
+      "initiating": "Initiating call...",
+      "callInitiated": "Call initiated! You should receive a call within 30 seconds.",
+      "callFailed": "Failed to initiate call. Please try again.",
+      "connectionError": "Connection error. Please check your internet connection and try again."
+    },
+    "testimonial": {
+      "quote": "\"The test call helped us understand how powerful this technology is. We immediately knew we needed it.\"",
+      "author": "- Café Katherinenthal, Tallinn"
+    },
+    "platformTitle": "Everything you need in one platform",
+    "features": {
+      "parallelCalls": "Parallel Calls",
+      "availability": "24/7 Availability",
+      "languages": "30+ Languages",
+      "agenticAI": "Agentic AI",
+      "builtInCRM": "Built-in CRM",
+      "integrations": "7000+ Integrations",
+      "googleCalendar": "Google Calendar",
+      "autoLeadCapture": "Auto Lead Capture",
+      "stageTracking": "Stage Tracking",
+      "customNumber": "Custom Number",
+      "liveTranscription": "Live Transcription",
+      "transcriptionForwarding": "Transcription Forwarding",
+      "websiteLearning": "Website Learning",
+      "documentTraining": "Document Training",
+      "knowledgeEngine": "Knowledge Engine",
+      "trainingSuggestions": "Training Suggestions",
+      "websiteChat": "Website Chat",
+      "discordBot": "Discord Bot",
+      "smartCallRouting": "Smart Call Routing",
+      "spamBlocking": "Spam Blocking",
+      "callRecording": "Call Recording",
+      "enterpriseSecurity": "Enterprise Security",
+      "sentimentAnalysis": "Sentiment Analysis",
+      "emailSummaries": "Email Summaries"
+    }
+  },
+  "services": {
+    "sectionTitle": "Industry-specific solutions in Estonia",
+    "sectionSubtitle": "Our AI solution is tailored to Estonian business sectors, offering specific functionality and integration capabilities for companies in Tallinn and other Estonian cities.",
+    "benefits": {
+      "title": "Key benefits in Estonian market:"
+    },
+    "restaurants": {
+      "title": "Restaurants in Estonia",
+      "description": "Optimize bookings and orders in Tallinn restaurants, reduce staff burden and increase customer satisfaction in Estonia's gastronomy sector.",
+      "benefits": [
+        "14% sales increase in Estonian market",
+        "25% more bookings in Tallinn",
+        "73% less phone handling time"
+      ],
+      "code": "// Tallinn restaurant AI configuration\nconst restaurantAI = new EFFI.Agent({\n  type: \"restaurant\",\n  location: \"Tallinn, Estonia\",\n  language: \"english\",\n  capabilities: [\"booking\", \"orders\", \"menuInfo\"],\n  integrations: [\"OpenTable\", \"Wolt\", \"Bolt Food\"]\n});"
+    },
+    "automotive": {
+      "title": "Car Sales in Estonia",
+      "description": "Capture test drive inquiries across Estonia, answer pricing questions and direct qualified buyers to sales teams in Tallinn and other cities.",
+      "benefits": [
+        "60% fewer dropped calls",
+        "20% increase in service appointment utilization",
+        "12% increase in test drive show-ups"
+      ],
+      "code": "// Estonian automotive AI configuration\nconst autoAI = new EFFI.Agent({\n  type: \"automotive\",\n  location: \"Estonia\",\n  language: \"english\",\n  capabilities: [\"testDrives\", \"pricing\", \"techInfo\"],\n  integrations: [\"DMS\", \"CRM\", \"Calendly\"]\n});"
+    },
+    "dental": {
+      "title": "Dental Clinics in Estonia",
+      "description": "Handle emergency calls in Tallinn dental clinics, schedule appointments and answer Estonian insurance questions.",
+      "benefits": [
+        "22% increase in new patient consultations",
+        "35% fewer cancellations",
+        "+€15k additional revenue per month"
+      ],
+      "code": "// Tallinn dental clinic AI configuration\nconst clinicAI = new EFFI.Agent({\n  type: \"dental\",\n  location: \"Tallinn, Estonia\",\n  language: \"english\",\n  capabilities: [\"appointments\", \"emergency\", \"insuranceInfo\"],\n  integrations: [\"PMS\", \"Estonian Health Insurance\"]\n});"
+    },
+    "furniture": {
+      "title": "Furniture Stores in Estonia",
+      "description": "Share product information in Estonian furniture stores, check inventory and schedule consultations across Estonia.",
+      "benefits": [
+        "18% increase in store visits",
+        "27% increase in follow-up calls",
+        "30% more completed sales"
+      ],
+      "code": "// Estonian furniture store AI configuration\nconst storeAI = new EFFI.Agent({\n  type: \"furniture\",\n  location: \"Estonia\",\n  language: \"english\",\n  capabilities: [\"productQueries\", \"inventory\", \"homeConsultations\"],\n  integrations: [\"POS\", \"inventorySystem\", \"CRM\"]\n});"
+    },
+    "dataAI": {
+      "name": "Karl - Data AI",
+      "description": "Analyzes customer data and creates detailed reports to optimize your business."
+    },
+    "phoneAI": {
+      "name": "Sandra - Phone AI",
+      "description": "24/7 phone answering service that handles all calls professionally."
+    },
+    "chatAI": {
+      "name": "Silver - Chat AI",
+      "description": "Smart chatbot that answers questions and helps customers in real-time."
+    },
+    "crmAI": {
+      "name": "Helen - CRM AI",
+      "description": "Manages customer relationships and automates sales processes efficiently."
+    }
+  },
+  "aiEmployees": {
+    "title": "World's Best AI Employees",
+    "subtitle": "Automates work. Even while you sleep.",
+    "karl": {
+      "name": "Karl",
+      "role": "Data Analyst",
+      "description": "Analyzes customer data and creates detailed reports for business optimization. Uses machine learning for pattern recognition and forecasting.",
+      "specialties": ["Data Analysis", "Reports", "Forecasts"]
+    },
+    "sandra": {
+      "name": "Sandra",
+      "role": "Phone Support Manager",
+      "description": "24/7 phone answering service that handles all calls professionally. Answers questions and helps customers in real-time.",
+      "specialties": ["Phone Support", "Booking", "Questions"]
+    },
+    "silver": {
+      "name": "Silver",
+      "role": "Chat Support Manager",
+      "description": "Smart chatbot that answers questions and helps customers in real-time. Integrates with websites and applications.",
+      "specialties": ["Web Chat", "Questions", "Support"]
+    },
+    "helen": {
+      "name": "Helen",
+      "role": "CRM Automation Expert",
+      "description": "Manages customer relationships and automates sales processes efficiently. Integrates seamlessly with CRM systems.",
+      "specialties": ["CRM", "Automation", "Sales"]
+    }
+  },
+  "contact": {
+    "sectionTitle": "Book a free consultation",
+    "sectionSubtitle": "Choose a suitable time and book a free 30-minute consultation where we'll discuss your company's needs and how an AI system can help grow your business.",
+    "terminalTitle": "/booking-tallinn"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "AI news, guides, and industry insights",
+    "allArticles": "All Articles",
+    "aiRestaurants": "AI in Restaurants",
+    "aiAutomotive": "AI in Automotive",
+    "latestArticles": "Latest Articles",
+    "latestSubtitle": "Follow our blog to stay updated with the latest developments in AI phone systems",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "readingTime": "min read",
+    "faqTitle": "Frequently Asked Questions", 
+    "faqSubtitle": "Find answers to the most commonly asked questions about AI phone systems"
+  },
+  "features": {
+    "sectionTitle": "Why choose our AI solution in Estonia?",
+    "sectionSubtitle": "Our technology ensures that no call goes unanswered in Tallinn or elsewhere in Estonia, bringing your company's availability and efficiency to a new level in the local market.",
+    "missedCalls": {
+      "title": "Missed calls cost you revenue",
+      "description": "The average Estonian restaurant loses a significant portion of inquiries unanswered, which equals lost revenue. Our AI solves this problem.",
+      "cta": "Start Now"
+    },
+    "availability": {
+      "title": "24/7 availability across Estonia",
+      "description": "A large portion of booking and appointment inquiries happen outside business hours. Our AI answers calls around the clock across Estonia.",
+      "cta": "Watch Demo"
+    },
+    "results": {
+      "title": "Proven Results",
+      "description": "Our clients in Tallinn and other Estonian cities experience significant results within the first few months.",
+      "cta": "Learn More"
+    },
+    "integration": {
+      "title": "Seamless Integration",
+      "description": "We integrate with your existing Estonian business systems, ensuring smooth workflow and real-time updates.",
+      "cta": "Explore Options"
+    },
+    "performance": {
+      "title": "Top-tier Performance",
+      "description": "99% response accuracy and instant reaction ensure your customers always receive the best service.",
+      "cta": "Test Yourself"
+    }
+  },
+  "process": {
+    "sectionTitle": "Transform your business with AI",
+    "sectionSubtitle": "Our thoughtful four-step process ensures successful implementation and long-term success of your AI solution",
+    "discovery": {
+      "title": "Discovery",
+      "description": "We start by understanding your business needs, challenges, and goals through thorough consultation"
+    },
+    "strategy": {
+      "title": "Strategy",
+      "description": "Our team develops a customized AI implementation plan aligned with your specific goals and requirements"
+    },
+    "implementation": {
+      "title": "Implementation",
+      "description": "We bring the solution to life with precision, ensuring quality through continuous testing and improvement"
+    },
+    "support": {
+      "title": "Support",
+      "description": "Ongoing maintenance, optimization, and support to ensure your AI solution performs at its best"
+    },
+    "testimonial": {
+      "quote": "Our structured approach ensures that every AI project is carried out professionally and achieves the expected results. From the first consultation to long-term support.",
+      "author": "- EFFI team"
+    }
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "backToHome": "Back to Home",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "footer": {
+    "company": "Company",
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "legal": "Legal",
+    "rights": "All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "services": {
+      "phoneAgent": "AI Phone Agent",
+      "dataAnalytics": "Data AI Analytics",
+      "chatAgent": "AI Chat Agent",
+      "crmIntegration": "CRM Integration"
+    },
+    "companyLinks": {
+      "blog": "Blog",
+      "contact": "Contact"
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "site": {
+    "title": "EFFI - AI-põhine 24/7 vastamisteenus Tallinn, Eestis",
+    "description": "Parandage klienditeenindust ja suurendage tulu meie AI telefonisüsteemiga Tallinnas ja üle Eesti. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööblipoodidele.",
+    "brand": "EFFI"
+  },
+  "navigation": {
+    "home": "Avaleht",
+    "solutions": "Lahendused",
+    "blog": "Blogi",
+    "contact": "Võta Ühendust"
+  },
+  "hero": {
+    "title": "AI-põhine",
+    "subtitle1": "24/7 vastamisteenus",
+    "subtitle2": "kõnede automatsioon", 
+    "subtitle3": "tulu suurendamine",
+    "subtitle4": "Tallinna ettevõtetele",
+    "description": "Me ehitame AI-süsteeme selleks, et te teeniksite rohkem, kulutaksite vähem ja kasvaksite kiiremini. Nüüd ka Tallinnas!",
+    "ctaMain": "Räägi AI-ga",
+    "ctaSecondary": "Küsi pakkumist",
+    "connecting": "Connecting...",
+    "endCall": "Lõpeta kõne",
+    "trustedClients": "Meie usaldusväärsed kliendid ja partnerid",
+    "testTitle": "Proovi kohe meie AI-telefonisüsteemi",
+    "testSubtitle": "Sisesta oma telefoninumber ja saad 30 sekundi jooksul kõne meie AI-agendilt.",
+    "testPhone": {
+      "title": "Testi meie AI telefonisüsteemi!",
+      "subtitle": "Sisesta oma number ja saa 30 sekundi jooksul kõne",
+      "phoneLabel": "Telefoninumber",
+      "placeholder": "+372 5XXX XXXX",
+      "button": "Testi AI-ga",
+      "calling": "Helistame...",
+      "freeCall": "Testkõne on täiesti tasuta.",
+      "enterPhone": "Palun sisestage oma telefoninumber",
+      "initiating": "Algatame kõnet...",
+      "callInitiated": "Kõne algatatud! Peaksite saama kõne 30 sekundi jooksul.",
+      "callFailed": "Kõne algatamine ebaõnnestus. Palun proovige uuesti.",
+      "connectionError": "Ühenduse viga. Palun kontrollige internetiühendust ja proovige uuesti."
+    },
+    "testimonial": {
+      "quote": "\"Testkõne aitas meil mõista, kui võimas see tehnoloogia on. Kohe teadsime, et vajame seda.\"",
+      "author": "- Kohvik Katherinenthal, Tallinn"
+    },
+    "platformTitle": "Kõik vajalik ühe platvormi sees",
+    "features": {
+      "parallelCalls": "Paralleelsed Kõned",
+      "availability": "24/7 Kättesaadavus",
+      "languages": "30+ Keelt",
+      "agenticAI": "Agentic AI",
+      "builtInCRM": "Sisseehitatud CRM",
+      "integrations": "7000+ Integratsiooni",
+      "googleCalendar": "Google Kalender",
+      "autoLeadCapture": "Auto Lead Capture",
+      "stageTracking": "Etapi Jälgimine",
+      "customNumber": "Kohandatud Number",
+      "liveTranscription": "Live Transkriptsioon",
+      "transcriptionForwarding": "Transkriptsiooni Edastus",
+      "websiteLearning": "Veebilehtede Õppimine",
+      "documentTraining": "Dokumentide Treening",
+      "knowledgeEngine": "Teadmiste Mootor",
+      "trainingSuggestions": "Treening Soovitused",
+      "websiteChat": "Veebilehtede Vestlus",
+      "discordBot": "Discord Bot",
+      "smartCallRouting": "Tark Kõnede Suunamine",
+      "spamBlocking": "Rämpspostituse Blokeering",
+      "callRecording": "Kõnede Salvestamine",
+      "enterpriseSecurity": "Ettevõtte Turvalisus",
+      "sentimentAnalysis": "Sentiment- Analüüs",
+      "emailSummaries": "E-posti Kokkuvõtted"
+    }
+  },
+  "blog": {
+    "title": "Blogi",
+    "subtitle": "AI uudised, kasutusjuhendid ja tööstuse teadmised",
+    "allArticles": "Kõik artiklid",
+    "aiRestaurants": "AI restoranides",
+    "aiAutomotive": "AI autoteenused",
+    "latestArticles": "Viimased artiklid",
+    "latestSubtitle": "Jälgi meie blogi, et olla kursis AI-telefonisüsteemide uusimate arenguteega",
+    "readMore": "Loe edasi",
+    "backToBlog": "Tagasi blogi",
+    "readingTime": "min lugemist",
+    "faqTitle": "Korduma kippuvad küsimused",
+    "faqSubtitle": "Leidke vastused kõige sagedamini esitatavatele küsimustele AI-telefonisüsteemide kohta"
+  },
+  "features": {
+    "sectionTitle": "Miks valida meie AI-lahendus Eestis?",
+    "sectionSubtitle": "Meie tehnoloogia tagab, et ükski kõne ei jää vastuseta Tallinnas ega mujal Eestis, muutes teie ettevõtte kättesaadavuse ja efektiivsuse uuele tasemele kohalikus turul.",
+    "missedCalls": {
+      "title": "Vastamata kõned kulutavad teie tulu",
+      "description": "Keskmisel Eesti restoranil jääb märkimisväärne osa päringutest vastuseta, mis võrdub kaotatud tuluga. Meie AI lahendab selle probleemi.",
+      "cta": "Alusta kohe"
+    },
+    "availability": {
+      "title": "24/7 kättesaadavus kogu Eestis",
+      "description": "Suur osa broneeringu- ja kohtumispäringutest toimub väljaspool tööaega. Meie AI vastab kõnedele ööpäevaringselt üle kogu Eesti.",
+      "cta": "Vaata demot"
+    },
+    "results": {
+      "title": "Tõestatud tulemused",
+      "description": "Meie Tallinna ja teiste Eesti linnade kliendid kogevad märkimisväärseid tulemusi juba esimestel kuudel.",
+      "cta": "Loe lähemalt"
+    },
+    "integration": {
+      "title": "Sujuv integratsioon",
+      "description": "Integreerime teie olemasolevate Eesti ärisüsteemidega, tagades sujuva töövoo ja reaalajas uuendused.",
+      "cta": "Uuri võimalusi"
+    },
+    "performance": {
+      "title": "Tipptasemel jõudlus",
+      "description": "99% vastamise täpsus ja kohene reaktsioon tagavad, et teie kliendid saavad alati parima teeninduse.",
+      "cta": "Testi ise"
+    }
+  },
+  "process": {
+    "sectionTitle": "Muutke oma äri AI-ga",
+    "sectionSubtitle": "Meie läbimõeldud nelja-astmeline protsess tagab teie AI-lahenduse edukat rakendamist ja pikaajalist edu",
+    "discovery": {
+      "title": "Avastamine",
+      "description": "Alustame teie ärivajaduste, väljakutsete ja eesmärkide mõistmisest põhjaliku konsultatsiooni kaudu"
+    },
+    "strategy": {
+      "title": "Strateegia",
+      "description": "Meie meeskond töötab välja kohandatud AI rakendusplaani, mis on kooskõlas teie konkreetsete eesmärkide ja nõuetega"
+    },
+    "implementation": {
+      "title": "Rakendamine",
+      "description": "Viime lahenduse ellu täpsusega, tagades kvaliteedi pideva testimise ja täiustamise kaudu"
+    },
+    "support": {
+      "title": "Tugi",
+      "description": "Pidev hooldus, optimeerimine ja tugi, et tagada teie AI lahenduse parim jõudlus"
+    },
+    "testimonial": {
+      "quote": "Meie struktureeritud lähenemisviis tagab, et iga AI projekt viiakse läbi professionaalselt ja saavutab oodatud tulemused. Alates esimesest konsultatsioonist kuni pikaajalise toeni.",
+      "author": "- EFFI meeskond"
+    }
+  },
+  "services": {
+    "sectionTitle": "Tööstusharu põhised lahendused Eestis",
+    "sectionSubtitle": "Meie AI-lahendus on kohandatud Eesti ärivaldkondade vajadustele, pakkudes spetsiifiilist funktsionaalsust ja integratsioonivõimalusi Tallinna ja teiste Eesti linnade ettevõtetele.",
+    "benefits": {
+      "title": "Peamised eelised Eesti turul:"
+    },
+    "restaurants": {
+      "title": "Restoranid Eestis",
+      "description": "Optimeerige broneeringuid ja tellimusi Tallinna restoranides, vähendage personali koormust ja tõstke kliendirahulolu Eesti gastronoomia sektoris.",
+      "benefits": [
+        "14% müügitõus Eesti turul",
+        "25% rohkem broneeringuid Tallinnas", 
+        "73% vähem telefoni haldamise aega"
+      ],
+      "code": "// Tallinna restorani AI konfigureerimine\nconst restoranAI = new EFFI.Agent({\n  tüüp: \"restoran\",\n  asukoht: \"Tallinn, Eesti\",\n  keel: \"eesti\",\n  võimalused: [\"broneerimine\", \"tellimused\", \"menüüInfo\"],\n  integratsioonid: [\"OpenTable\", \"Wolt\", \"Bolt Food\"]\n});"
+    },
+    "automotive": {
+      "title": "Automüük Eestis",
+      "description": "Haarake proovisõidu päringud üle Eesti, vastake hinnaküsimustele ja suunake kvalifitseeritud ostjad Tallinna ja teiste linnade müügimeeskonnale.",
+      "benefits": [
+        "60% vähem katkestatud kõnesid",
+        "20% tõus hooldusaegade kasutuses",
+        "12% tõus proovisõitude kohalviimises"
+      ],
+      "code": "// Eesti automüügi AI konfigureerimine\nconst autoAI = new EFFI.Agent({\n  tüüp: \"automüük\",\n  asukoht: \"Eesti\",\n  keel: \"eesti\",\n  võimalused: [\"proovisõidud\", \"hinnapäringud\", \"tehnilineInfo\"],\n  integratsioonid: [\"DMS\", \"CRM\", \"Calendly\"]\n});"
+    },
+    "dental": {
+      "title": "Hambakliinikud Eestis",
+      "description": "Käsitlege erakorralisi kõnesid Tallinna hambakliinikutes, planeerige kohtumisi ja vastake Eesti kindlustusküsimustele.",
+      "benefits": [
+        "22% kasv uute patsientide vastuvõttudes",
+        "35% vähem tühistamisi",
+        "+€15k lisatulu kuus"
+      ],
+      "code": "// Tallinna hambakliiniku AI konfigureerimine\nconst kliinikAI = new EFFI.Agent({\n  tüüp: \"hambaarst\",\n  asukoht: \"Tallinn, Eesti\",\n  keel: \"eesti\",\n  võimalused: [\"kohtumised\", \"erakorralised\", \"kindlustusInfo\"],\n  integratsioonid: [\"PMS\", \"Eesti Haigekassa\"]\n});"
+    },
+    "furniture": {
+      "title": "Mööblipoed Eestis",
+      "description": "Jagage tooteinformatsiooni Eesti mööblipoodides, kontrollige laoseisu ja planeerige konsultatsioone kogu Eesti ulatuses.",
+      "benefits": [
+        "18% kasv poekülastustes",
+        "27% tõus järelhelistamistes",
+        "30% rohkem lõpuleviidud müüke"
+      ],
+      "code": "// Eesti mööblipoe AI konfigureerimine\nconst poeAI = new EFFI.Agent({\n  tüüp: \"mööblipood\",\n  asukoht: \"Eesti\",\n  keel: \"eesti\",\n  võimalused: [\"tootePäringud\", \"laoseis\", \"koduKonsultatsioonid\"],\n  integratsioonid: [\"POS\", \"laoSüsteem\", \"CRM\"]\n});"
+    },
+    "dataAI": {
+      "name": "Karl - Andmete AI",
+      "description": "Analüüsib kliendiandmeid ja loob üksikasjalikke aruandeid teie äri optimeerimiseks."
+    },
+    "phoneAI": {
+      "name": "Sandra - Telefoni AI",
+      "description": "24/7 telefonivastuse teenus, mis käsitleb kõiki kõnesid professionaalselt."
+    },
+    "chatAI": {
+      "name": "Silver - Vestluse AI",
+      "description": "Nutikas vestlusbot, mis vastab küsimustele ja aitab kliente reaalajas."
+    },
+    "crmAI": {
+      "name": "Helen - CRM AI",
+      "description": "Haldab kliendisuhteid ja automatiseerib müügiprotsesse tõhusalt."
+    }
+  },
+  "aiEmployees": {
+    "title": "Maailma parimad AI töötajad",
+    "subtitle": "Automatiseerib tööd. Isegi siis, kui sa magad.",
+    "karl": {
+      "name": "Karl",
+      "role": "Andmeanalüütik",
+      "description": "Analüüsib kliendiandmeid ja loob detailseid raporteid teie äri optimeerimiseks. Kasutab masinõpet mustrite tuvastamiseks ja prognoosimiseks.",
+      "specialties": ["Andmeanalüüs", "Raportid", "Prognoosid"]
+    },
+    "sandra": {
+      "name": "Sandra",
+      "role": "Telefoniteeninduse juht",
+      "description": "24/7 telefonivastamisteenus, mis käsitleb kõiki kõnesid professionaalselt. Vastab küsimustele ja aitab kliente reaalajas.",
+      "specialties": ["Telefoniteenindus", "Broneerimine", "Küsimused"]
+    },
+    "silver": {
+      "name": "Silver",
+      "role": "Vestlusteeninduse juht",
+      "description": "Nutika vestlusrobot, mis vastab küsimustele ja aitab kliente reaalajas. Integreeritakse veebisaitidesse ja rakendustesse.",
+      "specialties": ["Veebichat", "Küsimused", "Tugi"]
+    },
+    "helen": {
+      "name": "Helen",
+      "role": "CRM automaatika ekspert",
+      "description": "Haldab kliendisuhteid ja automatiseerib müügiprotsesse tõhusalt. Integreeritakse CRM süsteemidega sujuvalt.",
+      "specialties": ["CRM", "Automatiseerimine", "Müük"]
+    }
+  },
+  "contact": {
+    "sectionTitle": "Broneeri tasuta konsultatsioon",
+    "sectionSubtitle": "Vali sobiv aeg ja broneeri tasuta 30-minutiline konsultatsioon, kus räägime teie ettevõtte vajadustest ja kuidas AI-süsteem saab aidata teie äri kasvatada.",
+    "terminalTitle": "/broneering-tallinn"
+  },
+  "common": {
+    "learnMore": "Loe lähemalt",
+    "getStarted": "Alusta kohe",
+    "contactUs": "Võta ühendust",
+    "backToHome": "Tagasi avalehele",
+    "loading": "Laadimine...",
+    "error": "Viga",
+    "success": "Õnnestus"
+  },
+  "footer": {
+    "company": "Ettevõte",
+    "solutions": "Lahendused", 
+    "resources": "Ressursid",
+    "legal": "Juriidiline",
+    "rights": "Kõik õigused kaitstud",
+    "privacyPolicy": "Privaatsuspoliitika",
+    "termsOfService": "Teenuse tingimused",
+    "services": {
+      "phoneAgent": "AI Telefonisüsteem",
+      "dataAnalytics": "Andmeanalüüs AI",
+      "chatAgent": "AI Vestlusagent",
+      "crmIntegration": "CRM Integratsioon"
+    },
+    "companyLinks": {
+      "blog": "Blogi",
+      "contact": "Kontakt"
+    }
+  }
+}
