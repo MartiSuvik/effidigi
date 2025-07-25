@@ -1,5 +1,9 @@
 import { useRouter, usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+
+// Import translations directly
+import etTranslations from '@/public/locales/et/common.json';
+import enTranslations from '@/public/locales/en/common.json';
 
 // Translation hook
 export function useTranslation() {
@@ -10,47 +14,29 @@ export function useTranslation() {
   const locale = pathname.startsWith('/en') ? 'en' : 'et';
   const locales = ['et', 'en'];
   
-  const [translations, setTranslations] = useState<Record<string, any>>({});
-
-  useEffect(() => {
-    const loadTranslations = async () => {
-      try {
-        const response = await fetch(`/locales/${locale}/common.json`);
-        const data = await response.json();
-        setTranslations(data);
-      } catch (error) {
-        console.error('Failed to load translations:', error);
-        // Fallback to Estonian if loading fails
-        if (locale !== 'et') {
-          try {
-            const fallbackResponse = await fetch('/locales/et/common.json');
-            const fallbackData = await fallbackResponse.json();
-            setTranslations(fallbackData);
-          } catch (fallbackError) {
-            console.error('Failed to load fallback translations:', fallbackError);
-          }
-        }
-      }
-    };
-
-    loadTranslations();
-  }, [locale]);
+  // Get translations based on locale
+  const translations = locale === 'en' ? enTranslations : etTranslations;
+  const [isLoading, setIsLoading] = useState(false);
 
   // Translation function with nested key support
-  const t = (key: string, fallback?: string): string => {
-    const keys = key.split('.');
-    let value = translations;
+    const t = useCallback((key: string): string => {
+    if (isLoading) {
+      return key
+    }
+    
+    const keys = key.split('.')
+    let result: any = translations
     
     for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+      if (result && typeof result === 'object' && k in result) {
+        result = result[k]
       } else {
-        return fallback || key;
+        return key
       }
     }
     
-    return typeof value === 'string' ? value : fallback || key;
-  };
+    return typeof result === 'string' ? result : key
+  }, [translations, locale, isLoading])
 
   // Language switcher function
   const changeLanguage = (newLocale: string) => {
@@ -74,7 +60,7 @@ export function useTranslation() {
     locale,
     locales,
     changeLanguage,
-    isLoading: Object.keys(translations).length === 0,
+    isLoading,
   };
 }
 

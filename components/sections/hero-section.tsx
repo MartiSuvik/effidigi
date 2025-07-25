@@ -53,6 +53,8 @@ export function HeroSection() {
   // Helper function to get translation with proper fallback
   const getTranslation = (key: string, fallback: string) => {
     const translation = t(key);
+    
+    // Return the translation if it exists and is not the same as the key
     return (translation && translation !== key && translation.trim() !== '') ? translation : fallback;
   };
 
