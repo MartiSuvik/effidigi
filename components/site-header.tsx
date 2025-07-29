@@ -21,11 +21,7 @@ export function SiteHeader() {
   
   // Helper function to create locale-aware paths
   const getLocalePath = (path: string) => {
-    // Estonian URLs should go through the locale route now (via middleware redirect)
-    // but the navigation should use the original Estonian pattern
-    if (locale === 'et') {
-      return path;
-    }
+    // Now both Estonian and English use locale prefixes for consistency
     return path === '/' ? `/${locale}` : `/${locale}${path}`;
   };
   

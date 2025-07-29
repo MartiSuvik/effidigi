@@ -12,53 +12,26 @@ import { ArrowRight, Building2, Utensils } from "lucide-react";
 export default function CaseStudiesPage() {
   const { t, locale } = useTranslation();
 
-  const caseStudies = [
-    {
-      id: "body-treatment-salon",
-      title: t('caseStudies.articles.bodyTreatment.title'),
-      excerpt: t('caseStudies.articles.bodyTreatment.excerpt'),
-      category: t('caseStudies.articles.bodyTreatment.category'),
-      icon: Building2,
-      href: `${locale === 'en' ? '/en' : ''}/case-studies/body-treatment-salon-${locale}`,
-      gradient: "from-pink-500 to-rose-500"
-    },
-    {
-      id: "maple-street-bistro",
-      title: t('caseStudies.articles.mapleStreet.title'),
-      excerpt: t('caseStudies.articles.mapleStreet.excerpt'),
-      category: t('caseStudies.articles.mapleStreet.category'),
-      icon: Utensils,
-      href: `${locale === 'en' ? '/en' : ''}/case-studies/maple-street-bistro-${locale}`,
-      gradient: "from-blue-500 to-indigo-500"
-    }
-  ];
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Building2, Utensils } from "lucide-react";
-
-export default function CaseStudiesPage() {
-  const { t, locale } = useTranslation();
-
-  const caseStudies = [
-    {
-      id: "body-treatment-salon",
-      title: t('caseStudies.articles.bodyTreatment.title'),
-      excerpt: t('caseStudies.articles.bodyTreatment.excerpt'),
-      category: t('caseStudies.articles.bodyTreatment.category'),
-      icon: Building2,
-      href: `/${locale === 'et' ? '' : `${locale}/`}case-studies/body-treatment-salon-${locale}`,
-      gradient: "from-pink-500 to-rose-500"
-    },
-    {
-      id: "maple-street-bistro",
-      title: t('caseStudies.articles.mapleStreet.title'),
-      excerpt: t('caseStudies.articles.mapleStreet.excerpt'),
-      category: t('caseStudies.articles.mapleStreet.category'),
-      icon: Utensils,
-      href: `/${locale === 'et' ? '' : `${locale}/`}case-studies/maple-street-bistro-${locale}`,
-      gradient: "from-blue-500 to-indigo-500"
-    }
-  ];
+const caseStudies = [
+  {
+    id: "body-treatment-salon",
+    title: t('caseStudies.articles.bodyTreatment.title'),
+    excerpt: t('caseStudies.articles.bodyTreatment.excerpt'),
+    category: t('caseStudies.articles.bodyTreatment.category'),
+    icon: Building2,
+    href: `/${locale}/case-studies/body-treatment-salon-${locale}`,
+    gradient: "from-pink-500 to-rose-500"
+  },
+  {
+    id: "maple-street-bistro",
+    title: t('caseStudies.articles.mapleStreet.title'),
+    excerpt: t('caseStudies.articles.mapleStreet.excerpt'),
+    category: t('caseStudies.articles.mapleStreet.category'),
+    icon: Utensils,
+    href: `/${locale}/case-studies/maple-street-bistro-${locale}`,
+    gradient: "from-blue-500 to-indigo-500"
+  }
+];
 
   return (
     <div className="min-h-screen bg-background">

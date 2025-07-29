@@ -186,7 +186,65 @@
     },
     "dataAI": {
       "name": "Karl - Andmete AI",
-      "description": "Analüüsib kliendiandmeid ja loob üksikasjalikke aruandeid teie äri optimeerimiseks."
+      "description": "Analüüsib kliendiandmeid ja loob üksikasjalikke aruandeid teie äri optimeerimiseks.",
+      "page": {
+        "title": "AI Andmeanalüüs",
+        "subtitle": "Muuda oma andmed võimsaks äriintelligentsiks. Visualiseeri, ennusta ja kasva targemalt.",
+        "backButton": "Tagasi teenustele",
+        "cta": {
+          "start": "Alusta kohe",
+          "demo": "Vaata demot"
+        },
+        "sections": {
+          "dashboards": {
+            "title": "Visuaalsed Dashboardid",
+            "description": "Muuda keerulised andmed selgeteks ja mõistlikeks dashboardideks. Jälgi oma äri jõudlust reaalajas ja tee kiireid otsuseid.",
+            "features": [
+              "Reaalajas andmete visualiseerimine",
+              "Kohandatud KPI jälgimine",
+              "Mobiilioptimeeritud vaated"
+            ],
+            "cta": "Vaata dashboard demo"
+          },
+          "forecasting": {
+            "title": "Müügi Ennustamine",
+            "description": "Kasuta masinõpet oma müügitulemuste ennustamiseks kuni 12 kuud ette. Täpsed prognoosid aitavad planeerida ja optimeerida.",
+            "features": [
+              "95% täpsusega prognoosid",
+              "Hooajaline analüüs",
+              "Automaatsed uuendused"
+            ],
+            "cta": "Alusta ennustamist"
+          },
+          "predictions": {
+            "title": "AI Ennustused",
+            "description": "Meie AI tuvastab varjatud mustreid ja ennustab trende, mida inimsilm ei märka. Saad konkurentsieelise.",
+            "features": [
+              "Automaatne mustrite leidmine",
+              "Anomaaliate tuvastamine",
+              "Täiustuvad mudelid"
+            ],
+            "cta": "Avasta AI võimu"
+          },
+          "calculations": {
+            "title": "Müügiarvutused",
+            "description": "Automatiseeri kõik olulised müügiarvutused. ROI, konversioonid, jõudluse mõõdikud - kõik ühe vaatega.",
+            "features": [
+              "Automaatsed KPI-d",
+              "Võrdlusanalüüs",
+              "Reaalajas uuendused"
+            ],
+            "cta": "Optimeeri müüki"
+          }
+        },
+        "finalCta": {
+          "title": "Alusta oma andmete revolutsiooni",
+          "description": "Liitu sadadega ettevõtetega, kes on juba muutnud oma andmed võimsaks äriintelligentsiks.",
+          "startButton": "Alusta tasuta",
+          "demoButton": "Vaata demo",
+          "bottomText": "Tasuta konsultatsioon • 30 minutit • Kohesed tulemused"
+        }
+      }
     },
     "phoneAI": {
       "name": "Sandra - Telefoni AI",

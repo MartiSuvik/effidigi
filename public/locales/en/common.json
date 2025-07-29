@@ -119,7 +119,65 @@
     },
     "dataAI": {
       "name": "Karl - Data AI",
-      "description": "Analyzes customer data and creates detailed reports to optimize your business."
+      "description": "Analyzes customer data and creates detailed reports to optimize your business.",
+      "page": {
+        "title": "Data AI Analytics",
+        "subtitle": "Transform your data into powerful business intelligence. Visualize, predict, and grow smarter.",
+        "backButton": "Back to Services",
+        "cta": {
+          "start": "Get Started",
+          "demo": "View Demo"
+        },
+        "sections": {
+          "dashboards": {
+            "title": "Visual Dashboards",
+            "description": "Transform complex data into clear and understandable dashboards. Monitor your business performance in real-time and make quick decisions.",
+            "features": [
+              "Real-time data visualization",
+              "Custom KPI tracking",
+              "Mobile-optimized views"
+            ],
+            "cta": "View Dashboard Demo"
+          },
+          "forecasting": {
+            "title": "Sales Forecasting",
+            "description": "Use machine learning to predict your sales results up to 12 months ahead. Accurate forecasts help you plan and optimize.",
+            "features": [
+              "95% accuracy predictions",
+              "Seasonal analysis",
+              "Automatic updates"
+            ],
+            "cta": "Start Forecasting"
+          },
+          "predictions": {
+            "title": "AI Predictions",
+            "description": "Our AI identifies hidden patterns and predicts trends that the human eye cannot detect. Gain competitive advantage.",
+            "features": [
+              "Automatic pattern detection",
+              "Anomaly detection",
+              "Self-improving models"
+            ],
+            "cta": "Discover AI Power"
+          },
+          "calculations": {
+            "title": "Sales Calculations",
+            "description": "Automate all important sales calculations. ROI, conversions, performance metrics - all in one view.",
+            "features": [
+              "Automatic KPIs",
+              "Comparative analysis",
+              "Real-time updates"
+            ],
+            "cta": "Optimize Sales"
+          }
+        },
+        "finalCta": {
+          "title": "Start Your Data Revolution",
+          "description": "Join hundreds of companies that have already transformed their data into powerful business intelligence.",
+          "startButton": "Start Free",
+          "demoButton": "View Demo",
+          "bottomText": "Free consultation • 30 minutes • Immediate results"
+        }
+      }
     },
     "phoneAI": {
       "name": "Sandra - Phone AI",

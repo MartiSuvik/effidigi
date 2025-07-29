@@ -5,6 +5,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { BackButton } from "@/components/ui/back-button";
 import { ParticlesBackground } from "@/components/particles-background";
 import { useCal } from "@/hooks/use-cal";
+import { useTranslation } from "@/lib/i18n";
 import { 
   BarChart3, 
   TrendingUp, 
@@ -16,6 +17,7 @@ import {
 
 export default function DataAIPageClient() {
   const { openCalModal } = useCal();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -32,17 +34,17 @@ export default function DataAIPageClient() {
             >
               <div className="mb-8">
                 <BackButton fallbackHref="/#services">
-                  Tagasi teenustele
+                  {t('services.dataAI.page.backButton')}
                 </BackButton>
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                <span className="terminal-text">Data AI </span>
-                Analytics
+                <span className="terminal-text"></span>
+                {t('services.dataAI.page.title').replace('Data AI ', '')}
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Muuda oma andmed võimsaks äriintelligentsiks. Visualiseeri, ennusta ja kasva targemalt.
+                {t('services.dataAI.page.subtitle')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
@@ -52,7 +54,7 @@ export default function DataAIPageClient() {
                   onClick={openCalModal}
                 >
                   <Rocket className="w-5 h-5" />
-                  Alusta kohe
+                  {t('services.dataAI.page.cta.start')}
                 </GradientButton>
                 <GradientButton 
                   size="lg" 
@@ -61,7 +63,7 @@ export default function DataAIPageClient() {
                   onClick={openCalModal}
                 >
                   <Eye className="w-5 h-5" />
-                  Vaata demot
+                  {t('services.dataAI.page.cta.demo')}
                 </GradientButton>
               </div>
             </motion.div>
@@ -81,26 +83,25 @@ export default function DataAIPageClient() {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <BarChart3 className="h-8 w-8 terminal-text" />
-                  <h2 className="text-3xl font-bold">Visuaalsed Dashboardid</h2>
+                  <h2 className="text-3xl font-bold">{t('services.dataAI.page.sections.dashboards.title')}</h2>
                 </div>
                 
                 <p className="text-lg text-muted-foreground">
-                  Muuda keerulised andmed selgeteks ja mõistlikeks dashboardideks. 
-                  Jälgi oma äri jõudlust reaalajas ja tee kiireid otsuseid.
+                  {t('services.dataAI.page.sections.dashboards.description')}
                 </p>
                 
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    Reaalajas andmete visualiseerimine
+                    {t('services.dataAI.page.sections.dashboards.features.0')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    Kohandatud KPI jälgimine
+                    {t('services.dataAI.page.sections.dashboards.features.1')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    Mobiilioptimeeritud vaated
+                    {t('services.dataAI.page.sections.dashboards.features.2')}
                   </li>
                 </ul>
                 
@@ -108,7 +109,7 @@ export default function DataAIPageClient() {
                   className="gap-2"
                   onClick={openCalModal}
                 >
-                  Vaata dashboard demo
+                  {t('services.dataAI.page.sections.dashboards.cta')}
                 </GradientButton>
               </motion.div>
 
@@ -160,26 +161,25 @@ export default function DataAIPageClient() {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <TrendingUp className="h-8 w-8 secondary-text" />
-                  <h2 className="text-3xl font-bold">Müügi Ennustamine</h2>
+                  <h2 className="text-3xl font-bold">{t('services.dataAI.page.sections.forecasting.title')}</h2>
                 </div>
                 
                 <p className="text-lg text-muted-foreground">
-                  Kasuta masinõpet oma müügitulemuste ennustamiseks kuni 12 kuud ette. 
-                  Täpsed prognoosid aitavad planeerida ja optimeerida.
+                  {t('services.dataAI.page.sections.forecasting.description')}
                 </p>
                 
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    95% täpsusega prognoosid
+                    {t('services.dataAI.page.sections.forecasting.features.0')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    Hooajaline analüüs
+                    {t('services.dataAI.page.sections.forecasting.features.1')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    Automaatsed uuendused
+                    {t('services.dataAI.page.sections.forecasting.features.2')}
                   </li>
                 </ul>
                 
@@ -188,7 +188,7 @@ export default function DataAIPageClient() {
                   className="gap-2"
                   onClick={openCalModal}
                 >
-                  Alusta ennustamist
+                  {t('services.dataAI.page.sections.forecasting.cta')}
                 </GradientButton>
               </motion.div>
             </div>
@@ -208,26 +208,25 @@ export default function DataAIPageClient() {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Brain className="h-8 w-8 terminal-text" />
-                  <h2 className="text-3xl font-bold">AI Ennustused</h2>
+                  <h2 className="text-3xl font-bold">{t('services.dataAI.page.sections.predictions.title')}</h2>
                 </div>
                 
                 <p className="text-lg text-muted-foreground">
-                  Meie AI tuvastab varjatud mustreid ja ennustab trende, 
-                  mida inimsilm ei märka. Saad konkurentsieelise.
+                  {t('services.dataAI.page.sections.predictions.description')}
                 </p>
                 
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    Automaatne mustrite leidmine
+                    {t('services.dataAI.page.sections.predictions.features.0')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    Anomaaliate tuvastamine
+                    {t('services.dataAI.page.sections.predictions.features.1')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    Täiustuvad mudelid
+                    {t('services.dataAI.page.sections.predictions.features.2')}
                   </li>
                 </ul>
                 
@@ -235,7 +234,7 @@ export default function DataAIPageClient() {
                   className="gap-2"
                   onClick={openCalModal}
                 >
-                  Avasta AI võimu
+                  {t('services.dataAI.page.sections.predictions.cta')}
                 </GradientButton>
               </motion.div>
 
@@ -287,26 +286,25 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Calculator className="h-8 w-8 secondary-text" />
-                  <h2 className="text-3xl font-bold">Müügiarvutused</h2>
+                  <h2 className="text-3xl font-bold">{t('services.dataAI.page.sections.calculations.title')}</h2>
                 </div>
                 
                 <p className="text-lg text-muted-foreground">
-                  Automatiseeri kõik olulised müügiarvutused. ROI, konversioonid, 
-                  jõudluse mõõdikud - kõik ühe vaatega.
+                  {t('services.dataAI.page.sections.calculations.description')}
                 </p>
                 
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    Automaatsed KPI-d
+                    {t('services.dataAI.page.sections.calculations.features.0')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    Võrdlusanalüüs
+                    {t('services.dataAI.page.sections.calculations.features.1')}
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    Reaalajas uuendused
+                    {t('services.dataAI.page.sections.calculations.features.2')}
                   </li>
                 </ul>
                 
@@ -315,7 +313,7 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
                   className="gap-2"
                   onClick={openCalModal}
                 >
-                  Optimeeri müüki
+                  {t('services.dataAI.page.sections.calculations.cta')}
                 </GradientButton>
               </motion.div>
             </div>
@@ -332,11 +330,11 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
               className="max-w-3xl mx-auto text-center space-y-8"
             >
               <h2 className="text-4xl md:text-5xl font-bold">
-                Alusta oma andmete revolutsiooni
+                {t('services.dataAI.page.finalCta.title')}
               </h2>
               
               <p className="text-xl text-muted-foreground">
-                Liitu sadadega ettevõtetega, kes on juba muutnud oma andmed võimsaks äriintelligentsiks.
+                {t('services.dataAI.page.finalCta.description')}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -346,7 +344,7 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
                   onClick={openCalModal}
                 >
                   <Rocket className="w-5 h-5" />
-                  Alusta tasuta
+                  {t('services.dataAI.page.finalCta.startButton')}
                 </GradientButton>
                 <GradientButton 
                   size="lg" 
@@ -355,12 +353,12 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
                   onClick={openCalModal}
                 >
                   <Eye className="w-5 h-5" />
-                  Vaata demo
+                  {t('services.dataAI.page.finalCta.demoButton')}
                 </GradientButton>
               </div>
               
               <p className="text-sm text-muted-foreground">
-                Tasuta konsultatsioon • 30 minutit • Kohesed tulemused
+                {t('services.dataAI.page.finalCta.bottomText')}
               </p>
             </motion.div>
           </div>

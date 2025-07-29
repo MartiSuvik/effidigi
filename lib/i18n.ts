@@ -11,7 +11,7 @@ export function useTranslation() {
   const pathname = usePathname();
   
   // Extract locale from pathname (first segment)
-  const locale = pathname.startsWith('/en') ? 'en' : 'et';
+  const locale = pathname.startsWith('/en') ? 'en' : pathname.startsWith('/et') ? 'et' : 'et';
   const locales = ['et', 'en'];
   
   // Get translations based on locale
@@ -45,12 +45,26 @@ export function useTranslation() {
     // Remove current locale prefix if it exists
     if (pathname.startsWith('/en')) {
       newPath = pathname.slice(3) || '/';
+    } else if (pathname.startsWith('/et')) {
+      newPath = pathname.slice(3) || '/';
     }
     
-    // Add new locale prefix if it's not Estonian (default)
-    if (newLocale !== 'et') {
-      newPath = newPath === '/' ? `/${newLocale}` : `/${newLocale}${newPath}`;
+    // Handle case study URLs specifically
+    if (newPath.includes('/case-studies/')) {
+      // Extract the base slug (without locale suffix)
+      const parts = newPath.split('/');
+      const lastPart = parts[parts.length - 1];
+      
+      // Remove locale suffix if present
+      const baseSlug = lastPart.replace(/-[a-z]{2}$/, '');
+      
+      // Rebuild the path with the correct locale suffix
+      parts[parts.length - 1] = `${baseSlug}-${newLocale}`;
+      newPath = parts.join('/');
     }
+    
+    // Add new locale prefix - now both locales get prefixes for consistency
+    newPath = newPath === '/' ? `/${newLocale}` : `/${newLocale}${newPath}`;
     
     router.push(newPath);
   };

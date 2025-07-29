@@ -37,8 +37,8 @@ export default function DataAIPageClient() {
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                <span className="terminal-text">Data AI </span>
-                Analytics
+                <span className="terminal-text"></span>
+                AI Analytics
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

@@ -1,4 +1,5 @@
 import { getAllBlogPosts } from './blog';
+import { getAllCaseStudies } from './case-studies';
 
 export interface SitemapEntry {
   url: string;
@@ -12,18 +13,31 @@ export function generateSitemap(): SitemapEntry[] {
   const currentDate = new Date().toISOString().split('T')[0];
   const locales = ['et', 'en'];
   
+  // Static pages - now using consistent locale prefixes for both languages
   const staticPages: SitemapEntry[] = locales.flatMap((locale) => [
     {
-      url: locale === 'et' ? `${baseUrl}/` : `${baseUrl}/${locale}`,
+      url: `${baseUrl}/${locale}`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
-      url: locale === 'et' ? `${baseUrl}/blog` : `${baseUrl}/${locale}/blog`,
+      url: `${baseUrl}/${locale}/blog`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/${locale}/case-studies`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/${locale}/services/data-ai`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ]);
 
@@ -31,14 +45,25 @@ export function generateSitemap(): SitemapEntry[] {
   const blogPosts = getAllBlogPosts();
   const blogPages: SitemapEntry[] = locales.flatMap((locale) =>
     blogPosts.map((post) => ({
-      url: locale === 'et' ? `${baseUrl}/blog/${post.slug}` : `${baseUrl}/${locale}/blog/${post.slug}`,
+      url: `${baseUrl}/${locale}/blog/${post.slug}`,
       lastModified: post.date || currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     }))
   );
 
-  return [...staticPages, ...blogPages];
+  // Get all case studies and add them to sitemap
+  const caseStudyPages: SitemapEntry[] = locales.flatMap((locale) => {
+    const caseStudies = getAllCaseStudies(locale);
+    return caseStudies.map((caseStudy) => ({
+      url: `${baseUrl}/${locale}/case-studies/${caseStudy.slug}-${locale}`,
+      lastModified: caseStudy.publishedAt || currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
+  });
+
+  return [...staticPages, ...blogPages, ...caseStudyPages];
 }
 
 export function generateSitemapXML(): string {
