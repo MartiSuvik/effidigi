@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://effidigi.com'),
-  title: 'EFFI - AI-põhine 24/7 vastamisteenus Tallinn, Eestis',
-  description: 'Parandage klienditeenindust ja suurendage tulu meie AI telefonisüsteemiga Tallinnas ja üle Eesti. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööblipoodidele. Teenindame kogu Eestit.',
+  title: 'EFFI AI - Alusta praegu, maksa korra, kasva igavesti!',
+  description: 'Automatiseeri klienditeenindus ja suurenda tulu läbi AI lahenduste. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööbli poodidele kes soovivad kasvada.',
   keywords: [
     'AI',
     'telefonisüsteem',
@@ -35,12 +35,26 @@ export const metadata: Metadata = {
     'tehisintellekt Baltimaades'
   ],
   openGraph: {
-    title: 'EFFI - AI-põhine 24/7 vastamisteenus Tallinn, Eestis',
-    description: 'Parandage klienditeenindust ja suurendage tulu meie AI telefonisüsteemiga Tallinnas ja üle Eesti.',
-    url: 'https://effidigi.com',
+    title: 'EFFI AI - Alusta praegu, maksa korra, kasva igavesti!',
+    description: 'Automatiseeri klienditeenindus ja suurenda tulu läbi AI lahenduste. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööbli poodidele kes soovivad kasvada.',
+    url: 'https://effidigi.com/et',
     siteName: 'EFFI',
     locale: 'et_EE',
     type: 'website',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/effichat/image/upload/v1753820086/fwz87rzlzorerk4kgf9s.png',
+        width: 1200,
+        height: 630,
+        alt: 'EFFI AI - Alusta praegu, maksa korra, kasva igavesti!'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EFFI AI - Alusta praegu, maksa korra, kasva igavesti!',
+    description: 'Automatiseeri klienditeenindus ja suurenda tulu läbi AI lahenduste. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööbli poodidele kes soovivad kasvada.',
+    images: ['https://res.cloudinary.com/effichat/image/upload/v1753820086/fwz87rzlzorerk4kgf9s.png']
   },
   robots: {
     index: true,
@@ -63,12 +77,12 @@ const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://effidigi.com/#organization",
-  "name": "EFFI",
+  "name": "EFFI AI",
   "alternateName": "EFFI Digital",
   "url": "https://effidigi.com",
   "logo": "https://res.cloudinary.com/effichat/image/upload/v6pyn5rdcivb9xgd6kzq.ico",
-  "image": "https://res.cloudinary.com/effichat/image/upload/v6pyn5rdcivb9xgd6kzq.ico",
-  "description": "EFFI on juhtiv AI-põhise telefonisüsteemi pakkuja Tallinnas ja kogu Eestis. Pakume 24/7 automatiseeritud vastamisteenust restoranidele, hambakliinikutele, automüügile ja mööblipoodidele. Meie tehisintellekti lahendused suurendavad ettevõtete tulu keskmiselt 14% ja vähendavad vastamata kõnede arvu 43%. Teenindame kliente üle kogu Eesti, pakkudes eestikeelset AI-tuge ja kohalikku ekspertiisi.",
+  "image": "https://res.cloudinary.com/effichat/image/upload/v1753820086/fwz87rzlzorerk4kgf9s.png",
+  "description": "EFFI AI on juhtiv AI-põhiste lahenduste pakkuja, mis automatiseerib klienditeenindust ja suurendab tulu. Alusta praegu, maksa korra, kasva igavesti! Ideaalne restoranidele, hambakliinikutele, automüügile ja mööblipoodidele kes soovivad kasvada läbi AI automatiseerimise.",
   "telephone": "+372 5340 0432",
   "email": "marti@effidigi.com",
   "address": {
@@ -125,33 +139,33 @@ const schemaData = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "AI Telefonisüsteemi Teenused",
+    "name": "AI Automatiseerimise Teenused",
     "itemListElement": [
       {
         "@type": "Service",
-        "name": "AI Telefonisüsteem Restoranidele",
-        "description": "24/7 automatiseeritud broneeringud ja tellimuste vastuvõtt restoranidele Tallinnas ja Eestis",
+        "name": "AI Klienditeenindus Restoranidele",
+        "description": "24/7 automatiseeritud broneeringud ja tellimuste vastuvõtt. Alusta praegu, maksa korra, kasva igavesti restoranisektoris.",
         "areaServed": "Eesti",
         "serviceType": "AI Automation"
       },
       {
         "@type": "Service", 
         "name": "AI Vastamisteenus Hambakliinikutele",
-        "description": "Automatiseeritud patsiendi registreerimine ja konsultatsioonide broneerimine",
+        "description": "Automatiseeritud patsiendi registreerimine ja konsultatsioonide broneerimine. Kasva oma kliiniku tulu AI abil.",
         "areaServed": "Eesti",
         "serviceType": "Healthcare AI"
       },
       {
         "@type": "Service",
-        "name": "AI Kõnedevastaja Automüügile", 
-        "description": "Proovisõitude broneerimine ja klientide esmasel kontaktil info andmine",
+        "name": "AI Müügitugi Automüügile", 
+        "description": "Proovisõitude broneerimine ja klientide esmasel kontaktil info andmine. Suurenda autode müüki AI lahendusega.",
         "areaServed": "Eesti",
         "serviceType": "Automotive AI"
       },
       {
         "@type": "Service",
-        "name": "AI Telefonisüsteem Mööblipoodidele",
-        "description": "Toodete info jagamine ja konsultatsioonide planeerimine",
+        "name": "AI Klienditeenindus Mööblipoodidele",
+        "description": "Toodete info jagamine ja konsultatsioonide planeerimine. Kasva mööblimüüki läbi AI automatiseerimise.",
         "areaServed": "Eesti", 
         "serviceType": "Retail AI"
       }
@@ -176,7 +190,7 @@ const schemaData = {
         "ratingValue": "5",
         "bestRating": "5"
       },
-      "reviewBody": "AI-telefonisüsteem teenis meie investeeringu tagasi vaid 11 nädalaga. Saavutasime 14% müügitõusu ja 25% rohkem broneeringuid."
+      "reviewBody": "AI-automatiseerimine teenis meie investeeringu tagasi vaid 11 nädalaga. Saavutasime 14% müügitõusu ja 25% rohkem broneeringuid. EFFI AI - alusta praegu, maksa korra, kasva igavesti!"
     },
     {
       "@type": "Review", 
@@ -189,7 +203,7 @@ const schemaData = {
         "ratingValue": "5",
         "bestRating": "5"
       },
-      "reviewBody": "Pärast AI-teenuse integreerimist kasvas kliinikus 20% rohkem uute patsientide konsultatsioone esimesel kuul."
+      "reviewBody": "Pärast AI-teenuse integreerimist kasvas kliinikus 20% rohkem uute patsientide konsultatsioone esimesel kuul. AI automatiseerimine muutis meie äri!"
     }
   ],
   "sameAs": [
@@ -220,19 +234,19 @@ export default function RootLayout({
         <meta name="geo.placename" content="Tallinn" />
         <meta name="geo.position" content="59.4370;24.7536" />
         <meta name="ICBM" content="59.4370, 24.7536" />
-        <meta name="DC.title" content="EFFI - AI Telefonisüsteem Tallinn, Eesti" />
-        <meta name="DC.creator" content="EFFI" />
-        <meta name="DC.subject" content="AI telefonisüsteem, automatiseeritud vastamisteenus, Tallinn, Eesti" />
-        <meta name="DC.description" content="AI-põhine 24/7 vastamisteenus ettevõtetele Tallinnas ja kogu Eestis" />
-        <meta name="DC.publisher" content="EFFI" />
-        <meta name="DC.contributor" content="EFFI meeskond" />
+        <meta name="DC.title" content="EFFI AI - Alusta praegu, maksa korra, kasva igavesti!" />
+        <meta name="DC.creator" content="EFFI AI" />
+        <meta name="DC.subject" content="AI automatiseerimine, klienditeenindus, tulu kasv, restoranid, hambakliinikud, automüük, mööblipoed" />
+        <meta name="DC.description" content="Automatiseeri klienditeenindus ja suurenda tulu läbi AI lahenduste. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööbli poodidele kes soovivad kasvada." />
+        <meta name="DC.publisher" content="EFFI AI" />
+        <meta name="DC.contributor" content="EFFI AI meeskond" />
         <meta name="DC.date" content="2024" />
         <meta name="DC.type" content="Service" />
         <meta name="DC.format" content="text/html" />
         <meta name="DC.identifier" content="https://effidigi.com" />
         <meta name="DC.language" content="et" />
         <meta name="DC.coverage" content="Eesti, Tallinn, Harjumaa" />
-        <meta name="DC.rights" content="Copyright EFFI 2024" />
+        <meta name="DC.rights" content="Copyright EFFI AI 2024" />
       </head>
       <body className={cn(
         "bg-background min-h-screen font-sans antialiased"
