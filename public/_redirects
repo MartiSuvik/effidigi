@@ -1,0 +1,7 @@
+# Force HTTPS and remove WWW
+http://effidigi.com/* https://effidigi.com/:splat 301!
+http://www.effidigi.com/* https://effidigi.com/:splat 301!
+https://www.effidigi.com/* https://effidigi.com/:splat 301!
+
+# SPA fallback for Next.js routing
+/* /index.html 200

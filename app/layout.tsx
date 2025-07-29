@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://effidigi.com',
+    canonical: 'https://effidigi.com/',
   },
 };
 

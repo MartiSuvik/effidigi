@@ -11,6 +11,26 @@
 [functions]
   node_bundler = "esbuild"
 
+# Force HTTPS redirects
+[[redirects]]
+  from = "http://effidigi.com/*"
+  to = "https://effidigi.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.effidigi.com/*"
+  to = "https://effidigi.com/:splat"
+  status = 301
+  force = true
+
+# Force WWW to non-WWW redirects
+[[redirects]]
+  from = "https://www.effidigi.com/*"
+  to = "https://effidigi.com/:splat"
+  status = 301
+  force = true
+
 # Handle client-side routing for Next.js
 [[redirects]]
   from = "/*"
