@@ -6,17 +6,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
-import { PhoneCall, Menu as MenuIcon, X, BarChart3, Phone, MessageCircle, Users } from "lucide-react";
+import { PhoneCall, Menu as MenuIcon, X, BarChart3, Phone, MessageCircle, Users, FileText, BookOpen } from "lucide-react";
 import { useCal } from "@/hooks/use-cal";
 import { useTranslation } from "@/lib/i18n";
-import { MenuItem, Menu, ProductItem, HoveredLink } from "@/components/ui/navbar-menu";
+import { AnimatedDropdownMenu, DropdownProvider } from "@/components/ui/animated-dropdown-menu";
+import { useRouter } from "next/navigation";
 
 export function SiteHeader() {
   const { openCalModal } = useCal();
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [active, setActive] = useState<string | null>(null);
+  
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => {
+    // Estonian URLs should go through the locale route now (via middleware redirect)
+    // but the navigation should use the original Estonian pattern
+    if (locale === 'et') {
+      return path;
+    }
+    return path === '/' ? `/${locale}` : `/${locale}${path}`;
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -26,38 +37,12 @@ export function SiteHeader() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  const services = [
-    {
-      title: t('services.dataAI.name'),
-      description: t('services.dataAI.description'),
-      href: "/services/data-ai",
-      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/d2fzxkwdvndlenhlezxy.png",
-    },
-    {
-      title: t('services.phoneAI.name'),
-      description: t('services.phoneAI.description'),
-      href: "/#services", 
-      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/ck7yx757bjfj6uihrdyj.png",
-    },
-    {
-      title: t('services.chatAI.name'),
-      description: t('services.chatAI.description'),
-      href: "/#services",
-      src: "https://res.cloudinary.com/effichat/image/upload/v1751621635/g4v24ilp1cno7r9qyvct.png",
-    },
-    {
-      title: t('services.crmAI.name'),
-      description: t('services.crmAI.description'),
-      href: "/#services",
-      src: "https://res.cloudinary.com/effichat/image/upload/v1751621636/xr2xiyciubgjfwsk2qju.png",
-    }
-  ];
 
   const mobileNavItems = [
-    { label: t('navigation.home'), href: "/" },
-    { label: t('navigation.solutions'), href: "/#services" },
-    { label: t('navigation.blog'), href: "/blog" }
+    { label: t('navigation.home'), href: getLocalePath("/") },
+    { label: t('navigation.solutions'), href: getLocalePath("/#services") },
+    { label: t('navigation.blog'), href: getLocalePath("/blog") },
+    { label: t('navigation.caseStudies'), href: getLocalePath("/case-studies") }
   ];
 
   return (
@@ -100,46 +85,100 @@ export function SiteHeader() {
                 : "shadow-2xl bg-background/60"
             )}>
               {/* Logo - Left */}
-              <Link href="/" className="flex items-center gap-2">
+              <Link href={getLocalePath("/")} className="flex items-center gap-2">
                 <span className="text-2xl font-bold terminal-text">{t('site.brand')}</span>
               </Link>
               
               {/* Navigation - Center */}
               <div className="flex-1 flex justify-center">
-                <div className="flex items-center space-x-8">
-                  {/* Simple Home Link */}
-                  <Link 
-                    href="/"
-                    className="text-foreground hover:text-primary transition-colors font-medium"
-                  >
-                    {t('navigation.home')}
-                  </Link>
-                  
-                  {/* Menu with dropdowns for other items */}
-                  <Menu setActive={setActive} className="flex items-center space-x-8">
-                    <MenuItem setActive={setActive} active={active} item={t('navigation.solutions')}>
-                      <div className="grid grid-cols-2 gap-3 p-3">
-                        {services.map((service, index) => (
-                          <ProductItem
-                            key={index}
-                            title={service.title}
-                            href={service.href}
-                            src={service.src}
-                            description={service.description}
-                          />
-                        ))}
-                      </div>
-                    </MenuItem>
+                <DropdownProvider>
+                  <div className="flex items-center space-x-8">
+                    {/* Simple Home Link */}
+                    <Link 
+                      href={getLocalePath("/")}
+                      className="text-foreground hover:text-primary transition-colors font-medium"
+                    >
+                      {t('navigation.home')}
+                    </Link>
                     
-                    <MenuItem setActive={setActive} active={active} item={t('navigation.blog')}>
-                      <div className="flex flex-col space-y-2 min-w-[200px]">
-                        <HoveredLink href="/blog">{t('blog.allArticles')}</HoveredLink>
-                        <HoveredLink href="/blog/ai-lahendused-toitlustuses">{t('blog.aiRestaurants')}</HoveredLink>
-                        <HoveredLink href="/blog/ai-autoteenused">{t('blog.aiAutomotive')}</HoveredLink>
-                      </div>
-                    </MenuItem>
-                  </Menu>
-                </div>
+                    {/* Solutions Dropdown */}
+                    <AnimatedDropdownMenu
+                      id="solutions"
+                      options={[
+                        {
+                          label: t('services.dataAI.name'),
+                          onClick: () => router.push(getLocalePath('/services/data-ai')),
+                          Icon: <BarChart3 className="h-4 w-4" />
+                        },
+                        {
+                          label: t('services.phoneAI.name'),
+                          onClick: () => router.push(getLocalePath('/#services')),
+                          Icon: <Phone className="h-4 w-4" />
+                        },
+                        {
+                          label: t('services.chatAI.name'),
+                          onClick: () => router.push(getLocalePath('/#services')),
+                          Icon: <MessageCircle className="h-4 w-4" />
+                        },
+                        {
+                          label: t('services.crmAI.name'),
+                          onClick: () => router.push(getLocalePath('/#services')),
+                          Icon: <Users className="h-4 w-4" />
+                        }
+                      ]}
+                    >
+                      {t('navigation.solutions')}
+                    </AnimatedDropdownMenu>
+                    
+                    {/* Blog Dropdown */}
+                    <AnimatedDropdownMenu
+                      id="blog"
+                      options={[
+                        {
+                          label: t('blog.allArticles'),
+                          onClick: () => router.push(getLocalePath('/blog')),
+                          Icon: <BookOpen className="h-4 w-4" />
+                        },
+                        {
+                          label: t('blog.aiRestaurants'),
+                          onClick: () => router.push(getLocalePath('/blog/ai-lahendused-toitlustuses')),
+                          Icon: <FileText className="h-4 w-4" />
+                        },
+                        {
+                          label: t('blog.aiAutomotive'),
+                          onClick: () => router.push(getLocalePath('/blog/ai-autoteenused')),
+                          Icon: <FileText className="h-4 w-4" />
+                        }
+                      ]}
+                    >
+                      {t('navigation.blog')}
+                    </AnimatedDropdownMenu>
+                    
+                    {/* Case Studies Dropdown */}
+                    <AnimatedDropdownMenu
+                      id="caseStudies"
+                      options={[
+                        {
+                          label: t('caseStudies.allStories'),
+                          onClick: () => router.push(getLocalePath('/case-studies')),
+                          Icon: <FileText className="h-4 w-4" />
+                        },
+                        {
+                          label: t('caseStudies.bodyTreatmentSalon.title'),
+                          onClick: () => router.push(getLocalePath(`/case-studies/body-treatment-salon-${locale}`)),
+                          Icon: <FileText className="h-4 w-4" />
+                        },
+                        {
+                          label: t('caseStudies.mapleStreetBistro.title'),
+                          onClick: () => router.push(getLocalePath(`/case-studies/maple-street-bistro-${locale}`)),
+                          Icon: <FileText className="h-4 w-4" />
+                        }
+                      ]}
+                    >
+                      {t('navigation.caseStudies')}
+                    </AnimatedDropdownMenu>
+                  </div>
+                </DropdownProvider>
               </div>
               
               {/* Language Switcher and Contact Button - Right */}

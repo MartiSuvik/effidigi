@@ -8,6 +8,7 @@
     "home": "Avaleht",
     "solutions": "Lahendused",
     "blog": "Blogi",
+    "caseStudies": "Kliendilood",
     "contact": "Võta Ühendust"
   },
   "hero": {
@@ -259,6 +260,31 @@
     "companyLinks": {
       "blog": "Blogi",
       "contact": "Kontakt"
+    }
+  },
+  "caseStudies": {
+    "title": "Kliendilood",
+    "subtitle": "Vaadake, kuidas meie AI lahendused on aidanud Eesti ettevõtetel tulu suurendada ja kliendikogemust parandada",
+    "readMore": "Loe edasi",
+    "backToAll": "Tagasi kõikide lugude juurde",
+    "allStories": "Kõik lood",
+    "bodyTreatmentSalon": {
+      "title": "Ilukliinikute võimestamine EFFI AI-ga"
+    },
+    "mapleStreetBistro": {
+      "title": "Maple Street Bistro muundus AI automatiseerimisega"
+    },
+    "articles": {
+      "bodyTreatment": {
+        "title": "Ilukliinikute võimestamine EFFI AI-ga",
+        "excerpt": "Vaadake, kuidas kehahoolduse salongi automatiseeris klientide broneeringuid ja suurendas tulu 35%",
+        "category": "Ilusalongi AI"
+      },
+      "mapleStreet": {
+        "title": "Maple Street Bistro muundus AI automatiseerimisega",
+        "excerpt": "Tallinna restoran muutis oma teenindust täielikult AI-põhiseks süsteemiks",
+        "category": "Restorani AI"
+      }
     }
   }
 }

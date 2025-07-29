@@ -34,7 +34,7 @@ export function LanguageSwitcher({
       onClick={handleLanguageChange}
       className={cn(
         "flex items-center gap-2 font-medium transition-colors",
-        "hover:text-primary",
+        "hover:bg-accent/80 hover:text-accent-foreground",
         className
       )}
       title={`Switch to ${nextLanguageDisplay}`}

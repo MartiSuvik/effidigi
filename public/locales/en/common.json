@@ -8,6 +8,7 @@
     "home": "Home",
     "solutions": "Solutions",
     "blog": "Blog",
+    "caseStudies": "Case Studies",
     "contact": "Contact Us"
   },
   "hero": {
@@ -259,6 +260,31 @@
     "companyLinks": {
       "blog": "Blog",
       "contact": "Contact"
+    }
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "subtitle": "See how our AI solutions have helped Estonian businesses increase revenue and improve customer experience",
+    "readMore": "Read more",
+    "backToAll": "Back to all case studies",
+    "allStories": "All Stories",
+    "bodyTreatmentSalon": {
+      "title": "Empowering Body Treatment Salons with EFFI AI"
+    },
+    "mapleStreetBistro": {
+      "title": "Maple Street Bistro Transforms with AI Automation"
+    },
+    "articles": {
+      "bodyTreatment": {
+        "title": "Empowering Body Treatment Salons with EFFI AI",
+        "excerpt": "See how a body treatment salon automated client bookings and increased revenue by 35%",
+        "category": "Beauty Salon AI"
+      },
+      "mapleStreet": {
+        "title": "Maple Street Bistro Transforms with AI Automation",
+        "excerpt": "A Tallinn restaurant completely transformed their service with AI-powered systems",
+        "category": "Restaurant AI"
+      }
     }
   }
 }
