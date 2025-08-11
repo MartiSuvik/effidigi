@@ -33,17 +33,76 @@ export function getAllBlogPosts(): BlogPost[] {
         const { data, content } = matter(fileContents);
 
         // Process markdown content to HTML synchronously
-        // Note: Using remark synchronously for simplicity in this context
         let processedContent = content;
         try {
-          // For server-side processing, we'll use a synchronous approach
           const result = remark()
             .use(remarkHtml, { sanitize: false })
             .processSync(content);
           processedContent = result.toString();
         } catch (error) {
           console.warn(`Error processing markdown for ${slug}:`, error);
-          // Fallback: use raw content if processing fails
+        }
+
+        return {
+          slug,
+          title: data.title || 'Untitled',
+          excerpt: data.excerpt,
+          content: processedContent,
+          date: data.date,
+          author: data.author,
+          readTime: data.readTime || calculateReadTime(content),
+          tags: data.tags || [],
+        } as BlogPost;
+      })
+      .sort((a, b) => {
+        if (a.date && b.date) {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        }
+        return 0;
+      });
+
+    return allPostsData;
+  } catch (error) {
+    console.error('Error reading blog posts:', error);
+    return [];
+  }
+}
+
+export function getBlogPostsByLocale(locale: 'en' | 'et'): BlogPost[] {
+  try {
+    const fileNames = fs.readdirSync(postsDirectory);
+    const filteredFiles = fileNames.filter((fileName) => {
+      if (!fileName.endsWith('.md')) return false;
+      
+      // For Estonian locale, include files without -en suffix
+      if (locale === 'et') {
+        return !fileName.includes('-en.');
+      }
+      
+      // For English locale, include only files with -en suffix
+      if (locale === 'en') {
+        return fileName.includes('-en.');
+      }
+      
+      return false;
+    });
+
+    const allPostsData = filteredFiles
+      .map((fileName) => {
+        const slug = fileName.replace(/\.md$/, '');
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data, content } = matter(fileContents);
+
+        // Process markdown content to HTML synchronously
+        let processedContent = content;
+        try {
+          const result = remark()
+            .use(remarkHtml, { sanitize: false })
+            .processSync(content);
+          processedContent = result.toString();
+        } catch (error) {
+          console.warn(`Error processing markdown for ${slug}:`, error);
         }
 
         return {
@@ -91,7 +150,6 @@ export function getBlogPost(slug: string): BlogPost | null {
       processedContent = result.toString();
     } catch (error) {
       console.warn(`Error processing markdown for ${slug}:`, error);
-      // Fallback: use raw content if processing fails
     }
 
     return {

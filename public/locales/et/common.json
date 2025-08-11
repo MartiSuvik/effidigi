@@ -78,12 +78,19 @@
     "aiRestaurants": "AI restoranides",
     "aiAutomotive": "AI autoteenused",
     "latestArticles": "Viimased artiklid",
+    "latestPosts": "Viimased postitused",
+    "postsSubtitle": "Tutvu meie uusimate artiklite ja juhtumiuuringutega",
+    "noPosts": "Blogi postitused tulevad varsti...",
     "latestSubtitle": "Jälgi meie blogi, et olla kursis AI-telefonisüsteemide uusimate arenguteega",
     "readMore": "Loe edasi",
     "backToBlog": "Tagasi blogi",
     "readingTime": "min lugemist",
     "faqTitle": "Korduma kippuvad küsimused",
-    "faqSubtitle": "Leidke vastused kõige sagedamini esitatavatele küsimustele AI-telefonisüsteemide kohta"
+    "faqSubtitle": "Leidke vastused kõige sagedamini esitatavatele küsimustele AI-telefonisüsteemide kohta",
+    "faq": {
+      "title": "Korduma kippuvad küsimused",
+      "subtitle": "Vastused kõige sagedamini esitatavele küsimustele AI-telefonisüsteemide kohta"
+    }
   },
   "features": {
     "sectionTitle": "Miks valida meie AI-lahendus Eestis?",
@@ -343,6 +350,109 @@
         "excerpt": "Tallinna restoran muutis oma teenindust täielikult AI-põhiseks süsteemiks",
         "category": "Restorani AI"
       }
+    }
+  },
+  "privacy": {
+    "title": "Privaatsuspoliitika",
+    "lastUpdated": "Viimati uuendatud",
+    "date": "11. august 2025",
+    "overview": {
+      "title": "Ülevaade",
+      "content": "EFFI värtub teie privaatsust ja on pühendunud teie isikuandmete kaitsele. See privaatsuspoliitika selgitab, kuidas me kogume, kasutame ja kaitseme teie teavet meie AI-põhiste telefonisüsteemide ja teenuste kasutamisel."
+    },
+    "dataCollection": {
+      "title": "Andmete kogumine",
+      "content": "Me kogume järgmist tüüpi teavet:",
+      "items": {
+        "contact": "Kontaktandmed (nimi, e-posti aadress, telefoninumber)",
+        "usage": "Teenuse kasutamise andmed (kõnede salvestused, vestluste logid)",
+        "technical": "Tehnilised andmed (IP-aadress, brauseri tüüp, seadme andmed)",
+        "communication": "Suhtlusandmed (e-kirjad, tagasiside, päringud)"
+      }
+    },
+    "dataUse": {
+      "title": "Andmete kasutamine",
+      "content": "Me kasutame teie andmeid järgmistel eesmärkidel:",
+      "items": {
+        "service": "Teenuste osutamine ja parandamine",
+        "communication": "Teiega suhtlemine ja toe pakkumine",
+        "improvement": "Teenuste ja funktsionaalsuse täiustamine",
+        "legal": "Seaduslike kohustuste täitmine"
+      }
+    },
+    "dataSharing": {
+      "title": "Andmete jagamine",
+      "content": "Me ei müü, üürile ei anna ega jaga teie isikuandmeid kolmandate osapooltega, välja arvatud seadusega nõutud juhtudel või teie selge nõusolekul. Me võime kasutada usaldusväärseid teenusepakkujaid, kes aitavad meil teenuseid osutada, kuid nad on kohustatud teie andmeid konfidentsiaalselt käsitlema."
+    },
+    "security": {
+      "title": "Andmete turvalisus",
+      "content": "Me rakendame asjakohaseid tehnilisi ja organisatsioonilisi meetmeid teie isikuandmete kaitsmiseks volitamata juurdepääsu, muutmise, avalikustamise või hävitamise eest. Kõik andmed on krüpteeritud ja hoitakse turvalistes serverites."
+    },
+    "rights": {
+      "title": "Teie õigused",
+      "content": "Vastavalt GDPR-ile on teil õigus:",
+      "items": {
+        "access": "Pääseda ligi oma isikuandmetele",
+        "correction": "Parandada ebatäpseid andmeid",
+        "deletion": "Taotleda oma andmete kustutamist",
+        "portability": "Saada oma andmed loetavas vormingus",
+        "objection": "Esitada vastuväiteid andmete töötlemisele"
+      }
+    },
+    "cookies": {
+      "title": "Küpsised",
+      "content": "Meie veebisait kasutab küpsiseid kasutajakogemuse parandamiseks ja analüütika eesmärkidel. Te saate oma brauseri seadetes küpsised keelata, kuid see võib mõjutada veebisaidi funktsionaalsust."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "content": "Kui teil on küsimusi selle privaatsuspoliitika kohta või soovite kasutada oma õigusi, palun võtke meiega ühendust:"
+    },
+    "changes": {
+      "title": "Muudatused poliitikasse",
+      "content": "Me võime seda privaatsuspoliitikat aeg-ajalt uuendada. Kõigist olulistest muudatustest teavitame teid e-posti teel või veebisaidi kaudu. Soovitame regulaarselt üle vaadata see poliitika, et olla kursis võimalike muudatustega."
+    }
+  },
+  "terms": {
+    "title": "Teenuse tingimused",
+    "lastUpdated": "Viimati uuendatud",
+    "date": "11. august 2025",
+    "acceptance": {
+      "title": "Tingimuste aktsepteerimine",
+      "content": "Kasutades EFFI AI teenuseid, nõustute nende teenuse tingimustega. Kui te ei nõustu nende tingimustega, ärge kasutage meie teenuseid."
+    },
+    "services": {
+      "title": "Teenused",
+      "content": "EFFI pakub AI-põhiseid telefoni- ja klienditeeninduse lahendusi. Meie teenused hõlmavad automatiseeritud kõnede vastuvõttu, broneeringute haldamist ja klientide päringutele vastamist."
+    },
+    "usage": {
+      "title": "Kasutustingimused",
+      "content": "Meie teenuste kasutamisel kohustute:",
+      "items": {
+        "lawful": "Kasutama teenuseid ainult seaduslikul eesmärgil",
+        "authorized": "Mitte kasutama teenuseid volitamata viisil",
+        "interference": "Mitte segama teenuste tööd",
+        "security": "Mitte kahjustama teenuste turvalisust"
+      }
+    },
+    "payment": {
+      "title": "Maksmine",
+      "content": "Teenused osutakse vastavalt kokkulepitud hinnakirjale. Maksed tasutakse ettenähtud tähtaegadel. Maksmata arvete korral võime teenuse osutamise peatada."
+    },
+    "liability": {
+      "title": "Vastutus",
+      "content": "EFFI ei vastuta kaudsete, juhuslike või järgnevate kahjude eest, mis võivad tekkida meie teenuste kasutamisel. Meie vastutus on piiratud kokkulepitud teenuse maksumusega."
+    },
+    "termination": {
+      "title": "Lõpetamine",
+      "content": "Mõlemad pooled võivad lepingu lõpetada vastavalt kokkulepitud tingimustele. Lõpetamise korral eemaldatakse kõik andmed vastavalt privaatsuspoliitikale."
+    },
+    "changes": {
+      "title": "Tingimuste muutmine",
+      "content": "Me võime neid tingimusi aeg-ajalt uuendada. Muudatustest teavitame teid ette. Jätkates teenuste kasutamist pärast muudatusi, nõustute uute tingimustega."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "content": "Kui teil on küsimusi nende tingimuste kohta, palun võtke meiega ühendust:"
     }
   }
 }

@@ -38,6 +38,13 @@ export function Footer() {
 				{ title: t('footer.companyLinks.contact'), href: '/#contact' },
 			],
 		},
+		{
+			label: t('footer.legal'),
+			links: [
+				{ title: t('footer.privacyPolicy'), href: '/privacy' },
+				{ title: t('footer.termsOfService'), href: '/terms' },
+			],
+		},
 	];
 	
 	return (
@@ -71,7 +78,7 @@ export function Footer() {
 					</p>
 				</AnimatedContainer>
 
-				<div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
+				<div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:col-span-2 xl:mt-0">
 					{footerLinks.map((section, index) => (
 						<AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
 							<div className="mb-10 md:mb-0">

@@ -9,11 +9,13 @@ import type { BlogPost } from "@/lib/types";
 
 interface BlogCardProps {
   post: BlogPost;
+  locale?: string;
 }
 
-export function BlogCard({ post }: BlogCardProps) {
+export function BlogCard({ post, locale }: BlogCardProps) {
+  const href = locale ? `/${locale}/blog/${post.slug}` : `/blog/${post.slug}`;
   return (
-    <Link href={`/blog/${post.slug}`}>
+    <Link href={href}>
       <motion.div
         whileHover={{ y: -5 }}
         transition={{ duration: 0.2 }}

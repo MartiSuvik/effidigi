@@ -232,12 +232,25 @@
     "aiRestaurants": "AI in Restaurants",
     "aiAutomotive": "AI in Automotive",
     "latestArticles": "Latest Articles",
+    "latestPosts": "Latest Posts",
+    "postsSubtitle": "Discover our latest articles and case studies",
+    "noPosts": "Blog posts coming soon...",
     "latestSubtitle": "Follow our blog to stay updated with the latest developments in AI phone systems",
     "readMore": "Read More",
     "backToBlog": "Back to Blog",
     "readingTime": "min read",
     "faqTitle": "Frequently Asked Questions", 
-    "faqSubtitle": "Find answers to the most commonly asked questions about AI phone systems"
+    "faqSubtitle": "Find answers to the most commonly asked questions about AI phone systems",
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Answers to the most commonly asked questions about AI phone systems"
+    },
+    "terminal": {
+      "checking": "$ checking latest AI innovations...",
+      "loading": "Loading breakthrough technologies: 100%",
+      "ready": "Ready to transform your business with AI",
+      "prompt": "$ Ready for consultation >"
+    }
   },
   "features": {
     "sectionTitle": "Why choose our AI solution in Estonia?",
@@ -343,6 +356,109 @@
         "excerpt": "A Tallinn restaurant completely transformed their service with AI-powered systems",
         "category": "Restaurant AI"
       }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated",
+    "date": "August 11, 2025",
+    "overview": {
+      "title": "Overview",
+      "content": "EFFI values your privacy and is committed to protecting your personal information. This privacy policy explains how we collect, use, and protect your information when you use our AI-powered phone systems and services."
+    },
+    "dataCollection": {
+      "title": "Data Collection",
+      "content": "We collect the following types of information:",
+      "items": {
+        "contact": "Contact information (name, email address, phone number)",
+        "usage": "Service usage data (call recordings, conversation logs)",
+        "technical": "Technical data (IP address, browser type, device information)",
+        "communication": "Communication data (emails, feedback, inquiries)"
+      }
+    },
+    "dataUse": {
+      "title": "Data Usage",
+      "content": "We use your data for the following purposes:",
+      "items": {
+        "service": "Providing and improving our services",
+        "communication": "Communicating with you and providing support",
+        "improvement": "Enhancing services and functionality",
+        "legal": "Complying with legal obligations"
+      }
+    },
+    "dataSharing": {
+      "title": "Data Sharing",
+      "content": "We do not sell, rent, or share your personal data with third parties, except as required by law or with your explicit consent. We may use trusted service providers who help us deliver services, but they are obligated to handle your data confidentially."
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. All data is encrypted and stored on secure servers."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "content": "Under GDPR, you have the right to:",
+      "items": {
+        "access": "Access your personal data",
+        "correction": "Correct inaccurate data",
+        "deletion": "Request deletion of your data",
+        "portability": "Receive your data in a readable format",
+        "objection": "Object to data processing"
+      }
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Our website uses cookies to improve user experience and for analytics purposes. You can disable cookies in your browser settings, but this may affect website functionality."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "If you have questions about this privacy policy or wish to exercise your rights, please contact us:"
+    },
+    "changes": {
+      "title": "Policy Changes",
+      "content": "We may update this privacy policy from time to time. We will notify you of any significant changes via email or through our website. We recommend regularly reviewing this policy to stay informed of any changes."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated",
+    "date": "August 11, 2025",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By using EFFI AI services, you agree to these terms of service. If you do not agree to these terms, please do not use our services."
+    },
+    "services": {
+      "title": "Services",
+      "content": "EFFI provides AI-powered phone and customer service solutions. Our services include automated call handling, booking management, and responding to customer inquiries."
+    },
+    "usage": {
+      "title": "Usage Terms",
+      "content": "When using our services, you agree to:",
+      "items": {
+        "lawful": "Use services only for lawful purposes",
+        "authorized": "Not use services in unauthorized ways",
+        "interference": "Not interfere with service operations",
+        "security": "Not compromise service security"
+      }
+    },
+    "payment": {
+      "title": "Payment",
+      "content": "Services are provided according to agreed pricing. Payments are due on scheduled dates. We may suspend service for unpaid invoices."
+    },
+    "liability": {
+      "title": "Liability",
+      "content": "EFFI is not liable for indirect, incidental, or consequential damages that may arise from using our services. Our liability is limited to the agreed service cost."
+    },
+    "termination": {
+      "title": "Termination",
+      "content": "Either party may terminate the agreement according to agreed terms. Upon termination, all data will be removed in accordance with our privacy policy."
+    },
+    "changes": {
+      "title": "Terms Changes",
+      "content": "We may update these terms from time to time. We will notify you of changes in advance. By continuing to use services after changes, you agree to the new terms."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "If you have questions about these terms, please contact us:"
     }
   }
 }

@@ -55,6 +55,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://effidigi.com/et/privacy</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://effidigi.com/en/privacy</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://effidigi.com/et/terms</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://effidigi.com/en/terms</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://effidigi.com/et/blog/ai-lahendused-toitlustuses</loc>
     <lastmod>2025-07-29</lastmod>
     <changefreq>monthly</changefreq>
