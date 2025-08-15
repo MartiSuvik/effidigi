@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
-import { PhoneCall, Menu as MenuIcon, X, BarChart3, Phone, MessageCircle, Users, FileText, BookOpen } from "lucide-react";
+import { PhoneCall, Menu as MenuIcon, X, BarChart3, Phone, MessageCircle, Users, FileText, BookOpen, Calendar } from "lucide-react";
 import { useCal } from "@/hooks/use-cal";
 import { useTranslation } from "@/lib/i18n";
 import { AnimatedDropdownMenu, DropdownProvider } from "@/components/ui/animated-dropdown-menu";
@@ -107,18 +107,23 @@ export function SiteHeader() {
                           Icon: <BarChart3 className="h-4 w-4" />
                         },
                         {
+                          label: t('services.bookingSystem.name'),
+                          onClick: () => router.push(getLocalePath('/services/booking-system')),
+                          Icon: <Calendar className="h-4 w-4" />
+                        },
+                        {
                           label: t('services.phoneAI.name'),
-                          onClick: () => router.push(getLocalePath('/#services')),
+                          onClick: () => router.push(getLocalePath('/coming-soon')),
                           Icon: <Phone className="h-4 w-4" />
                         },
                         {
                           label: t('services.chatAI.name'),
-                          onClick: () => router.push(getLocalePath('/#services')),
+                          onClick: () => router.push(getLocalePath('/coming-soon')),
                           Icon: <MessageCircle className="h-4 w-4" />
                         },
                         {
                           label: t('services.crmAI.name'),
-                          onClick: () => router.push(getLocalePath('/#services')),
+                          onClick: () => router.push(getLocalePath('/coming-soon')),
                           Icon: <Users className="h-4 w-4" />
                         }
                       ]}

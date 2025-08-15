@@ -11,6 +11,55 @@
     "caseStudies": "Kliendilood",
     "contact": "Võta Ühendust"
   },
+  "comingSoon": {
+    "title": "Tulekul Varsti",
+    "subtitle": "Me töötame intensiivselt uute AI lahenduste kallal, mis muudavad teie äri veelgi tõhusamaks. Varsti saadaval!",
+    "backButton": "Tagasi teenustele",
+    "features": {
+      "notifications": {
+        "title": "Teavitused",
+        "description": "Saage teada esimesena, kui uued teenused on saadaval."
+      },
+      "priority": {
+        "title": "Prioriteetne Ligipääs",
+        "description": "Olge esimeste seas, kes saavad uusi funktsioone testida."
+      },
+      "earlyAccess": {
+        "title": "Varajane Ligipääs",
+        "description": "Eksklusiivne ligipääs beeta versioonidele ja eelvaated."
+      }
+    },
+    "cta": {
+      "title": "Tahate olla esimeste seas?",
+      "description": "Registreeruge, et saada teavitust, kui uued AI teenused on valmis. Tasuta konsultatsioon ja prioriteetne ligipääs.",
+      "notifyButton": "Teavita Mind",
+      "consultButton": "Tasuta Konsultatsioon"
+    },
+    "bottomText": "Aitäh kannatlikkuse eest! Uued lahendused tulevad varsti."
+  },
+  "notificationForm": {
+    "title": "Saage Teavitust",
+    "description": "Jätke oma kontaktandmed ja olge esimeste seas, kes saavad teada uutest AI lahendustest.",
+    "fields": {
+      "email": {
+        "label": "E-post",
+        "placeholder": "teie@ettevõte.ee"
+      },
+      "company": {
+        "label": "Ettevõte",
+        "placeholder": "Teie ettevõtte nimi"
+      }
+    },
+    "buttons": {
+      "cancel": "Tühista",
+      "submit": "Saada Taotlus",
+      "submitting": "Saadan..."
+    },
+    "success": {
+      "title": "Aitäh!",
+      "description": "Teavitame teid esimesena, kui uued teenused on saadaval."
+    }
+  },
   "hero": {
     "title": "AI-põhine",
     "subtitle1": "24/7 vastamisteenus",
@@ -103,7 +152,7 @@
     "availability": {
       "title": "24/7 kättesaadavus kogu Eestis",
       "description": "Suur osa broneeringu- ja kohtumispäringutest toimub väljaspool tööaega. Meie AI vastab kõnedele ööpäevaringselt üle kogu Eesti.",
-      "cta": "Vaata demot"
+      "cta": "Küsi Demot"
     },
     "results": {
       "title": "Tõestatud tulemused",
@@ -199,9 +248,8 @@
         "subtitle": "Muuda oma andmed võimsaks äriintelligentsiks. Visualiseeri, ennusta ja kasva targemalt.",
         "backButton": "Tagasi teenustele",
         "cta": {
-          "start": "Alusta kohe",
-          "demo": "Vaata demot"
-        },
+          "start": "Alusta kohe"
+                },
         "sections": {
           "dashboards": {
             "title": "Visuaalsed Dashboardid",
@@ -211,7 +259,7 @@
               "Kohandatud KPI jälgimine",
               "Mobiilioptimeeritud vaated"
             ],
-            "cta": "Vaata dashboard demo"
+            "cta": "Küsi Pakkumist"
           },
           "forecasting": {
             "title": "Müügi Ennustamine",
@@ -247,9 +295,154 @@
         "finalCta": {
           "title": "Alusta oma andmete revolutsiooni",
           "description": "Liitu sadadega ettevõtetega, kes on juba muutnud oma andmed võimsaks äriintelligentsiks.",
-          "startButton": "Alusta tasuta",
-          "demoButton": "Vaata demo",
+          "startButton": "Küsi Demo",
           "bottomText": "Tasuta konsultatsioon • 30 minutit • Kohesed tulemused"
+        }
+      }
+    },
+    "bookingSystem": {
+      "name": "Broneerimissüsteem",
+      "description": "Tark broneerimissüsteem, mis haldab ajakavasid ja kinnitab kohtumisi automaatselt.",
+      "page": {
+        "title": "Kuidas moodne broneerimissüsteem saab teie äri muuta",
+        "subtitle": "Muutke klikid kinnitatud broneeringuteks, isegi siis kui te magate. Avastage, kuidas tark ajaplaneerimine saab revolutsioneerida teie tegevust ja suurendada tulu.",
+        "backButton": "Tagasi teenustele",
+        "heroSection": {
+          "title": "Kuidas moodne broneerimissüsteem saab teie äri muuta",
+          "subtitle": "Muutke klikid kinnitatud broneeringuteks, isegi siis kui te magate. Avastage, kuidas tark ajaplaneerimine saab revolutsioneerida teie tegevust ja suurendada tulu.",
+          "ctaStart": "Küsi Demo"
+        },
+        "hiddenCosts": {
+          "title": "Käsitsi broneerimise varjatud kulud",
+          "problems": {
+            "missedOpportunities": {
+              "title": "Kadunud võimalused",
+              "description": "Üle 40% broneeringutest toimub väljaspool tööaega—tulu, mille jätate lauale."
+            },
+            "staffOverwhelm": {
+              "title": "Töötajate ülekoormatus",
+              "description": "Tunnid kuluvad planeerimiskõnedele asemel erakordse teeninduse pakkumisele."
+            },
+            "schedulingErrors": {
+              "title": "Planeerimisväled",
+              "description": "Topeltbroneeringud ja konfliktid kahjustavad teie professionaalset mainet."
+            }
+          },
+          "didYouKnow": "Kas teadsite? Ettevõtted, millel on veebipõhised broneerimissüsteemid, teatavad kuni 30% vähem telefoni- ja e-posti päringuid planeerimise kohta."
+        },
+        "solutionOverview": {
+          "title": "Kõik-ühes broneerimissüsteemi lahendus",
+          "subtitle": "Muutke kogu oma kliendikogemus esimesest klikist teenuse pakkumiseni automatiseeritud broneerimisega, mis haarab äri 24/7.",
+          "features": {
+            "instantBooking": {
+              "title": "Kohene veebibroneering",
+              "description": "Kliendid valivad kuupäeva ja kellaaja sekundite jooksul—kinnitust ootamata."
+            },
+            "realTimeSync": {
+              "title": "Reaalajas kalendri sünkroniseerimine",
+              "description": "Vältida topeltbroneeringuid reaalajas uuendustega kõigil platvormidel."
+            },
+            "reducedInquiries": {
+              "title": "Vähenenud päringud",
+              "description": "Kulutage vähem aega korduvate planeerimisküsimuste vastamisele."
+            },
+            "centralizedManagement": {
+              "title": "Tsentraliseeritud haldus",
+              "description": "Juhtida kõiki broneeringuid ühest võimsast töölauast."
+            }
+          },
+          "cta": "Küsi Pakkumist"
+        },
+        "instantBooking": {
+          "title": "Kohene veebibroneering",
+          "description": "Teie kliendid soovivad mugavust. Nad saavad broneerida kohtumisi mistahes ajal, mistahes seadmest, kinnitust ootamata. Süsteem näitab automaatselt ainult saadaolevaid aegu.",
+          "features": [
+            "Kohene kinnituse e-post/SMS",
+            "Töötab kõigil seadmetel",
+            "Lihtne, kasutajasõbralik liides"
+          ],
+          "cta": "Alusta Nüüd"
+        },
+        "realTimeSync": {
+          "title": "Reaalajas kalendri sünkroniseerimine",
+          "description": "Lõpetage muretsemast topeltbroneeringute pärast. Süsteem sünkroniseerub teie olemasolevate kalendritega reaalajas, tagades kõigile ajakohase info.",
+          "features": [
+            "Automaatne sünkroniseerimine olemasolevate kalendritööriistaraga",
+            "Näitab ainult saadaolevaid ajavahemikke",
+            "Uueneb sekundite jooksul muudatuste korral"
+          ],
+          "cta": "Alusta Nüüd"
+        },
+        "beforeAfter": {
+          "title": "Tegelik ärimõju: rohkem kui lihtsalt planeerimine",
+          "before": {
+            "title": "Enne broneerimissüsteemi",
+            "items": {
+              "0": "Piiratud tööaja broneeringutega",
+              "1": "Töötajad seotud haldusülesannetes",
+              "2": "Sagedased planeerimisväled ja konfliktid",
+              "3": "Mitteilmumised ilma tagajärgedeta",
+              "4": "Piiratud kliendiandmete kogumine",
+              "5": "Käsitsi meeldetuletuste protsess"
+            }
+          },
+          "after": {
+            "title": "Pärast broneerimissüsteemi",
+            "items": {
+              "0": "24/7 broneerimise võimalus",
+              "1": "Töötajad keskenduvad kõrge väärtusega tegevustele",
+              "2": "Kõrvaldatud topeltbroneeringud",
+              "3": "Vähenenud mitteilmumised automaatsete meeldetuletustega",
+              "4": "Rikkalikud kliendiandmed turunduseks",
+              "5": "Automatiseeritud suhtlusvood"
+            }
+          },
+          "testimonial": {
+            "quote": "Pärast broneerimissüsteemi kasutuselevõttu nägime kliendirahuolu skooride kasvu 22%. Kliendid armastavad võimalust broneerida väljaspool tööaega ja saada automaatseid kinnitusi.",
+            "author": "— Sarah T., salongiomanik"
+          }
+        },
+        "roiSection": {
+          "title": "Tulu kasvu võimalused",
+          "description": "Broneerimissüsteem ei organiseeri lihtsalt teie ajakava—see aitab aktiivselt kasvatada teie äri.",
+          "opportunities": {
+            "0": "Püüdke kinni öise aja broneeringuid, mis läheksid kaotsi",
+            "1": "Täitke ajakava lüngad saadavuse teavitustega",
+            "2": "Rakendage reegleid, mis kaitsevad tulu",
+            "3": "Koguge ettemakseid mitteilmumiste vähendamiseks",
+            "4": "Koguge andmeid sihtotstarbeliseks turunduseks"
+          },
+          "roiCalculator": {
+            "title": "ROI kalkulaator",
+            "description": "100 broneeringu puhus kuus, säästes 5 minutit broneeringu kohta = 8,3 tundi kuus säästetud—peaaegu täis tööpäev suunatud tulu tegevustele."
+          }
+        },
+        "implementation": {
+          "title": "Lihtne rakendamine, kiired tulemused",
+          "subtitle": "Olge töökorras juba päeva jooksul, minimaalse häirimisega teie tegevusele.",
+          "timeline": {
+            "day1": {
+              "day": "Päev 1",
+              "title": "Seadistamine",
+              "description": "Loo konto, sisesta teenused ja saadavus, kohanda oma broneerimisleht oma brändile vastavaks."
+            },
+            "day2": {
+              "day": "Päev 2-3",
+              "title": "Integratsioon",
+              "description": "Ühenda olemasolevad kalendrid, lisa broneerimisvidin veebisaidile, treenita oma meeskonda põhitõdedest."
+            },
+            "day3": {
+              "day": "Päev 4+",
+              "title": "Optimeerimine",
+              "description": "Alusta broneeringute kogumist, samal ajal peenhäälestades seadeid reaalselt kasutuselt ja tagasisidest."
+            }
+          }
+        },
+        "finalCta": {
+          "title": "Muutke oma ärioperatsioonid täna",
+          "description": "Üleminek käsitsist automatiseeritud broneerimisele pole lihtsalt mugavusega seotud—see on kogu teie ärioperatsiooni muutmine. Kõrvaldage planeerimispeavalud ja looge sujuv kliendikogemus.",
+          "reminder": "Meeldetuletus: Ettevõtted, kes kasutavad veebipõhiseid broneerimissüsteeme, teatavad kuni 30% vähem telefoni- ja e-posti päringuid planeerimise kohta. See on tõeline aeg tagasi teie päeva.",
+          "startButton": "Alusta Broneerimis Süsteemiga"
         }
       }
     },
@@ -292,6 +485,12 @@
       "role": "CRM automaatika ekspert",
       "description": "Haldab kliendisuhteid ja automatiseerib müügiprotsesse tõhusalt. Integreeritakse CRM süsteemidega sujuvalt.",
       "specialties": ["CRM", "Automatiseerimine", "Müük"]
+    },
+    "markus": {
+      "name": "Markus",
+      "role": "Broneerimise spetsialist",
+      "description": "Ekspert, kes haldab broneeringuid ja reserveeringuid tõhusalt.",
+      "specialties": ["Broneerimine", "Teatamine", "Reserveerimine"]
     }
   },
   "contact": {

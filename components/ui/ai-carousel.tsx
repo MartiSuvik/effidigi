@@ -101,8 +101,7 @@ function AIEmployeeCard({ employee, isActive, offset, direction, absOffset, onCl
 
 export function AICarousel() {
   const { t } = useTranslation();
-  const [active, setActive] = useState(1); // Start with second card active
-
+  
   // Get employee data from translations
   const employees = [
     {
@@ -136,10 +135,36 @@ export function AICarousel() {
       description: t('aiEmployees.helen.description'),
       avatar: "https://res.cloudinary.com/effichat/image/upload/v1751621636/xr2xiyciubgjfwsk2qju.png",
       specialties: ["CRM", "Automatiseerimine", "Müük"]
+    },
+      {
+      id: "markus",
+      name: t('aiEmployees.markus.name'),
+      role: t('aiEmployees.markus.role'),
+      description: t('aiEmployees.markus.description'),
+      avatar: "https://res.cloudinary.com/effichat/image/upload/v1755259889/nuvocsgegl3ujtkz4spr.png",
+      specialties: ["Broneerimine", "Teatamine", "Reserveerimine"]
     }
   ];
 
   const count = employees.length;
+  
+  // Start with second card of the middle set (count + 1)
+  const [active, setActive] = useState(count + 1);
+  
+  // Create infinite array by duplicating cards
+  const infiniteEmployees = [
+    ...employees.map(emp => ({ ...emp, id: `${emp.id}-prev` })), // Previous set
+    ...employees, // Current set  
+    ...employees.map(emp => ({ ...emp, id: `${emp.id}-next` })) // Next set
+  ];
+
+  const handleNext = () => {
+    setActive(i => i + 1);
+  };
+
+  const handlePrev = () => {
+    setActive(i => i - 1);
+  };
 
   return (
     <motion.div 
@@ -169,25 +194,28 @@ export function AICarousel() {
         {/* Carousel Container */}
         <div className="carousel">
           {/* Left Navigation */}
-          {active > 0 && (
-            <button 
-              className="nav left"
-              onClick={() => setActive(i => i - 1)}
-              aria-label="Previous card"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-          )}
+          <button 
+            className="nav left"
+            onClick={handlePrev}
+            aria-label="Previous card"
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
 
           {/* Cards */}
-          {employees.map((employee, i) => {
+          {infiniteEmployees.map((employee, i) => {
             const offset = (active - i) / 3;
             const direction = Math.sign(active - i);
             const absOffset = Math.abs(active - i) / 3;
             
+            // Only render cards that are close to the active position
+            if (absOffset > MAX_VISIBILITY) {
+              return null;
+            }
+            
             return (
               <AIEmployeeCard
-                key={employee.id}
+                key={`${employee.id}-${i}`}
                 employee={employee}
                 isActive={i === active}
                 offset={offset}
@@ -198,32 +226,65 @@ export function AICarousel() {
             );
           })}
 
+          {/* Generate additional cards dynamically for infinite scroll */}
+          {Array.from({ length: MAX_VISIBILITY * 2 + 1 }, (_, index) => {
+            const baseIndex = active - MAX_VISIBILITY + index;
+            const employeeIndex = ((baseIndex % count) + count) % count;
+            const employee = employees[employeeIndex];
+            
+            // Skip if this card is already rendered by the infiniteEmployees array
+            if (baseIndex >= 0 && baseIndex < infiniteEmployees.length) {
+              return null;
+            }
+            
+            const offset = (active - baseIndex) / 3;
+            const direction = Math.sign(active - baseIndex);
+            const absOffset = Math.abs(active - baseIndex) / 3;
+            
+            return (
+              <AIEmployeeCard
+                key={`dynamic-${baseIndex}`}
+                employee={{
+                  ...employee,
+                  id: `${employee.id}-dynamic-${baseIndex}`
+                }}
+                isActive={baseIndex === active}
+                offset={offset}
+                direction={direction}
+                absOffset={absOffset}
+                onClick={() => setActive(baseIndex)}
+              />
+            );
+          })}
+
           {/* Right Navigation */}
-          {active < count - 1 && (
-            <button 
-              className="nav right"
-              onClick={() => setActive(i => i + 1)}
-              aria-label="Next card"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
-          )}
+          <button 
+            className="nav right"
+            onClick={handleNext}
+            aria-label="Next card"
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
         </div>
 
-        {/* Dots Indicator */}
+        {/* Dots Indicator - only show original count */}
         <div className="flex justify-center gap-3 mt-8">
-          {employees.map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === active 
-                  ? 'bg-primary scale-125' 
-                  : 'bg-border hover:bg-primary/50'
-              }`}
-              onClick={() => setActive(index)}
-              aria-label={`Go to card ${index + 1}`}
-            />
-          ))}
+          {employees.map((_, index) => {
+            // Calculate which dot should be active based on current position
+            const dotIndex = ((active % count) + count) % count;
+            return (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === dotIndex 
+                    ? 'bg-primary scale-125' 
+                    : 'bg-border hover:bg-primary/50'
+                }`}
+                onClick={() => setActive(active - dotIndex + index)} // Navigate relative to current position
+                aria-label={`Go to card ${index + 1}`}
+              />
+            );
+          })}
         </div>
       </div>
     </motion.div>

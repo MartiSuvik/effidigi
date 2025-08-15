@@ -61,7 +61,7 @@ export default function DataAIPageClient() {
                   onClick={openCalModal}
                 >
                   <Eye className="w-5 h-5" />
-                  Vaata demot
+                  Küsi Demot
                 </GradientButton>
               </div>
             </motion.div>
@@ -355,7 +355,7 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
                   onClick={openCalModal}
                 >
                   <Eye className="w-5 h-5" />
-                  Vaata demo
+                  Küsi Demot
                 </GradientButton>
               </div>
               

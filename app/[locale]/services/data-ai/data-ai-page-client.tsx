@@ -56,15 +56,6 @@ export default function DataAIPageClient() {
                   <Rocket className="w-5 h-5" />
                   {t('services.dataAI.page.cta.start')}
                 </GradientButton>
-                <GradientButton 
-                  size="lg" 
-                  variant="outline"
-                  className="gap-2"
-                  onClick={openCalModal}
-                >
-                  <Eye className="w-5 h-5" />
-                  {t('services.dataAI.page.cta.demo')}
-                </GradientButton>
               </div>
             </motion.div>
           </div>
@@ -345,15 +336,6 @@ src="https://res.cloudinary.com/effichat/image/upload/v1751599426/wuyaksdmdoniqd
                 >
                   <Rocket className="w-5 h-5" />
                   {t('services.dataAI.page.finalCta.startButton')}
-                </GradientButton>
-                <GradientButton 
-                  size="lg" 
-                  variant="outline"
-                  className="gap-2"
-                  onClick={openCalModal}
-                >
-                  <Eye className="w-5 h-5" />
-                  {t('services.dataAI.page.finalCta.demoButton')}
                 </GradientButton>
               </div>
               

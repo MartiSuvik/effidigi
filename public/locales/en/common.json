@@ -11,6 +11,55 @@
     "caseStudies": "Case Studies",
     "contact": "Contact Us"
   },
+  "comingSoon": {
+    "title": "Coming Soon",
+    "subtitle": "We're working intensively on new AI solutions that will make your business even more efficient. Available soon!",
+    "backButton": "Back to Services",
+    "features": {
+      "notifications": {
+        "title": "Notifications",
+        "description": "Be the first to know when new services are available."
+      },
+      "priority": {
+        "title": "Priority Access",
+        "description": "Be among the first to test new features."
+      },
+      "earlyAccess": {
+        "title": "Early Access",
+        "description": "Exclusive access to beta versions and previews."
+      }
+    },
+    "cta": {
+      "title": "Want to be among the first?",
+      "description": "Register to get notified when new AI services are ready. Free consultation and priority access included.",
+      "notifyButton": "Notify Me",
+      "consultButton": "Free Consultation"
+    },
+    "bottomText": "Thank you for your patience! New solutions coming soon."
+  },
+  "notificationForm": {
+    "title": "Get Notified",
+    "description": "Leave your contact details and be among the first to know about new AI solutions.",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "you@company.com"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Your company name"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Send Request",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Thank You!",
+      "description": "We'll notify you first when new services become available."
+    }
+  },
   "hero": {
     "title": "AI-powered",
     "subtitle1": "24/7 answering service",
@@ -125,7 +174,7 @@
         "subtitle": "Transform your data into powerful business intelligence. Visualize, predict, and grow smarter.",
         "backButton": "Back to Services",
         "cta": {
-          "start": "Get Started",
+          "start": "Get Free Demo",
           "demo": "View Demo"
         },
         "sections": {
@@ -179,6 +228,155 @@
         }
       }
     },
+    "bookingSystem": {
+      "name": "Markus - Booking AI",
+      "description": "Smart booking system that manages schedules and automatically confirms appointments.",
+      "page": {
+        "title": "How a Modern Booking System Can Transform Your Business",
+        "subtitle": "Turn clicks into confirmed bookings, even while you sleep. Discover how smart scheduling can revolutionize your operations and increase revenue.",
+        "backButton": "Back to Services",
+        "heroSection": {
+          "title": "How a Modern Booking System Can Transform Your Business",
+          "subtitle": "Turn clicks into confirmed bookings, even while you sleep. Discover how smart scheduling can revolutionize your operations and increase revenue.",
+          "ctaStart": "Ask for a Demo",
+          "ctaDemo": "View Demo"
+        },
+        "hiddenCosts": {
+          "title": "The Hidden Costs of Manual Booking",
+          "problems": {
+            "missedOpportunities": {
+              "title": "Missed Opportunities",
+              "description": "Over 40% of bookings happen outside business hours—revenue you're leaving on the table."
+            },
+            "staffOverwhelm": {
+              "title": "Staff Overwhelm",
+              "description": "Hours spent on scheduling calls instead of delivering exceptional service."
+            },
+            "schedulingErrors": {
+              "title": "Scheduling Errors",
+              "description": "Double bookings and conflicts damage your professional reputation."
+            }
+          },
+          "didYouKnow": "Did you know? Businesses with online booking systems report up to 30% fewer phone and email inquiries about scheduling."
+        },
+        "solutionOverview": {
+          "title": "All-in-One Booking System Solution",
+          "subtitle": "Transform your entire customer experience from first click to service delivery with automated booking that captures business 24/7.",
+          "features": {
+            "instantBooking": {
+              "title": "Instant Online Booking",
+              "description": "Customers select date and time in seconds—no waiting for confirmation."
+            },
+            "realTimeSync": {
+              "title": "Real-Time Calendar Sync",
+              "description": "Prevent double bookings with real-time updates across all platforms."
+            },
+            "reducedInquiries": {
+              "title": "Reduced Inquiries",
+              "description": "Spend less time answering repetitive scheduling questions."
+            },
+            "centralizedManagement": {
+              "title": "Centralized Management",
+              "description": "Manage all bookings from one powerful dashboard."
+            }
+          },
+          "cta": "Start Now"
+        },
+        "instantBooking": {
+          "title": "Instant Online Booking",
+          "description": "Your customers want convenience. They can book appointments anytime, from any device, without waiting for confirmation. The system automatically shows only available slots.",
+          "features": {
+            "0": "Instant confirmation email/SMS",
+            "1": "Works on all devices",
+            "2": "Simple, user-friendly interface"
+          },
+          "cta": "Automate your bookings"
+        },
+        "realTimeSync": {
+          "title": "Real-Time Calendar Synchronization",
+          "description": "Never worry about double bookings again. Our system updates in real-time across all platforms, ensuring your calendar is always accurate.",
+          "features": {
+            "0": "Automatic conflict prevention",
+            "1": "Multi-platform synchronization",
+            "2": "Instant availability updates"
+          },
+          "cta": "Sync Your Calendar"
+        },
+        "beforeAfter": {
+          "title": "Before & After: The Transformation",
+          "before": {
+            "title": "Before: Manual Chaos",
+            "items": {
+              "0": "Constantly answering phone calls for scheduling",
+              "1": "Manual calendar management prone to errors",
+              "2": "Missed bookings outside business hours",
+              "3": "Time wasted on back-and-forth scheduling",
+              "4": "Double bookings and customer frustration",
+              "5": "No automated reminders or confirmations"
+            }
+          },
+          "after": {
+            "title": "After: Automated Efficiency",
+            "items": {
+              "0": "24/7 automatic booking acceptance",
+              "1": "Error-free digital calendar management",
+              "2": "Never miss a booking opportunity",
+              "3": "Instant confirmations and scheduling",
+              "4": "Conflict-free, intelligent scheduling",
+              "5": "Rich customer data for marketing"
+            }
+          },
+          "testimonial": {
+            "quote": "The booking system has completely transformed our customer service. Clients can book 24/7, and our staff can focus on their main work instead of phone calls.",
+            "author": "— Beauty Studio Owner"
+          }
+        },
+        "roiSection": {
+          "title": "Revenue Growth Opportunities",
+          "description": "A booking system doesn't just organize your schedule—it actively helps grow your business.",
+          "opportunities": {
+            "0": "Capture after-hours bookings that would be lost",
+            "1": "Fill schedule gaps with availability notifications",
+            "2": "Implement policies that protect revenue",
+            "3": "Collect prepayments to reduce no-shows",
+            "4": "Gather data for targeted marketing"
+          },
+          "roiCalculator": {
+            "title": "ROI Calculator",
+            "description": "For 100 bookings/month, saving 5 minutes per booking = 8.3 hours saved monthly—nearly a full workday redirected to revenue activities."
+          }
+        },
+        "implementation": {
+          "title": "Simple Implementation, Rapid Results",
+          "subtitle": "Be up and running in as little as a day, with minimal disruption to your operations.",
+          "timeline": {
+            "day1": {
+              "day": "Day 1",
+              "title": "Setup",
+              "description": "Create account, enter services and availability, customize your booking page to match your brand."
+            },
+            "day2": {
+              "day": "Day 2-3",
+              "title": "Integration",
+              "description": "Connect existing calendars, add booking widget to website, train your team on basics."
+            },
+            "day3": {
+              "day": "Day 4+",
+              "title": "Optimization",
+              "description": "Start collecting bookings while fine-tuning settings based on real-world usage and feedback."
+            }
+          }
+        },
+        "finalCta": {
+          "title": "Transform Your Business Operations Today",
+          "description": "The transition from manual to automated booking isn't just about convenience—it's about transforming your entire business operation. Eliminate scheduling headaches and create a seamless customer experience.",
+          "reminder": "Reminder: Businesses using online booking systems report up to 30% fewer phone and email inquiries about scheduling. That's real time back in your day.",
+          "startButton": "Automate Your Bookings Now!",
+          "trialButton": "14-Day Free Trial",
+          "bottomText": "No credit card required • Free 14-day trial • Cancel anytime"
+        }
+      }
+    },
     "phoneAI": {
       "name": "Sandra - Phone AI",
       "description": "24/7 phone answering service that handles all calls professionally."
@@ -218,6 +416,12 @@
       "role": "CRM Automation Expert",
       "description": "Manages customer relationships and automates sales processes efficiently. Integrates seamlessly with CRM systems.",
       "specialties": ["CRM", "Automation", "Sales"]
+    },
+    "markus": {
+      "name": "Markus",
+      "role": "Booking Specialist",
+      "description": "Expert in managing bookings and reservations efficiently.",
+      "specialties": ["Booking", "Notifications", "Reservations"]
     }
   },
   "contact": {

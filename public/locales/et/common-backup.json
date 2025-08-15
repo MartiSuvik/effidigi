@@ -1,7 +1,6 @@
 {
   "site": {
-    "title": "EFFI - AI-põhine 24/7 vastami  },
-  "services": {n, Eestis",
+    "title": "EFFI - AI-põhine 24/7 vastamisteenus, Eestis",
     "description": "Parandage klienditeenindust ja suurendage tulu meie AI telefonisüsteemiga Tallinnas ja üle Eesti. Ideaalne restoranidele, hambakliinikutele, automüügile ja mööblipoodidele.",
     "brand": "EFFI"
   },
@@ -94,7 +93,7 @@
     "availability": {
       "title": "24/7 kättesaadavus kogu Eestis",
       "description": "Suur osa broneeringu- ja kohtumispäringutest toimub väljaspool tööaega. Meie AI vastab kõnedele ööpäevaringselt üle kogu Eesti.",
-      "cta": "Vaata demot"
+      "cta": "Küsi Demot"
     },
     "results": {
       "title": "Tõestatud tulemused",
