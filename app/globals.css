@@ -458,6 +458,22 @@
     }
   }
 
+  /* Animated gradient for bento grid */
+  @keyframes gradient-flow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-flow {
+    background: linear-gradient(-45deg, #00ffb2, #00b17c, #007850, #006547);
+    background-size: 400% 400%;
+    animation: gradient-flow 5s ease-in-out infinite;
+  }
+
   .animate-marquee {
     animation: marquee var(--duration) linear infinite;
   }
@@ -470,7 +486,7 @@
   .carousel {
     position: relative;
     width: 364px; /* Increased width to accommodate larger gaps */
-    height: 384px; /* 24rem - slightly taller for our content */
+    height: 424px; /* 24rem - slightly taller for our content */
     perspective: 400px;
     transform-style: preserve-3d;
     margin: 0 auto;
@@ -483,7 +499,7 @@
     transform: 
       scaleY(calc(1 + var(--abs-offset) * -0.4))
       translateZ(calc(var(--abs-offset) * -30rem))
-      translateX(calc(var(--direction) * -15rem));
+      translateX(calc(var(--direction) * -30rem));
     transition: all 0.3s ease-out;
     cursor: pointer;
   }

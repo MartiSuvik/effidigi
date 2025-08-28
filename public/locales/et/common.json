@@ -465,18 +465,18 @@
     "karl": {
       "name": "Karl",
       "role": "Andmeanalüütik",
-      "description": "Analüüsib kliendiandmeid ja loob detailseid raporteid teie äri optimeerimiseks. Kasutab masinõpet mustrite tuvastamiseks ja prognoosimiseks.",
+      "description": "Analüüsib kliendiandmeid ja loob detailseid raporteid teie äri optimeerimiseks. Kasutab masinõpet mustrite tuvastamiseks.",
       "specialties": ["Andmeanalüüs", "Raportid", "Prognoosid"]
     },
     "sandra": {
       "name": "Sandra",
       "role": "Telefoniteeninduse juht",
-      "description": "24/7 telefonivastamisteenus, mis käsitleb kõiki kõnesid professionaalselt. Vastab küsimustele ja aitab kliente reaalajas.",
+      "description": "24/7 telefonivastamisteenus, mis käsitleb kõiki kõnesid. Vastab küsimustele ja aitab kliente reaalajas.",
       "specialties": ["Telefoniteenindus", "Broneerimine", "Küsimused"]
     },
     "silver": {
       "name": "Silver",
-      "role": "Vestlusteeninduse juht",
+      "role": "Vestlusrobot",
       "description": "Nutika vestlusrobot, mis vastab küsimustele ja aitab kliente reaalajas. Integreeritakse veebisaitidesse ja rakendustesse.",
       "specialties": ["Veebichat", "Küsimused", "Tugi"]
     },

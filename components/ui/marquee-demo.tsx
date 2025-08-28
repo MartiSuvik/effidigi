@@ -5,7 +5,7 @@ import { Marquee } from "@/components/ui/marquee";
 const Logos = {
   logo1: () => (
     <img 
-      src="https://res.cloudinary.com/effichat/image/upload/v1751453689/hnsjonafgtdsjl4wijv1.png"
+      src="https://res.cloudinary.com/effichat/image/upload/vapi.png"
       alt="Company Logo"
       className="h-[50px] w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
     />

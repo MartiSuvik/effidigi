@@ -1,292 +1,348 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  TouchEvent,
+  ReactNode,
+} from "react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { WordPullUp } from "@/components/ui/word-pull-up";
 import { useTranslation } from "@/lib/i18n";
 
-const MAX_VISIBILITY = 3;
-
-interface AIEmployeeCardProps {
-  employee: {
-    id: string;
-    name: string;
-    role: string;
-    description: string;
-    avatar: string;
-    specialties: string[];
-  };
-  isActive: boolean;
-  offset: number;
-  direction: number;
-  absOffset: number;
-  onClick: () => void;
+export interface Carousel3DItem {
+  id: number;
+  title: string;
+  brand: string;
+  description: string;
+  tags: string[];
+  imageUrl: string;
+  link: string;
 }
 
-function AIEmployeeCard({ employee, isActive, offset, direction, absOffset, onClick }: AIEmployeeCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleClick = () => {
-    if (isActive) {
-      setIsFlipped(!isFlipped);
-    } else {
-      onClick();
-    }
-  };
-
-  return (
-    <div 
-      className="card-container"
-      style={{
-        '--active': isActive ? 1 : 0,
-        '--offset': offset,
-        '--direction': direction,
-        '--abs-offset': absOffset,
-        'pointerEvents': isActive ? 'auto' : 'none',
-        'opacity': isActive ? 1 : 0.3,
-        'display': absOffset > MAX_VISIBILITY ? 'none' : 'block',
-      } as React.CSSProperties}
-      onClick={handleClick}
-    >
-      <div className={`ai-employee-card ${isFlipped ? 'flipped' : ''} bg-gradient-to-b from-background via-muted/20 to-background`}>
-        <div className="ai-employee-card-inner">
-          {/* Front of card */}
-          <div className="ai-employee-card-face ai-employee-card-front">
-            <div className="card-image-container">
-              <img 
-                src={employee.avatar}
-                alt={employee.name}
-                className="card-avatar"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  filter: 'none',
-                  zIndex: 20
-                }}
-              />
-            </div>
-            
-            <div className="card-content">
-              <h3 className="card-name">{employee.name}</h3>
-              <p className="card-role">{employee.role}</p>
-            </div>
-          </div>
-
-          {/* Back of card */}
-          <div className="ai-employee-card-face ai-employee-card-back">
-            <div className="card-description">
-              <h3 className="card-name">{employee.name}</h3>
-              <p className="description-text">{employee.description}</p>
-              
-              {employee.specialties && employee.specialties.length > 0 && (
-                <div className="specialties">
-                  {employee.specialties.map((specialty: string, index: number) => (
-                    <span key={index} className="specialty-tag">
-                      {specialty}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+interface Carousel3DProps {
+  items?: Carousel3DItem[];
+  autoRotate?: boolean;
+  rotateInterval?: number;
+  cardHeight?: number;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  isMobileSwipe?: boolean;
 }
 
-export function AICarousel() {
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
+
+  return isMobile;
+};
+
+const Carousel3D = ({
+  items,
+  autoRotate = true,
+  rotateInterval = 4000,
+  cardHeight = 780,
+  title,
+  subtitle,
+  tagline = "",
+  isMobileSwipe = true,
+}: Carousel3DProps) => {
   const { t } = useTranslation();
   
-  // Get employee data from translations
-  const employees = [
+  // Get employee data from translations if no items provided
+  const defaultEmployees = [
     {
-      id: "karl",
-      name: t('aiEmployees.karl.name'),
-      role: t('aiEmployees.karl.role'),
+      id: 1,
+      title: t('aiEmployees.karl.name'),
+      brand: t('aiEmployees.karl.role'),
       description: t('aiEmployees.karl.description'),
-      avatar: "https://res.cloudinary.com/effichat/image/upload/v1751621636/d2fzxkwdvndlenhlezxy.png",
-      specialties: ["Andmeanalüüs", "Raportid", "Prognoosid"]
+      imageUrl: "https://res.cloudinary.com/effichat/image/upload/karl_AI.png",
+      link: "#"
     },
     {
-      id: "sandra",
-      name: t('aiEmployees.sandra.name'),
-      role: t('aiEmployees.sandra.role'),
+      id: 2,
+      title: t('aiEmployees.sandra.name'),
+      brand: t('aiEmployees.sandra.role'),
       description: t('aiEmployees.sandra.description'),
-      avatar: "https://res.cloudinary.com/effichat/image/upload/v1751621636/ck7yx757bjfj6uihrdyj.png",
-      specialties: ["Telefoniteenindus", "Broneerimine", "Küsimused"]
+      imageUrl: "https://res.cloudinary.com/effichat/image/upload/sandra_AI.png",
+      tags: ["Telefoniteenindus", "Broneerimine", "Küsimused"],
+      link: "#"
     },
     {
-      id: "silver",
-      name: t('aiEmployees.silver.name'),
-      role: t('aiEmployees.silver.role'),
+      id: 3,
+      title: t('aiEmployees.silver.name'),
+      brand: t('aiEmployees.silver.role'),
       description: t('aiEmployees.silver.description'),
-      avatar: "https://res.cloudinary.com/effichat/image/upload/v1751621635/g4v24ilp1cno7r9qyvct.png",
-      specialties: ["Veebichat", "Küsimused", "Tugi"]
+      imageUrl: "https://res.cloudinary.com/effichat/image/upload/v1756362589/silver_ai.png",
+      tags: ["Veebichat", "Küsimused", "Tugi"],
+      link: "#"
     },
     {
-      id: "helen",
-      name: t('aiEmployees.helen.name'),
-      role: t('aiEmployees.helen.role'),
+      id: 4,
+      title: t('aiEmployees.helen.name'),
+      brand: t('aiEmployees.helen.role'),
       description: t('aiEmployees.helen.description'),
-      avatar: "https://res.cloudinary.com/effichat/image/upload/v1751621636/xr2xiyciubgjfwsk2qju.png",
-      specialties: ["CRM", "Automatiseerimine", "Müük"]
+      imageUrl: "https://res.cloudinary.com/effichat/image/upload/helen_AI.png",
+      tags: ["CRM", "Automatiseerimine", "Müük"],
+      link: "#"
     },
-      {
-      id: "markus",
-      name: t('aiEmployees.markus.name'),
-      role: t('aiEmployees.markus.role'),
+    {
+      id: 5,
+      title: t('aiEmployees.markus.name'),
+      brand: t('aiEmployees.markus.role'),
       description: t('aiEmployees.markus.description'),
-      avatar: "https://res.cloudinary.com/effichat/image/upload/v1755259889/nuvocsgegl3ujtkz4spr.png",
-      specialties: ["Broneerimine", "Teatamine", "Reserveerimine"]
+      imageUrl: "https://res.cloudinary.com/effichat/image/upload/markus_AI.png",
+      tags: ["Broneerimine", "Teatamine", "Reserveerimine"],
+      link: "#"
     }
   ];
 
-  const count = employees.length;
-  
-  // Start with second card of the middle set (count + 1)
-  const [active, setActive] = useState(count + 1);
-  
-  // Create infinite array by duplicating cards
-  const infiniteEmployees = [
-    ...employees.map(emp => ({ ...emp, id: `${emp.id}-prev` })), // Previous set
-    ...employees, // Current set  
-    ...employees.map(emp => ({ ...emp, id: `${emp.id}-next` })) // Next set
-  ];
+  const employees = items || defaultEmployees;
+  const [active, setActive] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const isMobile = useIsMobile();
+  const minSwipeDistance = 50;
 
-  const handleNext = () => {
-    setActive(i => i + 1);
+  useEffect(() => {
+    if (autoRotate && isInView && !isHovering) {
+      const interval = setInterval(() => {
+        setActive((prev) => (prev + 1) % employees.length);
+      }, rotateInterval);
+      return () => clearInterval(interval);
+    }
+  }, [isInView, isHovering, autoRotate, rotateInterval, employees.length]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    
+    if (carouselRef.current) {
+      observer.observe(carouselRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+
+  const onTouchStart = (e: TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setTouchEnd(null);
   };
 
-  const handlePrev = () => {
-    setActive(i => i - 1);
+  const onTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) {
+      setActive((prev) => (prev + 1) % employees.length);
+    } else if (distance < -minSwipeDistance) {
+      setActive((prev) => (prev - 1 + employees.length) % employees.length);
+    }
+  };
+
+  const getCardAnimationClass = (index: number) => {
+    if (index === active) return "scale-100 opacity-100 z-20";
+    if (index === (active + 1) % employees.length)
+      return "translate-x-[100%] scale-95 opacity-30 z-10";
+    if (index === (active - 1 + employees.length) % employees.length)
+      return "translate-x-[-100%] scale-95 opacity-30 z-10";
+    return "scale-90 opacity-0";
   };
 
   return (
-    <motion.div 
-      className="py-20"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
+    <section
+      id="carousel3d"
+      className="bg-transparent min-w-full mx-auto flex items-center justify-center py-20"
     >
       <div className="container mx-auto px-4 md:px-6">
-        {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            {t('aiEmployees.title')}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {t('aiEmployees.subtitle')}
+        {/* Title and Subtitle */}
+        <div className="text-center space-y-2">
+          <WordPullUp
+            words={title || t('aiEmployees.title')}
+            className="text-6xl md:text-7xl font-bold leading-tight"
+            animate={isInView}
+            wrapperFramerProps={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.3,
+                },
+              },
+            }}
+            framerProps={{
+              hidden: { y: 30, opacity: 0 },
+              show: { y: 0, opacity: 1 },
+            }}
+          />
+          <p className="text-lg text-muted-foreground">
+            {subtitle || t('aiEmployees.subtitle')}
           </p>
-        </motion.div>
-
-        {/* Carousel Container */}
-        <div className="carousel">
-          {/* Left Navigation */}
-          <button 
-            className="nav left"
-            onClick={handlePrev}
-            aria-label="Previous card"
-          >
-            <ChevronLeft className="w-8 h-8" />
-          </button>
-
-          {/* Cards */}
-          {infiniteEmployees.map((employee, i) => {
-            const offset = (active - i) / 3;
-            const direction = Math.sign(active - i);
-            const absOffset = Math.abs(active - i) / 3;
-            
-            // Only render cards that are close to the active position
-            if (absOffset > MAX_VISIBILITY) {
-              return null;
-            }
-            
-            return (
-              <AIEmployeeCard
-                key={`${employee.id}-${i}`}
-                employee={employee}
-                isActive={i === active}
-                offset={offset}
-                direction={direction}
-                absOffset={absOffset}
-                onClick={() => setActive(i)}
-              />
-            );
-          })}
-
-          {/* Generate additional cards dynamically for infinite scroll */}
-          {Array.from({ length: MAX_VISIBILITY * 2 + 1 }, (_, index) => {
-            const baseIndex = active - MAX_VISIBILITY + index;
-            const employeeIndex = ((baseIndex % count) + count) % count;
-            const employee = employees[employeeIndex];
-            
-            // Skip if this card is already rendered by the infiniteEmployees array
-            if (baseIndex >= 0 && baseIndex < infiniteEmployees.length) {
-              return null;
-            }
-            
-            const offset = (active - baseIndex) / 3;
-            const direction = Math.sign(active - baseIndex);
-            const absOffset = Math.abs(active - baseIndex) / 3;
-            
-            return (
-              <AIEmployeeCard
-                key={`dynamic-${baseIndex}`}
-                employee={{
-                  ...employee,
-                  id: `${employee.id}-dynamic-${baseIndex}`
-                }}
-                isActive={baseIndex === active}
-                offset={offset}
-                direction={direction}
-                absOffset={absOffset}
-                onClick={() => setActive(baseIndex)}
-              />
-            );
-          })}
-
-          {/* Right Navigation */}
-          <button 
-            className="nav right"
-            onClick={handleNext}
-            aria-label="Next card"
-          >
-            <ChevronRight className="w-8 h-8" />
-          </button>
         </div>
 
-        {/* Dots Indicator - only show original count */}
-        <div className="flex justify-center gap-3 mt-8">
-          {employees.map((_, index) => {
-            // Calculate which dot should be active based on current position
-            const dotIndex = ((active % count) + count) % count;
-            return (
+        <div
+          className="relative overflow-hidden h-[600px]"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          ref={carouselRef}
+        >
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+            {employees.map((item, index) => (
+              <div
+                key={item.id}
+                className={`absolute top-0 w-full max-w-sm transform transition-all duration-500 ${getCardAnimationClass(
+                  index
+                )}`}
+              >
+                <Card
+                  className="overflow-hidden h-[780px] flex flex-col bg-transparent border-0 shadow-none relative"
+                >
+                  {/* Image section - 2/3 of card height with tech overlay */}
+                  <div className="flex-[2] flex items-center justify-center overflow-hidden relative">
+                    <img
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="w-full h-full object-contain"
+                    />
+                    
+                    {/* Tech-style HUD overlay positioned at the very bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent">
+                      <div className="p-10 space-y-1">
+                        {/* Bold gradient name */}
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                          <WordPullUp
+                            key={`title-${item.id}-${index === active ? 'active' : 'inactive'}`}
+                            words={item.title}
+                            as="h3"
+                            animate={index === active}
+                            className="text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-gray-200 via-white to-gray-300 bg-clip-text text-transparent leading-tight"
+                            wrapperFramerProps={{
+                              hidden: { opacity: 0 },
+                              show: {
+                                opacity: 1,
+                                transition: {
+                                  staggerChildren: 0.1,
+                                  delayChildren: 0.2,
+                                },
+                              },
+                            }}
+                            framerProps={{
+                              hidden: { y: 10, opacity: 0 },
+                              show: { y: 0, opacity: 1 },
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Brand underneath aligned left */}
+                        <div className="text-left">
+                          <WordPullUp
+                            key={`brand-${item.id}-${index === active ? 'active' : 'inactive'}`}
+                            words={item.brand}
+                            as="p"
+                            animate={index === active}
+                            className="text-primary text-base font-semibold tracking-wide text-left"
+                            wrapperFramerProps={{
+                              hidden: { opacity: 0 },
+                              show: {
+                                opacity: 1,
+                                transition: {
+                                  staggerChildren: 0.1,
+                                  delayChildren: 0.4,
+                                },
+                              },
+                            }}
+                            framerProps={{
+                              hidden: { y: 10, opacity: 0 },
+                              show: { y: 0, opacity: 1 },
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Description in tiny font */}
+                        <p className="text-gray-300 text-[10px] leading-tight max-w-full line-clamp-2 pt-1 text-left">
+                          {item.description}
+                        </p>
+                        
+                        {/* Tech-style tags in one row */}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hidden text section to maintain card structure */}
+                  <div className="flex-[1] opacity-0 pointer-events-none">
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {!isMobile && (
+            <>
               <button
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === dotIndex 
-                    ? 'bg-primary scale-125' 
-                    : 'bg-border hover:bg-primary/50'
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md transition-all hover:scale-110"
+                onClick={() =>
+                  setActive((prev) => (prev - 1 + employees.length) % employees.length)
+                }
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:bg-white z-30 shadow-md transition-all hover:scale-110"
+                onClick={() => setActive((prev) => (prev + 1) % employees.length)}
+                aria-label="Next"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
+
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-3 z-30">
+            {employees.map((_, idx) => (
+              <button
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  active === idx
+                    ? "bg-gray-500 w-5"
+                    : "bg-gray-200 hover:bg-gray-300"
                 }`}
-                onClick={() => setActive(active - dotIndex + index)} // Navigate relative to current position
-                aria-label={`Go to card ${index + 1}`}
+                onClick={() => setActive(idx)}
+                aria-label={`Go to item ${idx + 1}`}
               />
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
-    </motion.div>
+    </section>
   );
+};
+
+export function AICarousel() {
+  return <Carousel3D />;
 }

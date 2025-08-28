@@ -1,20 +1,19 @@
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import { ArrowUpIcon } from "@radix-ui/react-icons";
-
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-const BentoGrid = ({
-  children,
+export const BentoGrid = ({
   className,
+  children,
 }: {
-  children: ReactNode;
   className?: string;
+  children?: React.ReactNode;
 }) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-3 gap-4",
+        "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3",
         className,
       )}
     >
@@ -23,7 +22,42 @@ const BentoGrid = ({
   );
 };
 
-const BentoCard = ({
+export const BentoGridItem = ({
+  className,
+  title,
+  description,
+  header,
+  icon,
+}: {
+  className?: string;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+  header?: React.ReactNode;
+  icon?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none",
+        className,
+      )}
+    >
+      {header}
+      <div className="transition duration-200 group-hover/bento:translate-x-2">
+        {icon}
+        <div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
+          {title}
+        </div>
+        <div className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+          {description}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Legacy BentoCard for features-section compatibility
+export const BentoCard = ({
   name,
   className,
   background,
@@ -50,13 +84,11 @@ const BentoCard = ({
       className,
     )}
   >
-    {/* Background and icon container */}
     <div className="absolute inset-0 z-0">{background}</div>
 
-    {/* Animated gradient outline - only visible on hover */}
-    <div className="absolute inset-0 z-10 rounded-xl bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-gradient-outline" />
+    {/* Hover overlay */}
+    <div className="absolute inset-0 z-10 rounded-xl bg-gradient-to-r from-[#00ffb2]/20 via-[#00b880]/20 to-[#00ffb2]/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-gradient-x" />
 
-    {/* Text content */}
     <div className="relative z-20 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
       <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 transition-opacity duration-300 group-hover:opacity-0">
         {name}
@@ -64,23 +96,20 @@ const BentoCard = ({
       <p className="max-w-lg text-neutral-400 transition-opacity duration-300 group-hover:opacity-0">{description}</p>
     </div>
 
-    {/* CTA Button - centered */}
+    {/* CTA on hover */}
     <div
       className={cn(
         "absolute inset-0 z-20 flex flex-col items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100",
       )}
     >
-      <div className="text-center">
-        <span className="text-lg font-semibold text-neutral-700 dark:text-neutral-300 block mb-2">
+      <Button variant="ghost" asChild size="sm" className="pointer-events-none bg-[#00ffb2] hover:bg-[#00b880] text-black">
+        <div className="flex items-center gap-2">
           {cta}
-        </span>
-        <ArrowUpIcon className="h-6 w-6 mx-auto text-neutral-700 dark:text-neutral-300" />
-      </div>
+          <ArrowUpIcon className="h-4 w-4" />
+        </div>
+      </Button>
     </div>
 
-    {/* Hover overlay */}
     <div className="absolute inset-0 z-10 transform-gpu bg-black/[.03] opacity-0 transition-all duration-300 group-hover:opacity-100 dark:bg-neutral-800/10" />
   </a>
 );
-
-export { BentoCard, BentoGrid };
