@@ -1,8 +1,7 @@
 "use client";
 
-import { useTranslation, getLanguageDisplayName } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
-import { Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface LanguageSwitcherProps {
@@ -11,12 +10,23 @@ interface LanguageSwitcherProps {
   size?: "sm" | "default" | "lg";
 }
 
+// Flag emojis for Estonian and English
+const flagEmojis = {
+  et: "🇪🇪", // Estonian flag
+  en: "🇬🇧", // British flag (commonly used for English)
+};
+
+const languageNames = {
+  et: "Eesti",
+  en: "English",
+};
+
 export function LanguageSwitcher({ 
   className, 
   variant = "ghost",
   size = "sm" 
 }: LanguageSwitcherProps) {
-  const { locale, locales, changeLanguage } = useTranslation();
+  const { locale, changeLanguage } = useTranslation();
 
   const handleLanguageChange = () => {
     // Toggle between Estonian and English
@@ -24,8 +34,9 @@ export function LanguageSwitcher({
     changeLanguage(newLocale);
   };
 
-  const currentLanguageDisplay = getLanguageDisplayName(locale);
-  const nextLanguageDisplay = getLanguageDisplayName(locale === 'et' ? 'en' : 'et');
+  const currentFlag = flagEmojis[locale as keyof typeof flagEmojis] || flagEmojis.et;
+  const currentLanguage = languageNames[locale as keyof typeof languageNames] || languageNames.et;
+  const nextLanguage = languageNames[locale === 'et' ? 'en' : 'et'];
 
   return (
     <Button
@@ -37,10 +48,12 @@ export function LanguageSwitcher({
         "hover:bg-accent/80 hover:text-accent-foreground",
         className
       )}
-      title={`Switch to ${nextLanguageDisplay}`}
+      title={`Switch to ${nextLanguage}`}
     >
-      <Globe className="h-4 w-4" />
-      <span className="hidden sm:inline">{currentLanguageDisplay}</span>
+      <span className="text-lg" role="img" aria-label={`${currentLanguage} flag`}>
+        {currentFlag}
+      </span>
+      <span className="hidden sm:inline">{currentLanguage}</span>
       <span className="sm:hidden">{locale.toUpperCase()}</span>
     </Button>
   );

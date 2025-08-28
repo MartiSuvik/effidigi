@@ -664,5 +664,134 @@
       "title": "Contact",
       "content": "If you have questions about these terms, please contact us:"
     }
+  },
+  "serviceTemplate": {
+    "hero": {
+      "title": "AI Chatbot That Converts Visitors Into Customers",
+      "description": "Automate customer support, capture leads, and increase sales with our intelligent AI chatbot. Available 24/7 to serve customers in multiple languages.",
+      "emailPlaceholder": "Enter your business email",
+      "signUpButton": "Start Free Trial",
+      "trialText": "Free 30-day trial",
+      "auditText": "Free AI readiness audit"
+    },
+    "chat": {
+      "customerName": "Anna",
+      "agentName": "EFFI AI Assistant",
+      "messages": {
+        "customerQuestion": "Can I still make a reservation? 😱",
+        "customerQuestionTime": "6:57 PM",
+        "agentResponse": "Hi Anna! Human assistants aren't available\nbut I can help. 😊",
+        "agentResponseTime": "6:57 PM",
+        "customerThanks": "Perfect! I'd like to book for tomorrow\nat 1 PM for 4 people.",
+        "customerThanksTime": "6:58 PM"
+      }
+    },
+    "features": {
+      "title": "Intelligent Features for Better Customer Experience",
+      "description": "Everything you need to automate customer interactions and grow your business"
+    },
+    "multichannel": {
+      "title": "Connect with customers on every platform",
+      "description": "Deploy your AI chatbot on your website, Facebook Messenger, WhatsApp, and more. Provide consistent support across all channels, 24/7.",
+      "buttonText": "Start Free Trial",
+      "imageAlt": "Multi-channel chatbot interface showing website, Facebook, and WhatsApp integration"
+    },
+    "sales": {
+      "title": "Convert visitors into paying customers",
+      "description": "Proactively engage website visitors, qualify leads, and guide them through your sales funnel with intelligent conversation flows.",
+      "buttonText": "Get Started Now",
+      "imageAlt": "AI chatbot interface showing lead qualification and sales conversation flow"
+    },
+    "pricing": {
+      "title": "Choose Your Plan",
+      "description": "Select the perfect plan for your needs",
+      "plans": {
+        "starter": {
+          "name": "Starter",
+          "price": "€250",
+          "period": "/month",
+          "popular": "Most Popular",
+          "features": {
+            "0": "Up to 2500 conversations per month",
+            "1": "Integration with a single website",
+            "2": "Personal consulting for chatbot optimization",
+            "3": "AI-based chatbot with basic features",
+            "4": "Dedicated personal consultant",
+            "5": "Multilingual support (over 20 languages)",
+            "6": "Chatbot appearance with logo, name and brand colors",
+            "7": "Contact form integration (name, email, service of interest)"
+          }
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "price": "Upon Agreement",
+          "period": "/month",
+          "features": {
+            "0": "Unlimited number of chats per month",
+            "1": "Multiple website integration",
+            "2": "Personal consulting for chatbot optimization",
+            "3": "AI-based chatbot with basic features",
+            "4": "Dedicated personal consultant",
+            "5": "Multilingual support (over 100 languages)",
+            "6": "Chatbot appearance with logo, name and brand colors",
+            "7": "Contact form integration (name, email, service of interest)"
+          }
+        }
+      },
+      "buttonText": "Get Started"
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join thousands of satisfied customers and transform your workflow today.",
+      "buttonText": "Contact for Free Trial"
+    },
+    "images": {
+      "chatbot": "https://res.cloudinary.com/effichat/image/upload/chatbot.png",
+      "integration": "https://res.cloudinary.com/effichat/image/upload/Integratsioon_eng_1.png",
+      "recommendations": "https://res.cloudinary.com/effichat/image/upload/Integratsioon_eng.png",
+      "customerAvatar": "https://res.cloudinary.com/effichat/image/upload/brenda.png",
+      "agentAvatar": "https://res.cloudinary.com/effichat/image/upload/silver_ai_pfp.png"
+    },
+    "bentoGrid": {
+      "items": {
+        "aiConversations": {
+          "title": "AI-Powered Conversations",
+          "description": "Deliver natural, human-like interactions that engage your customers 24/7."
+        },
+        "automatedSupport": {
+          "title": "Automated Customer Support",
+          "description": "Reduce response times and free your team by letting AI handle FAQs."
+        },
+        "contextAware": {
+          "title": "Context-Aware Responses",
+          "description": "Chatbot remembers past messages to personalize user experiences."
+        },
+        "leadQualification": {
+          "title": "Lead Qualification & Conversion",
+          "description": "Automatically capture leads, qualify them with smart questions, and hand off hot prospects to your team."
+        },
+        "sentimentDetection": {
+          "title": "Sentiment & Intent Detection",
+          "description": "Understand customer mood & intent to respond more effectively & improve satisfaction."
+        }
+      },
+      "customerMessages": {
+        "billing": "I got charged unexpectedly",
+        "sales": "Sold! Who can I speak to?",
+        "support": "I need help with my order!",
+        "urgent": "I'm frustrated with the slow response time. Can someone help me urgently?",
+        "response": "😊 Happy to help immediately!"
+      },
+      "tags": {
+        "highPriority": "High Priority",
+        "qualifiedLead": "Qualified Lead",
+        "converting": "Converting"
+      },
+      "altTexts": {
+        "customer": "Customer",
+        "salesTeam": "Sales Team",
+        "ai": "AI"
+      }
+    }
   }
 }

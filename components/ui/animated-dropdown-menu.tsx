@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Context for managing which dropdown is open
@@ -16,10 +16,29 @@ const DropdownContext = createContext<{
 
 const DropdownProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    // Only add the event listener if there's an active dropdown
+    if (activeDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [activeDropdown]);
 
   return (
     <DropdownContext.Provider value={{ activeDropdown, setActiveDropdown }}>
-      {children}
+      <div ref={containerRef}>
+        {children}
+      </div>
     </DropdownContext.Provider>
   );
 };

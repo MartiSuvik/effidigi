@@ -84,7 +84,7 @@ const schemaData = {
   "image": "https://res.cloudinary.com/effichat/image/upload/v1753820086/fwz87rzlzorerk4kgf9s.png",
   "description": "EFFI AI on juhtiv AI-põhiste lahenduste pakkuja, mis automatiseerib klienditeenindust ja suurendab tulu. Alusta praegu, maksa korra, kasva igavesti! Ideaalne restoranidele, hambakliinikutele, automüügile ja mööblipoodidele kes soovivad kasvada läbi AI automatiseerimise.",
   "telephone": "+372 5340 0432",
-  "email": "marti@effidigi.com",
+  "email": "info@effidigi.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Õismäe tee 99",
@@ -135,7 +135,7 @@ const schemaData = {
   "employee": {
     "@type": "Person",
     "name": "Marti",
-    "email": "marti@effidigi.com"
+    "email": "info@effidigi.com"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",

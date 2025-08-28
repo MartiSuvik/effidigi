@@ -123,7 +123,7 @@ export default function PrivacyPage() {
               </p>
               <div className="bg-muted p-4 rounded-lg">
                 <p className="font-semibold mb-2">EFFI</p>
-                <p>Email: marti@effidigi.com</p>
+                <p>Email: info@effidigi.com</p>
                 <p>Telefon: +372 5340 0432</p>
                 <p>Aadress: Õismäe tee 99, Tallinn, Eesti</p>
               </div>

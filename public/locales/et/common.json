@@ -653,5 +653,134 @@
       "title": "Kontakt",
       "content": "Kui teil on küsimusi nende tingimuste kohta, palun võtke meiega ühendust:"
     }
+  },
+  "serviceTemplate": {
+    "hero": {
+      "title": "AI Chatbot, Mis Muudab Külastajad Klientideks",
+      "description": "Automatiseeri klienditugi, püüa liide ja suurenda müüki meie intelligentse AI chatbotiga. Saadaval 24/7, et teenindada kliente mitmes keeles.",
+      "emailPlaceholder": "Sisesta oma töö e-post",
+      "signUpButton": "Alusta Tasuta Prooviperioodi",
+      "trialText": "Tasuta 30-päevane prooviperiood",
+      "auditText": "Tasuta AI valmisoleku audit"
+    },
+    "chat": {
+      "customerName": "Anna",
+      "agentName": "EFFI AI Assistent",
+      "messages": {
+        "customerQuestion": "Kas ma jõuan veel broneeringu teha? 😱",
+        "customerQuestionTime": "18:57",
+        "agentResponse": "Tere Anna! Restoran on juba suletud,\n aga saan sind broneerida! 😊",
+        "agentResponseTime": "18:57",
+        "customerThanks": "Suurepärane! Homme \nkell 13 neljale inimesele.",
+        "customerThanksTime": "18:58"
+      }
+    },
+    "features": {
+      "title": "Intelligentsed Funktsioonid Parema Kliendikogemuse Jaoks",
+      "description": "Kõik, mida vajate kliendisuhtluse automatiseerimiseks ja äri kasvatamiseks"
+    },
+    "multichannel": {
+      "title": "Suhtle klientidega igal platvormil",
+      "description": "Paigalda oma AI chatbot veebisaidile, Facebook Messengerisse, WhatsAppi ja mujale. Paku järjekindlat tuge kõigis kanalites, 24/7.",
+      "buttonText": "Alusta Tasuta Prooviperioodi",
+      "imageAlt": "Mitmekanaliline chatboti liides näitab veebisaidi, Facebooki ja WhatsAppi integratsiooni"
+    },
+    "sales": {
+      "title": "Muuda külastajad klientideks",
+      "description": "Kaasa aktiivselt veebilehe külastajaid, kvalifitseeri neid ja segmenteeri läbi intelligentsete vestlusvoo.",
+      "buttonText": "Alusta Kohe",
+      "imageAlt": "AI chatboti liides näitab liidide kvalifitseerimist ja müügivestluse voogu"
+    },
+    "pricing": {
+      "title": "Vali Oma Plaan",
+      "description": "Vali oma vajadustele sobiv ideaalne plaan",
+      "plans": {
+        "starter": {
+          "name": "Alustaja",
+          "price": "€250",
+          "period": "/kuus",
+          "popular": "Ideaalne Väikeettevõttele",
+          "features": {
+            "0": "Kuni 1000 vestlust kuus",
+            "1": "Veebisaidi integratsioon",
+            "2": "Põhilised AI vastused ja KKK käsitlemine",
+            "3": "Liidide hõivamise vormid",
+            "4": "E-posti teavitused",
+            "5": "Põhilise analüütika töölaud",
+            "6": "Eesti ja inglise keele tugi",
+            "7": "E-posti tugi"
+          }
+        },
+        "enterprise": {
+          "name": "Ettevõte",
+          "price": "Kokkulepitud",
+          "period": "/kuus",
+          "features": {
+            "0": "Piiramatu arv vestlusi",
+            "1": "Kohandatud integratsioonid ja API ligipääs",
+            "2": "AI treening teie spetsiifiliste andmetega",
+            "3": "Täiustatud töövoo automatiseerimine",
+            "4": "Spetsiaalne kontojuht",
+            "5": "Kohandatud analüütika ja aruandlus",
+            "6": "White-label lahendus saadaval",
+            "7": "24/7 spetsiaalne tugi"
+          }
+        }
+      },
+      "buttonText": "Alusta"
+    },
+    "cta": {
+      "title": "Stardi Pauk 🚀 ?",
+      "description": "Liitu tuhandete rahuloleva klientidega ja muuda oma töövoog juba täna.",
+      "buttonText": "Võta Ühendust Tasuta Prooviks"
+    },
+    "images": {
+      "chatbot": "https://res.cloudinary.com/effichat/image/upload/chatbot.png",
+      "integration": "https://res.cloudinary.com/effichat/image/upload/Integratsioon_eesti.png",
+      "recommendations": "https://res.cloudinary.com/effichat/image/upload/Integratsioon_eesti_2.png",
+      "customerAvatar": "https://res.cloudinary.com/effichat/image/upload/brenda.png",
+      "agentAvatar": "https://res.cloudinary.com/effichat/image/upload/silver_ai_pfp.png"
+    },
+    "bentoGrid": {
+      "items": {
+        "aiConversations": {
+          "title": "AI-Põhised Vestlused",
+          "description": "Paku loomulikke, inimlikke suhtlusi, mis kaasavad kliente 24/7."
+        },
+        "automatedSupport": {
+          "title": "Automatiseeritud Klienditugi",
+          "description": "Vähenda vastamisaegu ja vabasta oma meeskond, lastes AI-l käsitleda KKK-sid."
+        },
+        "contextAware": {
+          "title": "Kontekstitundlikud Vastused",
+          "description": "Chatbot mäletab varasemaid sõnumeid kasutajakogemuse personaliseerimiseks."
+        },
+        "leadQualification": {
+          "title": "Liidide Kvalifitseerimine ja Konverteerimine",
+          "description": "Püüa automaatselt liide, kvalifitseeri neid nutikate küsimustega ja anna kuumad perspektiivid meeskonnale üle."
+        },
+        "sentimentDetection": {
+          "title": "Emotsioonide ja Kavatsuste Tuvastamine",
+          "description": "Mõista klientide meeleolu ja kavatsusi, et vastata tõhusamalt ja parandada rahulolu."
+        }
+      },
+      "customerMessages": {
+        "billing": "Mind arveldati ootamatult",
+        "sales": "Müüdud! Kellega saan rääkida?",
+        "support": "Vajan abi oma tellimusega!",
+        "urgent": "Olen pettunud aeglase vastamisaja üle. Kas keegi saab mulle kiireloomuliselt aidata?",
+        "response": "😊 Meelsasti aitan kohe!"
+      },
+      "tags": {
+        "highPriority": "Kõrge Prioriteet",
+        "qualifiedLead": "Kvalifitseeritud Liid",
+        "converting": "Konverteerub"
+      },
+      "altTexts": {
+        "customer": "Klient",
+        "salesTeam": "Müügimeeskond",
+        "ai": "AI"
+      }
+    }
   }
 }

@@ -12,9 +12,70 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { MessageSquareReply } from "lucide-react";
+import { useTranslation } from '@/lib/i18n';
 
 
 export default function BentoGridThirdDemo() {
+  const { t } = useTranslation();
+  
+  const items = [
+    {
+      title: t('serviceTemplate.bentoGrid.items.aiConversations.title'),
+      description: (
+        <span className="text-sm">
+          {t('serviceTemplate.bentoGrid.items.aiConversations.description')}
+        </span>
+      ),
+      header: <SkeletonOne />,
+      className: "md:col-span-1",
+      icon: <IconMessage className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+      title: t('serviceTemplate.bentoGrid.items.automatedSupport.title'),
+      description: (
+        <span className="text-sm">
+          {t('serviceTemplate.bentoGrid.items.automatedSupport.description')}
+        </span>
+      ),
+      header: <SkeletonTwo />,
+      className: "md:col-span-1",
+      icon: <IconClock className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+      title: t('serviceTemplate.bentoGrid.items.contextAware.title'),
+      description: (
+        <span className="text-sm">
+          {t('serviceTemplate.bentoGrid.items.contextAware.description')}
+        </span>
+      ),
+      header: <SkeletonThree />,
+      className: "md:col-span-1",
+      icon: <IconBrain className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+      title: t('serviceTemplate.bentoGrid.items.leadQualification.title'),
+      description: (
+        <span className="text-sm">
+          {t('serviceTemplate.bentoGrid.items.leadQualification.description')}
+        </span>
+      ),
+      header: <SkeletonFour />,
+      className: "md:col-span-2",
+      icon: <IconTarget className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+      title: t('serviceTemplate.bentoGrid.items.sentimentDetection.title'),
+      description: (
+        <span className="text-sm">
+          {t('serviceTemplate.bentoGrid.items.sentimentDetection.description')}
+        </span>
+      ),
+      header: <SkeletonFive />,
+      className: "md:col-span-1",
+      icon: <IconMoodSmile className="h-4 w-4 text-neutral-500" />,
+    },
+  ];
+
   return (
     <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
@@ -143,6 +204,8 @@ const SkeletonThree = () => {
   );
 };
 const SkeletonFour = () => {
+  const { t } = useTranslation();
+  
   const first = {
     initial: {
       x: 20,
@@ -176,31 +239,31 @@ const SkeletonFour = () => {
       >
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
-          alt="Customer"
+          alt={t('serviceTemplate.bentoGrid.altTexts.customer')}
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I got charged unexpectedly
+        <p className="sm:text-sm text-xs text-center font-semibold text-white mt-4">
+          {t('serviceTemplate.bentoGrid.customerMessages.billing')}
         </p>
         <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          High Priority
+          {t('serviceTemplate.bentoGrid.tags.highPriority')}
         </p>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
-          alt="Customer"
+          alt={t('serviceTemplate.bentoGrid.altTexts.customer')}
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Sold! Who can I speak to?
+        <p className="sm:text-sm text-xs text-center font-semibold text-white mt-4">
+          {t('serviceTemplate.bentoGrid.customerMessages.sales')}
         </p>
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Qualified Lead
+          {t('serviceTemplate.bentoGrid.tags.qualifiedLead')}
         </p>
       </motion.div>
       <motion.div
@@ -209,22 +272,24 @@ const SkeletonFour = () => {
       >
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
-          alt="Sales Team"
+          alt={t('serviceTemplate.bentoGrid.altTexts.salesTeam')}
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I need help with my order!
+        <p className="sm:text-sm text-xs text-center font-semibold text-white mt-4">
+          {t('serviceTemplate.bentoGrid.customerMessages.support')}
         </p>
         <p className="border border-blue-500 bg-blue-100 dark:bg-blue-900/20 text-blue-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Converting
+          {t('serviceTemplate.bentoGrid.tags.converting')}
         </p>
       </motion.div>
     </motion.div>
   );
 };
 const SkeletonFive = () => {
+  const { t } = useTranslation();
+  
   const variants = {
     initial: {
       x: 0,
@@ -262,23 +327,23 @@ const SkeletonFive = () => {
       >
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
-          alt="customer"
+          alt={t('serviceTemplate.bentoGrid.altTexts.customer')}
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
-        <p className="text-xs text-neutral-500">
-          I'm frustrated with the slow response time. Can someone help me urgently?
+        <p className="text-xs text-white">
+          {t('serviceTemplate.bentoGrid.customerMessages.urgent')}
         </p>
       </motion.div>
       <motion.div
         variants={variantsSecond}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
       >
-        <p className="text-xs text-neutral-500">😊 Happy to help immediately!</p>
+        <p className="text-xs text-white">{t('serviceTemplate.bentoGrid.customerMessages.response')}</p>
         <img
           src="https://res.cloudinary.com/effichat/image/upload/silver_ai_pfp.png"
-          alt="AI"
+          alt={t('serviceTemplate.bentoGrid.altTexts.ai')}
           height="24"
           width="24"
           className="rounded-full h-6 w-6"

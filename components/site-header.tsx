@@ -88,7 +88,7 @@ export function SiteHeader() {
               {/* Navigation - Center */}
               <div className="flex-1 flex justify-center">
                 <DropdownProvider>
-                  <div className="flex items-center space-x-8">
+                  <div className="flex items-center space-x-2">
                     {/* Simple Home Link */}
                     <Link 
                       href={getLocalePath("/")}
@@ -118,7 +118,7 @@ export function SiteHeader() {
                         },
                         {
                           label: t('services.chatAI.name'),
-                          onClick: () => router.push(getLocalePath('/coming-soon')),
+                          onClick: () => router.push(getLocalePath('/services/ai-chatbot')),
                           Icon: <MessageCircle className="h-4 w-4" />
                         },
                         {
