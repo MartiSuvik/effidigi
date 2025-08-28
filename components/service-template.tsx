@@ -73,7 +73,7 @@ const HeroSection = ({
   <section className="flex flex-col w-full items-center gap-[73px] px-4 md:px-[150px] py-0 relative bg-[#141519]">
 
     {/* Hero Content */}
-    <main className="flex flex-col w-full max-w-[905px] gap-[61px] px-0 items-center relative mt-32">
+    <main className="flex flex-col w-full max-w-[905px] gap-[30px] px-0 items-center relative mt-32">
       <div className="flex-col gap-[7px] inline-flex items-center relative">
         <div className="inline-flex items-center gap-2.5 p-2.5 relative">
           <h1 className="text-white text-4xl md:text-6xl font-black text-center leading-tight">
@@ -102,7 +102,7 @@ const HeroSection = ({
           <Button 
             type="submit"
             disabled={isSubmitting || !email}
-            className="bg-[#00ffb2] hover:bg-[#00b880] text-black px-6 py-3 rounded-lg font-medium whitespace-nowrap disabled:opacity-50"
+            className="bg-[#00ffb2] hover:bg-[#00b880] text-white px-6 py-3 rounded-lg font-medium whitespace-nowrap disabled:opacity-50"
           >
             {isSubmitting ? 'Submitting...' : t('serviceTemplate.hero.signUpButton')}
           </Button>
@@ -122,8 +122,9 @@ const HeroSection = ({
       </div>
 
       {/* Hero Image with Chat Interface */}
-      <div className="inline-flex flex-col items-center gap-2.5 px-2.5 py-10 pb-0 relative">
-        <div className="relative w-full max-w-none">
+      <div className="inline-flex flex-col items-center gap-2.5 px-2.5 pb-0 relative">
+        {/* Desktop Layout - Original design with background image and overlays */}
+        <div className="hidden md:block relative w-full max-w-none">
           {/* Background chatbot image */}
           <div className="w-full flex items-center justify-center">
             <img
@@ -197,7 +198,6 @@ const HeroSection = ({
             <p className="text-base text-white whitespace-pre-line">{t('serviceTemplate.chat.messages.agentResponse')}</p>
           </motion.div>
           
-                    
           <motion.div 
             className="absolute bottom-8 right-8 bg-white rounded-lg shadow-lg p-4 max-w-md"
             initial={{ opacity: 0, scale: 0, x: 50, y: 50 }}
@@ -228,6 +228,108 @@ const HeroSection = ({
               </div>
             </div>
             <p className="text-base text-gray-800 whitespace-pre-line">{t('serviceTemplate.chat.messages.customerThanks')}</p>
+          </motion.div>
+        </div>
+
+        {/* Mobile Layout - Clean chat interface design like reference */}
+        <div className="md:hidden w-full max-w-md mx-auto relative">
+          {/* Background phone image */}
+          <div className="w-full flex items-center justify-center">
+            <img
+              className="w-full max-w-full h-auto object-contain"
+              alt="AI Chatbot Interface"
+              src="https://res.cloudinary.com/effichat/image/upload/chatbot_phone.png"
+            />
+          </div>
+          
+          {/* Animated Chat bubbles overlay */}
+          <motion.div 
+            className="absolute top-12 right-4 bg-white rounded-lg shadow-lg p-2 max-w-[160px]"
+            initial={{ opacity: 0, scale: 0, x: 50, y: -50 }}
+            animate={{ 
+              opacity: [0, 1, 1, 0],
+              scale: [0, 1, 1, 0],
+              x: [50, 0, 0, 50],
+              y: [-50, 0, 0, -50]
+            }}
+            transition={{
+              duration: 7,
+              times: [0, 0.2, 0.9, 1],
+              repeat: Infinity,
+              repeatDelay: 2,
+              ease: "easeInOut"
+            }}
+          >
+            <div className="flex items-center gap-1.5 mb-1">
+              <img 
+                src={t('serviceTemplate.images.customerAvatar')} 
+                alt={t('serviceTemplate.chat.customerName')}
+                className="w-4 h-4 rounded-full object-cover"
+              />
+              <span className="text-xs font-medium text-gray-600">{t('serviceTemplate.chat.customerName')}</span>
+              <span className="text-xs text-gray-400 ml-auto">{t('serviceTemplate.chat.messages.customerQuestionTime')}</span>
+            </div>
+            <p className="text-xs text-gray-800 leading-tight">{t('serviceTemplate.chat.messages.customerQuestion')}</p>
+          </motion.div>
+          
+          <motion.div 
+            className="absolute top-2/3 left-4 transform -translate-y-1/2 bg-blue-500 rounded-lg shadow-lg p-2 max-w-[160px]"
+            initial={{ opacity: 0, scale: 0, x: -50, y: 0 }}
+            animate={{ 
+              opacity: [0, 1, 1, 0],
+              scale: [0, 1, 1, 0],
+              x: [-50, 0, 0, -50],
+              y: [0, 0, 0, 0]
+            }}
+            transition={{
+              duration: 7,
+              times: [0, 0.2, 0.9, 1],
+              repeat: Infinity,
+              repeatDelay: 2,
+              delay: 1,
+              ease: "easeInOut"
+            }}
+          >
+            <div className="flex items-center gap-1.5 mb-1">
+              <img 
+                src={t('serviceTemplate.images.agentAvatar')} 
+                alt={t('serviceTemplate.chat.agentName')}
+                className="w-4 h-4 rounded-full object-cover"
+              />
+              <span className="text-xs font-medium text-white">{t('serviceTemplate.chat.agentName')}</span>
+              <span className="text-xs text-blue-200 ml-auto">{t('serviceTemplate.chat.messages.agentResponseTime')}</span>
+            </div>
+            <p className="text-xs text-white leading-tight">{t('serviceTemplate.chat.messages.agentResponse')}</p>
+          </motion.div>
+          
+          <motion.div 
+            className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg p-2 max-w-[160px]"
+            initial={{ opacity: 0, scale: 0, x: 50, y: 50 }}
+            animate={{ 
+              opacity: [0, 1, 1, 0],
+              scale: [0, 1, 1, 0],
+              x: [50, 0, 0, 50],
+              y: [50, 0, 0, 50]
+            }}
+            transition={{
+              duration: 7,
+              times: [0, 0.2, 0.9, 1],
+              repeat: Infinity,
+              repeatDelay: 2,
+              delay: 2,
+              ease: "easeInOut"
+            }}
+          >
+            <div className="flex items-center gap-1.5 mb-1">
+              <img 
+                src={t('serviceTemplate.images.customerAvatar')} 
+                alt={t('serviceTemplate.chat.customerName')}
+                className="w-4 h-4 rounded-full object-cover"
+              />
+              <span className="text-xs font-medium text-gray-600">{t('serviceTemplate.chat.customerName')}</span>
+              <span className="text-xs text-gray-400 ml-auto">{t('serviceTemplate.chat.messages.customerThanksTime')}</span>
+            </div>
+            <p className="text-xs text-gray-800 leading-tight">{t('serviceTemplate.chat.messages.customerThanks')}</p>
           </motion.div>
         </div>
       </div>
@@ -376,8 +478,8 @@ const PricingPlansSection = ({ openCalModal }: { openCalModal: () => Promise<voi
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
         <Card className="p-8 relative border-[#00ffb2] border-2">
-          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <span className="bg-[#00ffb2] text-black px-4 py-2 rounded-full text-sm font-medium">
+          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+            <span className="bg-[#00ffb2] text-black px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-lg">
               {t('serviceTemplate.pricing.plans.starter.popular')}
             </span>
           </div>

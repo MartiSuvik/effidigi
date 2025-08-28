@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   keywords: 'AI chatbot, klienditugi automatiseerimine, AI assistant, Eesti chatbot, tehisintellekt, klienditeenindus',
   openGraph: {
     title: 'AI Chatbot, Mis Muudab Külastajad Klientideks - EFFI',
-    description: 'Automatiseeri klienditugi, püüa liide ja suurenda müüki meie intelligentse AI chatbotiga. Saadaval 24/7.',
+    description: 'Automatiseeri klienditugi, püüa huvilisi ja suurenda müüki meie intelligentse AI chatbotiga. Saadaval 24/7.',
     images: [
       {
         url: 'https://res.cloudinary.com/effichat/image/upload/chatbot.png',

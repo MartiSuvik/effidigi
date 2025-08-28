@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   IconBoxAlignRightFilled,
@@ -13,6 +13,45 @@ import {
 import { motion } from "motion/react";
 import { MessageSquareReply } from "lucide-react";
 import { useTranslation } from '@/lib/i18n';
+
+// Hook to detect mobile devices
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+  
+  return isMobile;
+};
+
+// Hook for intersection observer
+const useInViewAnimation = (threshold = 0.2) => {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold }
+    );
+    
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, isInView };
+};
 
 
 export default function BentoGridThirdDemo() {
@@ -93,6 +132,9 @@ export default function BentoGridThirdDemo() {
 }
 
 const SkeletonOne = () => {
+  const isMobile = useIsMobile();
+  const { ref, isInView } = useInViewAnimation();
+  
   const variants = {
     initial: {
       x: 0,
@@ -118,10 +160,15 @@ const SkeletonOne = () => {
     },
   };
 
+  // Determine animation state based on device and view status
+  const animationState = isMobile && isInView ? "animate" : "initial";
+
   return (
     <motion.div
+      ref={ref}
       initial="initial"
-      whileHover="animate"
+      animate={isMobile ? animationState : "initial"}
+      whileHover={!isMobile ? "animate" : undefined}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
@@ -149,6 +196,9 @@ const SkeletonOne = () => {
   );
 };
 const SkeletonTwo = () => {
+  const isMobile = useIsMobile();
+  const { ref, isInView } = useInViewAnimation();
+  
   const variants = {
     initial: {
       width: 0,
@@ -166,12 +216,18 @@ const SkeletonTwo = () => {
       },
     },
   };
+  
   const arr = new Array(6).fill(0);
+  
+  // Determine animation state based on device and view status
+  const animationState = isMobile && isInView ? "hover" : "animate";
+  
   return (
     <motion.div
+      ref={ref}
       initial="initial"
-      animate="animate"
-      whileHover="hover"
+      animate={isMobile ? animationState : "animate"}
+      whileHover={!isMobile ? "hover" : undefined}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       {arr.map((_, i) => (
@@ -188,13 +244,21 @@ const SkeletonTwo = () => {
   );
 };
 const SkeletonThree = () => {
+  const isMobile = useIsMobile();
+  const { ref, isInView } = useInViewAnimation();
+  
+  // Define rotation state based on device and view status
+  const rotationState = isMobile && isInView ? { rotate: -15 } : {};
+
   return (
     <motion.div
+      ref={ref}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 animate-gradient-flow"
     >
       <motion.div className="h-full w-full rounded-lg flex items-center justify-center">
         <motion.div
-          whileHover={{ rotate: -15 }}
+          whileHover={!isMobile ? { rotate: -15 } : undefined}
+          animate={isMobile ? rotationState : undefined}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <MessageSquareReply className="h-24 w-24 text-white/100" />
@@ -205,6 +269,8 @@ const SkeletonThree = () => {
 };
 const SkeletonFour = () => {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
+  const { ref, isInView } = useInViewAnimation();
   
   const first = {
     initial: {
@@ -226,11 +292,16 @@ const SkeletonFour = () => {
       rotate: 0,
     },
   };
+  
+  // Determine animation state based on device and view status
+  const animationState = isMobile && isInView ? "hover" : "initial";
+  
   return (
     <motion.div
+      ref={ref}
       initial="initial"
-      animate="animate"
-      whileHover="hover"
+      animate={isMobile ? animationState : "animate"}
+      whileHover={!isMobile ? "hover" : undefined}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
     >
       <motion.div
@@ -289,6 +360,8 @@ const SkeletonFour = () => {
 };
 const SkeletonFive = () => {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
+  const { ref, isInView } = useInViewAnimation();
   
   const variants = {
     initial: {
@@ -315,10 +388,15 @@ const SkeletonFive = () => {
     },
   };
 
+  // Determine animation state based on device and view status
+  const animationState = isMobile && isInView ? "animate" : "initial";
+
   return (
     <motion.div
+      ref={ref}
       initial="initial"
-      whileHover="animate"
+      animate={isMobile ? animationState : "initial"}
+      whileHover={!isMobile ? "animate" : undefined}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div

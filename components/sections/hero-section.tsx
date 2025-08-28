@@ -166,7 +166,7 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="relative py-20 pt-32 overflow-hidden animated-gradient-bg">
+      <section className="relative md:pt-20 overflow-hidden animated-gradient-bg">
         <ParticlesBackground />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-20">

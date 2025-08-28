@@ -301,7 +301,7 @@
       }
     },
     "bookingSystem": {
-      "name": "Broneerimissüsteem",
+      "name": "Markus - Broneerija",
       "description": "Tark broneerimissüsteem, mis haldab ajakavasid ja kinnitab kohtumisi automaatselt.",
       "page": {
         "title": "Kuidas moodne broneerimissüsteem saab teie äri muuta",
@@ -465,31 +465,31 @@
     "karl": {
       "name": "Karl",
       "role": "Andmeanalüütik",
-      "description": "Analüüsib kliendiandmeid ja loob detailseid raporteid teie äri optimeerimiseks. Kasutab masinõpet mustrite tuvastamiseks.",
+      "description": "Analüüsib kliendiandmeid ja loob detailseid raporteid.",
       "specialties": ["Andmeanalüüs", "Raportid", "Prognoosid"]
     },
     "sandra": {
       "name": "Sandra",
       "role": "Telefoniteeninduse juht",
-      "description": "24/7 telefonivastamisteenus, mis käsitleb kõiki kõnesid. Vastab küsimustele ja aitab kliente reaalajas.",
+      "description": "Vastab kliendi kõnedele 24/7. Broneerib ja vastab küsimustele.",
       "specialties": ["Telefoniteenindus", "Broneerimine", "Küsimused"]
     },
     "silver": {
       "name": "Silver",
       "role": "Vestlusrobot",
-      "description": "Nutika vestlusrobot, mis vastab küsimustele ja aitab kliente reaalajas. Integreeritakse veebisaitidesse ja rakendustesse.",
+      "description": "Vastab küsimustele ja edendab toote müüki, sh sotsiaalmeedias.",
       "specialties": ["Veebichat", "Küsimused", "Tugi"]
     },
     "helen": {
       "name": "Helen",
       "role": "CRM automaatika ekspert",
-      "description": "Haldab kliendisuhteid ja automatiseerib müügiprotsesse tõhusalt. Integreeritakse CRM süsteemidega sujuvalt.",
+      "description": "Haldab kliendisuhteid ja automatiseerib müügiprotsesse.",
       "specialties": ["CRM", "Automatiseerimine", "Müük"]
     },
     "markus": {
       "name": "Markus",
       "role": "Broneerimise spetsialist",
-      "description": "Ekspert, kes haldab broneeringuid ja reserveeringuid tõhusalt.",
+      "description": "Automaatselt haldab ja sisestab veebi broneeringuid 24/7.",
       "specialties": ["Broneerimine", "Teatamine", "Reserveerimine"]
     }
   },
@@ -657,7 +657,7 @@
   "serviceTemplate": {
     "hero": {
       "title": "AI Chatbot, Mis Muudab Külastajad Klientideks",
-      "description": "Automatiseeri klienditugi, püüa liide ja suurenda müüki meie intelligentse AI chatbotiga. Saadaval 24/7, et teenindada kliente mitmes keeles.",
+      "description": "Automatiseeri klienditugi, püüa huvilisi ja suurenda müüki meie intelligentse AI chatbotiga. Saadaval 24/7, et teenindada kliente mitmes keeles.",
       "emailPlaceholder": "Sisesta oma töö e-post",
       "signUpButton": "Alusta Tasuta Prooviperioodi",
       "trialText": "Tasuta 30-päevane prooviperiood",
@@ -665,7 +665,7 @@
     },
     "chat": {
       "customerName": "Anna",
-      "agentName": "EFFI AI Assistent",
+      "agentName": "EFFI AI",
       "messages": {
         "customerQuestion": "Kas ma jõuan veel broneeringu teha? 😱",
         "customerQuestionTime": "18:57",

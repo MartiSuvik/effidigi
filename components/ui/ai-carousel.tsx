@@ -285,7 +285,7 @@ const Carousel3D = ({
                         </div>
                         
                         {/* Description in tiny font */}
-                        <p className="text-gray-300 text-[10px] leading-tight max-w-full line-clamp-2 pt-1 text-left">
+                        <p className="text-gray-300 text-[20px] leading-tight max-w-full line-clamp-2 pt-1 text-left">
                           {item.description}
                         </p>
                         

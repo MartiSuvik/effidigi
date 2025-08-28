@@ -6,11 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
-import { PhoneCall, Menu as MenuIcon, X, BarChart3, Phone, MessageCircle, Users, FileText, BookOpen, Calendar } from "lucide-react";
+import { PhoneCall, BarChart3, Phone, MessageCircle, Users, FileText, BookOpen, Calendar } from "lucide-react";
 import { useCal } from "@/hooks/use-cal";
 import { useTranslation } from "@/lib/i18n";
 import { AnimatedDropdownMenu, DropdownProvider } from "@/components/ui/animated-dropdown-menu";
 import { useRouter } from "next/navigation";
+import { MobileSidebar } from "@/components/ui/mobile-sidebar";
 
 export function SiteHeader() {
   const { openCalModal } = useCal();
@@ -29,19 +30,24 @@ export function SiteHeader() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const mobileNavItems = [
-    { label: t('navigation.home'), href: getLocalePath("/") },
-    { label: t('navigation.solutions'), href: getLocalePath("/#services") },
-    { label: t('navigation.blog'), href: getLocalePath("/blog") },
-    { label: t('navigation.caseStudies'), href: getLocalePath("/case-studies") }
-  ];
+  // Disable body scroll when mobile sidebar is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
 
-  return (
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);  return (
     <>
       <header 
         className={cn(
@@ -53,21 +59,24 @@ export function SiteHeader() {
       >
         <div className="container mx-auto px-4 md:px-6">
           {/* Mobile Header */}
-          <div className="flex items-center justify-between md:hidden">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold terminal-text">EFFI</span>
-            </Link>
-            
-            <button 
-              className="text-foreground"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <MenuIcon className="h-6 w-6" />
-              )}
-            </button>
+          <div className="md:hidden flex justify-center">
+            <div className={cn(
+              "flex items-center justify-between w-full max-w-sm px-6 py-3 rounded-full transition-all duration-300",
+              "shadow-xl border-2 border-[#00FFB2]",
+              "bg-slate-900",
+              isScrolled 
+                ? "shadow-lg" 
+                : "shadow-2xl"
+            )}>
+              <Link href={getLocalePath("/")} className="flex items-center gap-2">
+                <span className="text-2xl font-bold terminal-text">EFFI</span>
+              </Link>
+              
+              <MobileSidebar 
+                isOpen={mobileMenuOpen} 
+                setIsOpen={setMobileMenuOpen} 
+              />
+            </div>
           </div>
 
           {/* Desktop Header */}
@@ -196,42 +205,6 @@ export function SiteHeader() {
             </div>
           </div>
         </div>
-        
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-card border-t border-border mt-2"
-            >
-              <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
-                {mobileNavItems.map((item, index) => (
-                  <Link 
-                    key={index}
-                    href={item.href}
-                    className="py-2 text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <GradientButton 
-                  size="sm" 
-                  className="gap-2 mt-2"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    openCalModal();
-                  }}
-                >
-                  <PhoneCall className="w-4 h-4" />
-                  {t('navigation.contact')}
-                </GradientButton>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </header>
     </>
   );

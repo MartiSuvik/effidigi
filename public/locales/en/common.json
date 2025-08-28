@@ -396,31 +396,31 @@
     "karl": {
       "name": "Karl",
       "role": "Data Analyst",
-      "description": "Analyzes customer data and creates detailed reports for business optimization. Uses machine learning for pattern recognition and forecasting.",
+      "description": "Analyzes customer data and creates detailed reports.",
       "specialties": ["Data Analysis", "Reports", "Forecasts"]
     },
     "sandra": {
       "name": "Sandra",
       "role": "Phone Support Manager",
-      "description": "24/7 phone answering service that handles all calls professionally. Answers questions and helps customers in real-time.",
+      "description": "Answers calls 24/7. Handles bookings & responds to inquiries.",
       "specialties": ["Phone Support", "Booking", "Questions"]
     },
     "silver": {
       "name": "Silver",
       "role": "Chat Support Manager",
-      "description": "Smart chatbot that answers questions and helps customers in real-time. Integrates with websites and applications.",
+      "description": "Answers questions & promotes products (now on social media).",
       "specialties": ["Web Chat", "Questions", "Support"]
     },
     "helen": {
       "name": "Helen",
       "role": "CRM Automation Expert",
-      "description": "Manages customer relationships and automates sales processes efficiently. Integrates seamlessly with CRM systems.",
+      "description": "Manages customer relationships and automates sales processes.",
       "specialties": ["CRM", "Automation", "Sales"]
     },
     "markus": {
       "name": "Markus",
       "role": "Booking Specialist",
-      "description": "Expert in managing bookings and reservations efficiently.",
+      "description": "Automatically manages and inputs online bookings 24/7.",
       "specialties": ["Booking", "Notifications", "Reservations"]
     }
   },

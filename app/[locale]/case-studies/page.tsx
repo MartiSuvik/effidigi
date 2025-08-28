@@ -36,7 +36,7 @@ const caseStudies = [
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-0 pt-32 overflow-hidden">
+      <section className="relative py-0 md:pt-32 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
