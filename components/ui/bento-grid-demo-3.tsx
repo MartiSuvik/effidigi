@@ -1,6 +1,71 @@
-"use client";
+// (removed duplicate 'use client')
+// Hook for bento card: registers position and updates active card if closest to center
+const useBentoCardActive = (id: string, enabled: boolean) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { activeId, setActiveId } = useActiveBentoCard();
+  useEffect(() => {
+    if (!enabled) return;
+    const handle = () => {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const cardCenter = rect.top + rect.height / 2;
+      // Middle third boundaries
+      const third = viewportHeight / 3;
+      const middleStart = third;
+      const middleEnd = 2 * third;
+      // Only consider cards whose center is in the middle third
+      if (cardCenter >= middleStart && cardCenter < middleEnd) {
+        // Find all cards with data-bento-card-id
+        const all = Array.from(document.querySelectorAll('[data-bento-card-id]')) as HTMLDivElement[];
+        // Find the one closest to the center
+        let minDist = Infinity;
+        let closestId: string | null = null;
+        const viewportCenter = viewportHeight / 2;
+        all.forEach(el => {
+          const r = el.getBoundingClientRect();
+          const c = r.top + r.height / 2;
+          const dist = Math.abs(c - viewportCenter);
+          if (c >= middleStart && c < middleEnd && dist < minDist) {
+            minDist = dist;
+            closestId = el.dataset.bentoCardId || null;
+          }
+        });
+        if (closestId !== activeId) setActiveId(closestId);
+      }
+    };
+    window.addEventListener('scroll', handle, { passive: true });
+    window.addEventListener('resize', handle);
+    // Initial check
+    handle();
+    return () => {
+      window.removeEventListener('scroll', handle);
+      window.removeEventListener('resize', handle);
+    };
+  }, [id, enabled, setActiveId, activeId]);
+  return ref;
+};
+
+
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, createContext, useContext } from "react";
+// Context to track which bento card is active (closest to center of viewport)
+const ActiveBentoCardContext = createContext({
+  activeId: null as null | string,
+  setActiveId: (_: string | null) => {},
+});
+
+export const useActiveBentoCard = () => useContext(ActiveBentoCardContext);
+
+// Provider to wrap the grid and manage active card state
+const ActiveBentoCardProvider = ({ children }: { children: React.ReactNode }) => {
+  const [activeId, setActiveId] = useState<string | null>(null);
+  return (
+    <ActiveBentoCardContext.Provider value={{ activeId, setActiveId }}>
+      {children}
+    </ActiveBentoCardContext.Provider>
+  );
+};
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   IconBoxAlignRightFilled,
@@ -116,25 +181,29 @@ export default function BentoGridThirdDemo() {
   ];
 
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-      {items.map((item, i) => (
-        <BentoGridItem
-          key={i}
-          title={item.title}
-          description={item.description}
-          header={item.header}
-          className={cn("[&>p:text-lg]", item.className)}
-          icon={item.icon}
-        />
-      ))}
-    </BentoGrid>
+    <ActiveBentoCardProvider>
+      <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+        {items.map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={React.cloneElement(item.header as React.ReactElement, { bentoCardId: `bento-card-${i}` })}
+            className={cn("[&>p:text-lg]", item.className)}
+            icon={item.icon}
+          />
+        ))}
+      </BentoGrid>
+    </ActiveBentoCardProvider>
   );
 }
 
-const SkeletonOne = () => {
+type SkeletonProps = { bentoCardId?: string };
+const SkeletonOne = ({ bentoCardId }: SkeletonProps) => {
   const isMobile = useIsMobile();
-  const { ref, isInView } = useInViewAnimation();
-  
+  const { activeId } = useActiveBentoCard();
+  const ref = useBentoCardActive(bentoCardId || '', isMobile);
+
   const variants = {
     initial: {
       x: 0,
@@ -160,12 +229,13 @@ const SkeletonOne = () => {
     },
   };
 
-  // Determine animation state based on device and view status
-  const animationState = isMobile && isInView ? "animate" : "initial";
+  // Only animate if this card is active on mobile
+  const animationState = isMobile && activeId === bentoCardId ? "animate" : "initial";
 
   return (
     <motion.div
       ref={ref}
+      data-bento-card-id={bentoCardId}
       initial="initial"
       animate={isMobile ? animationState : "initial"}
       whileHover={!isMobile ? "animate" : undefined}
@@ -195,10 +265,11 @@ const SkeletonOne = () => {
     </motion.div>
   );
 };
-const SkeletonTwo = () => {
+const SkeletonTwo = ({ bentoCardId }: SkeletonProps) => {
   const isMobile = useIsMobile();
-  const { ref, isInView } = useInViewAnimation();
-  
+  const { activeId } = useActiveBentoCard();
+  const ref = useBentoCardActive(bentoCardId || '', isMobile);
+
   const variants = {
     initial: {
       width: 0,
@@ -216,15 +287,13 @@ const SkeletonTwo = () => {
       },
     },
   };
-  
   const arr = new Array(6).fill(0);
-  
-  // Determine animation state based on device and view status
-  const animationState = isMobile && isInView ? "hover" : "animate";
-  
+  // Only animate if this card is active on mobile
+  const animationState = isMobile && activeId === bentoCardId ? "hover" : "animate";
   return (
     <motion.div
       ref={ref}
+      data-bento-card-id={bentoCardId}
       initial="initial"
       animate={isMobile ? animationState : "animate"}
       whileHover={!isMobile ? "hover" : undefined}
@@ -243,16 +312,16 @@ const SkeletonTwo = () => {
     </motion.div>
   );
 };
-const SkeletonThree = () => {
+const SkeletonThree = ({ bentoCardId }: SkeletonProps) => {
   const isMobile = useIsMobile();
-  const { ref, isInView } = useInViewAnimation();
-  
-  // Define rotation state based on device and view status
-  const rotationState = isMobile && isInView ? { rotate: -15 } : {};
-
+  const { activeId } = useActiveBentoCard();
+  const ref = useBentoCardActive(bentoCardId || '', isMobile);
+  // Only animate if this card is active on mobile
+  const rotationState = isMobile && activeId === bentoCardId ? { rotate: -15 } : {};
   return (
     <motion.div
       ref={ref}
+      data-bento-card-id={bentoCardId}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 animate-gradient-flow"
     >
       <motion.div className="h-full w-full rounded-lg flex items-center justify-center">
@@ -267,38 +336,37 @@ const SkeletonThree = () => {
     </motion.div>
   );
 };
-const SkeletonFour = () => {
+const SkeletonFour = ({ bentoCardId }: SkeletonProps) => {
   const { t } = useTranslation();
   const isMobile = useIsMobile();
-  const { ref, isInView } = useInViewAnimation();
-  
+  const { activeId } = useActiveBentoCard();
+  const ref = useBentoCardActive(bentoCardId || '', isMobile);
   const first = {
     initial: {
-      x: 20,
-      rotate: -5,
-    },
-    hover: {
       x: 0,
       rotate: 0,
+    },
+    hover: {
+      x: 20,
+      rotate: -5,
     },
   };
   const second = {
     initial: {
-      x: -20,
-      rotate: 5,
-    },
-    hover: {
       x: 0,
       rotate: 0,
     },
+    hover: {
+      x: -20,
+      rotate: 5,
+    },
   };
-  
-  // Determine animation state based on device and view status
-  const animationState = isMobile && isInView ? "hover" : "initial";
-  
+  // Only animate if this card is active on mobile
+  const animationState = isMobile && activeId === bentoCardId ? "hover" : "initial";
   return (
     <motion.div
       ref={ref}
+      data-bento-card-id={bentoCardId}
       initial="initial"
       animate={isMobile ? animationState : "animate"}
       whileHover={!isMobile ? "hover" : undefined}
@@ -322,7 +390,10 @@ const SkeletonFour = () => {
           {t('serviceTemplate.bentoGrid.tags.highPriority')}
         </p>
       </motion.div>
-      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
+      <motion.div 
+        variants={second}
+        className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+      >
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
           alt={t('serviceTemplate.bentoGrid.altTexts.customer')}
@@ -337,13 +408,13 @@ const SkeletonFour = () => {
           {t('serviceTemplate.bentoGrid.tags.qualifiedLead')}
         </p>
       </motion.div>
-      <motion.div
-        variants={second}
+      <motion.div 
+        variants={first}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
-          alt={t('serviceTemplate.bentoGrid.altTexts.salesTeam')}
+          alt={t('serviceTemplate.bentoGrid.altTexts.customer')}
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
@@ -358,11 +429,12 @@ const SkeletonFour = () => {
     </motion.div>
   );
 };
-const SkeletonFive = () => {
+
+const SkeletonFive = ({ bentoCardId }: SkeletonProps) => {
   const { t } = useTranslation();
   const isMobile = useIsMobile();
-  const { ref, isInView } = useInViewAnimation();
-  
+  const { activeId } = useActiveBentoCard();
+  const ref = useBentoCardActive(bentoCardId || '', isMobile);
   const variants = {
     initial: {
       x: 0,
@@ -387,13 +459,12 @@ const SkeletonFive = () => {
       },
     },
   };
-
-  // Determine animation state based on device and view status
-  const animationState = isMobile && isInView ? "animate" : "initial";
-
+  // Only animate if this card is active on mobile
+  const animationState = isMobile && activeId === bentoCardId ? "animate" : "initial";
   return (
     <motion.div
       ref={ref}
+      data-bento-card-id={bentoCardId}
       initial="initial"
       animate={isMobile ? animationState : "initial"}
       whileHover={!isMobile ? "animate" : undefined}
@@ -401,89 +472,37 @@ const SkeletonFive = () => {
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black max-w-[80%]"
       >
         <img
           src="https://res.cloudinary.com/effichat/image/upload/brenda.png"
           alt={t('serviceTemplate.bentoGrid.altTexts.customer')}
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
+          height="32"
+          width="32"
+          className="rounded-full h-8 w-8 shrink-0"
         />
-        <p className="text-xs text-white">
-          {t('serviceTemplate.bentoGrid.customerMessages.urgent')}
-        </p>
+        <div className="flex flex-col">
+          <p className="text-xs text-white font-medium">
+            {t('serviceTemplate.bentoGrid.customerMessages.urgent')}
+          </p>
+        </div>
       </motion.div>
-      <motion.div
+      <motion.div 
         variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
+        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 bg-white dark:bg-black max-w-[70%] ml-auto"
       >
-        <p className="text-xs text-white">{t('serviceTemplate.bentoGrid.customerMessages.response')}</p>
+        <p className="text-xs text-white font-medium">
+          {t('serviceTemplate.bentoGrid.customerMessages.response')}
+        </p>
         <img
           src="https://res.cloudinary.com/effichat/image/upload/silver_ai_pfp.png"
           alt={t('serviceTemplate.bentoGrid.altTexts.ai')}
           height="24"
           width="24"
-          className="rounded-full h-6 w-6"
+          className="rounded-full h-6 w-6 shrink-0"
         />
       </motion.div>
     </motion.div>
   );
 };
-const items = [
-  {
-    title: "AI-Powered Conversations",
-    description: (
-      <span className="text-sm">
-        Deliver natural, human-like interactions that engage your customers 24/7.
-      </span>
-    ),
-    header: <SkeletonOne />,
-    className: "md:col-span-1",
-    icon: <IconMessage className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Automated Customer Support",
-    description: (
-      <span className="text-sm">
-        Reduce response times and free your team by letting AI handle FAQs.
-      </span>
-    ),
-    header: <SkeletonTwo />,
-    className: "md:col-span-1",
-    icon: <IconClock className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Context-Aware Responses",
-    description: (
-      <span className="text-sm">
-        Chatbot remembers past messages to personalize user experiences.
-      </span>
-    ),
-    header: <SkeletonThree />,
-    className: "md:col-span-1",
-    icon: <IconBrain className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Lead Qualification & Conversion",
-    description: (
-      <span className="text-sm">
-Automatically capture leads, qualify them with smart questions, and hand off hot prospects to your team.      </span>
-    ),
-    header: <SkeletonFour />,
-    className: "md:col-span-2",
-    icon: <IconTarget className="h-4 w-4 text-neutral-500" />,
-  },
 
-  {
-    title: "Sentiment & Intent Detection",
-    description: (
-      <span className="text-sm">
-        Understand customer mood & intent to respond more effectively & improve satisfaction.
-      </span>
-    ),
-    header: <SkeletonFive />,
-    className: "md:col-span-1",
-    icon: <IconMoodSmile className="h-4 w-4 text-neutral-500" />,
-  },
-];

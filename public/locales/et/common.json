@@ -92,7 +92,7 @@
       "quote": "\"Testkõne aitas meil mõista, kui võimas see tehnoloogia on. Kohe teadsime, et vajame seda.\"",
       "author": "- Kohvik Katherinenthal, Tallinn"
     },
-    "platformTitle": "Kõik vajalik ühe platvormi sees",
+    "platformTitle": "Kõik vajalik ühest kohast",
     "features": {
       "parallelCalls": "Paralleelsed Kõned",
       "availability": "24/7 Kättesaadavus",
@@ -760,7 +760,7 @@
           "description": "Püüa automaatselt liide, kvalifitseeri neid nutikate küsimustega ja anna kuumad perspektiivid meeskonnale üle."
         },
         "sentimentDetection": {
-          "title": "Emotsioonide ja Kavatsuste Tuvastamine",
+          "title": "Kavatsuste ja Emotsioonide Tuvastamine",
           "description": "Mõista klientide meeleolu ja kavatsusi, et vastata tõhusamalt ja parandada rahulolu."
         }
       },
@@ -768,8 +768,8 @@
         "billing": "Mind arveldati ootamatult",
         "sales": "Müüdud! Kellega saan rääkida?",
         "support": "Vajan abi oma tellimusega!",
-        "urgent": "Olen pettunud aeglase vastamisaja üle. Kas keegi saab mulle kiireloomuliselt aidata?",
-        "response": "😊 Meelsasti aitan kohe!"
+        "urgent": "Olen ülimalt pettunud aeglase vastamisaja üle! Kas keegi saab mind aidata?",
+        "response": "😱 Väga vabandan! Olen siin ja valmis päästma teie päeva 🚀"
       },
       "tags": {
         "highPriority": "Kõrge Prioriteet",
@@ -781,6 +781,49 @@
         "salesTeam": "Müügimeeskond",
         "ai": "AI"
       }
+    }
+  },
+  "voiceServiceTemplate": {
+    "hero": {
+      "title": "AI Häälrobot, Mis Muudab Helistajad Klientideks",
+      "description": "Automatiseeri telefonisuhtlus, püüa huvilisi ja suurenda müüki meie intelligentse AI häälrobotiga. Saadaval 24/7, et teenindada helistajaid mitmes keeles.",
+      "emailPlaceholder": "Sisesta oma töö e-post",
+      "signUpButton": "Alusta Tasuta Prooviperioodi",
+      "trialText": "Tasuta 30-päevane prooviperiood",
+      "auditText": "Tasuta AI valmisoleku audit"
+    },
+    "chat": {
+      "customerName": "Anna",
+      "agentName": "EFFI AI",
+      "messages": {
+        "customerQuestion": "Tere, kas ma saan broneeringu teha? 📞",
+        "customerQuestionTime": "18:57",
+        "agentResponse": "Tere Anna! Jah, loomulikult! Millal sooviksite meid külastada? 🎙️",
+        "agentResponseTime": "18:57",
+        "customerThanks": "Suurepärane! Homme kell 13 neljale inimesele.",
+        "customerThanksTime": "18:58"
+      }
+    },
+    "features": {
+      "title": "Intelligentsed Häältehnoloogiad Parema Kliendikogemuse Jaoks",
+      "description": "Kõik, mida vajate telefonikõnede automatiseerimiseks ja äri kasvatamiseks"
+    },
+    "multichannel": {
+      "title": "Vasta kõnedele iga kanali kaudu",
+      "description": "Integreeri oma AI häälrobot tavalisse telefonisüsteemi, VoIP-i ja mobiilirakendused. Paku järjekindlat tuge kõigis kanalites, 24/7.",
+      "buttonText": "Alusta Tasuta Prooviperioodi",
+      "imageAlt": "Mitmekanaliline häälroboti liides näitab telefoni, VoIP ja mobiilirakenduse integratsiooni"
+    },
+    "sales": {
+      "title": "Muuda helistajad klientideks",
+      "description": "Kaasa aktiivselt telefonikõne käigus, kvalifitseeri helistajaid ja suuna neid läbi intelligentsete häälvoogude.",
+      "buttonText": "Alusta Kohe",
+      "imageAlt": "AI häälroboti liides näitab liidide kvalifitseerimist ja müügikõne voogu"
+    },
+    "cta": {
+      "title": "Valmis Häälrevolutsiooniks? 📞",
+      "description": "Liitu tuhandete rahuloleva klientidega ja muuda oma telefonitugi juba täna.",
+      "buttonText": "Võta Ühendust Tasuta Prooviks"
     }
   }
 }

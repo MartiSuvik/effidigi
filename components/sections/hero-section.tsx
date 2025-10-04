@@ -299,7 +299,7 @@ export function HeroSection() {
           </motion.div>
 
           {/* AI Employees Section */}
-          <div className="space-y-16">
+          <div className="">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -309,29 +309,27 @@ export function HeroSection() {
             >
               <AICarousel />
             </motion.div>
-            {/* AI Test Section */}
+            {/* AI Test Section
             <SectionHeading 
               title={t('hero.testTitle')}
               subtitle={t('hero.testSubtitle')}
               textAlignment="center"
             />
-            
-            {/* AI Test Form with iPhone */}
-            <motion.div
+                        <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="flex justify-center"
             >
               <div className="relative w-[450px] h-[600px] overflow-hidden rounded-3xl">
-                {/* Larger iPhone positioned to show middle section */}
+                {/* Larger iPhone positioned to show middle section}
                 <IPhone15Pro className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[960px] scale-90">
                   <AIVoicecallerTest />
                 </IPhone15Pro>
               </div>
             </motion.div>
 
-            {/* Testimonial */}
+            {/* Testimonial 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -345,15 +343,15 @@ export function HeroSection() {
                 </blockquote>
                 <cite className="text-sm font-medium">{t('hero.testimonial.author')}</cite>
               </div>
-            </motion.div>
+            </motion.div>*/}
 
-                        {/* Service Icons Grid */}
+          {/* Service Icons Grid */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-16 mb-16"
+              className="mb-20"
             >
               <div className="text-center mb-8">
                 <h3 className="text-lg font-semibold text-foreground">

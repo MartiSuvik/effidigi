@@ -106,29 +106,19 @@ const MobileSidebar = ({ isOpen, setIsOpen }: MobileSidebarProps) => {
       icon: MessageCircle,
       items: [
         {
-          label: t('services.dataAI.name'),
-          path: getLocalePath('/services/data-ai'),
-          icon: BarChart3
-        },
-        {
-          label: t('services.bookingSystem.name'),
-          path: getLocalePath('/services/booking-system'),
-          icon: Calendar
-        },
-        {
-          label: t('services.phoneAI.name'),
-          path: getLocalePath('/coming-soon'),
-          icon: Phone
-        },
-        {
           label: t('services.chatAI.name'),
           path: getLocalePath('/services/ai-chatbot'),
           icon: MessageCircle
         },
         {
-          label: t('services.crmAI.name'),
-          path: getLocalePath('/coming-soon'),
-          icon: Users
+          label: t('services.phoneAI.name'),
+          path: getLocalePath('/services/voice-ai'),
+          icon: Phone
+        },
+        {
+          label: t('services.dataAI.name'),
+          path: getLocalePath('/services/data-ai'),
+          icon: BarChart3
         }
       ]
     },

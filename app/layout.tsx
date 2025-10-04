@@ -262,7 +262,7 @@ export default function RootLayout({
           </CalProvider>
         </ThemeProvider>
         
-        {/* Voiceflow Chat Widget */}
+        {/* Voiceflow Chat Widget
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -325,7 +325,7 @@ export default function RootLayout({
               })(document, 'script');
             `,
           }}
-        />
+        />*/}
       </body>
     </html>
   );

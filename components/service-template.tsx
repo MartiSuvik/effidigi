@@ -13,6 +13,7 @@ import BentoGridThirdDemo from '@/components/ui/bento-grid-demo-3';
 import { Footer } from '@/components/ui/footer-section';
 import { WordPullUp } from '@/components/ui/word-pull-up';
 import { useCal } from '@/hooks/use-cal';
+import { VoiceHeroScrollDemo } from '@/components/ui/voice-hero-scroll-demo';
 
 // Custom hook for intersection observer
 const useInView = (threshold = 0.2) => {
@@ -59,13 +60,17 @@ const HeroSection = ({
   setEmail, 
   handleEmailSubmit, 
   isSubmitting, 
-  openCalModal 
+  openCalModal,
+  templateKey,
+  serviceType
 }: {
   email: string;
   setEmail: (email: string) => void;
   handleEmailSubmit: (e: React.FormEvent) => Promise<void>;
   isSubmitting: boolean;
   openCalModal: () => Promise<void>;
+  templateKey: string;
+  serviceType: "chat" | "voice";
 }) => {
   const { t } = useTranslation();
   
@@ -77,13 +82,13 @@ const HeroSection = ({
       <div className="flex-col gap-[7px] inline-flex items-center relative">
         <div className="inline-flex items-center gap-2.5 p-2.5 relative">
           <h1 className="text-white text-4xl md:text-6xl font-black text-center leading-tight">
-            {t('serviceTemplate.hero.title')}
+            {t(`${templateKey}.hero.title`)}
           </h1>
         </div>
 
         <div className="inline-flex items-center gap-2.5 p-2.5 relative max-w-2xl">
           <p className="text-gray-200 text-base md:text-lg text-center font-bold">
-            {t('serviceTemplate.hero.description')}
+            {t(`${templateKey}.hero.description`)}
           </p>
         </div>
       </div>
@@ -95,7 +100,7 @@ const HeroSection = ({
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={t('serviceTemplate.hero.emailPlaceholder')}
+            placeholder={t(`${templateKey}.hero.emailPlaceholder`)}
             className="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent bg-white"
             required
           />
@@ -104,7 +109,7 @@ const HeroSection = ({
             disabled={isSubmitting || !email}
             className="bg-[#00ffb2] hover:bg-[#00b880] text-white px-6 py-3 rounded-lg font-medium whitespace-nowrap disabled:opacity-50"
           >
-            {isSubmitting ? 'Submitting...' : t('serviceTemplate.hero.signUpButton')}
+            {isSubmitting ? 'Submitting...' : t(`${templateKey}.hero.signUpButton`)}
           </Button>
         </div>
       </form>
@@ -113,225 +118,233 @@ const HeroSection = ({
       <div className="flex items-center gap-4 text-sm text-gray-200">
         <div className="flex items-center gap-1">
           <Check className="w-4 h-4" />
-          <span>{t('serviceTemplate.hero.trialText')}</span>
+          <span>{t(`${templateKey}.hero.trialText`)}</span>
         </div>
         <div className="flex items-center gap-1">
           <Check className="w-4 h-4" />
-          <span>{t('serviceTemplate.hero.auditText')}</span>
+          <span>{t(`${templateKey}.hero.auditText`)}</span>
         </div>
       </div>
 
-      {/* Hero Image with Chat Interface */}
-      <div className="inline-flex flex-col items-center gap-2.5 px-2.5 pb-0 relative">
-        {/* Desktop Layout - Original design with background image and overlays */}
-        <div className="hidden md:block relative w-full max-w-none">
-          {/* Background chatbot image */}
-          <div className="w-full flex items-center justify-center">
-            <img
-              className="w-full max-w-full h-auto object-contain"
-              alt="AI Chatbot Interface"
-              src={t('serviceTemplate.images.chatbot')}
-            />
-          </div>
-          
-          {/* Animated Chat bubbles overlay */}
-          <motion.div 
-            className="absolute top-8 right-8 bg-white rounded-lg shadow-lg p-4 max-w-md"
-            initial={{ opacity: 0, scale: 0, x: 50, y: -50 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0],
-              scale: [0, 1, 1, 0],
-              x: [50, 0, 0, 50],
-              y: [-50, 0, 0, -50]
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.2, 0.9, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <img 
-                src={t('serviceTemplate.images.customerAvatar')} 
-                alt={t('serviceTemplate.chat.customerName')}
-                className="w-9 h-9 rounded-full object-cover"
-              />
-              <div>
-                <span className="text-base font-medium text-gray-600">{t('serviceTemplate.chat.customerName')}</span>
-                <p className="text-xs text-gray-400">{t('serviceTemplate.chat.messages.customerQuestionTime')}</p>
+      {/* Hero Image with Chat Interface or Voice Scroll Demo */}
+      <div className="inline-flex flex-col items-center gap-2.5 px-2.5 pb-0 relative w-full">
+        {serviceType === "voice" ? (
+          /* Voice AI Scroll Animation */
+          <VoiceHeroScrollDemo />
+        ) : (
+          /* Chat AI Interface */
+          <>
+            {/* Desktop Layout - Original design with background image and overlays */}
+            <div className="hidden md:block relative w-full max-w-none">
+              {/* Background chatbot image */}
+              <div className="w-full flex items-center justify-center">
+                <img
+                  className="w-full max-w-full h-auto object-contain"
+                  alt="AI Chatbot Interface"
+                  src={t(`${templateKey}.images.chatbot`)}
+                />
               </div>
+              
+              {/* Animated Chat bubbles overlay */}
+              <motion.div 
+                className="absolute top-8 right-8 bg-white rounded-lg shadow-lg p-4 max-w-md"
+                initial={{ opacity: 0, scale: 0, x: 50, y: -50 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  scale: [0, 1, 1, 0],
+                  x: [50, 0, 0, 50],
+                  y: [-50, 0, 0, -50]
+                }}
+                transition={{
+                  duration: 7,
+                  times: [0, 0.2, 0.9, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  ease: "easeInOut"
+                }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <img 
+                    src={t(`${templateKey}.images.customerAvatar`)} 
+                    alt={t(`${templateKey}.chat.customerName`)}
+                    className="w-9 h-9 rounded-full object-cover"
+                  />
+                  <div>
+                    <span className="text-base font-medium text-gray-600">{t(`${templateKey}.chat.customerName`)}</span>
+                    <p className="text-xs text-gray-400">{t(`${templateKey}.chat.messages.customerQuestionTime`)}</p>
+                  </div>
+                </div>
+                <p className="text-base text-gray-800 whitespace-pre-line">{t(`${templateKey}.chat.messages.customerQuestion`)}</p>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute top-1/2 left-8 transform -translate-y-1/2 bg-blue-500 rounded-lg shadow-lg p-4 max-w-md"
+                initial={{ opacity: 0, scale: 0, x: -50, y: 0 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  scale: [0, 1, 1, 0],
+                  x: [-50, 0, 0, -50],
+                  y: [0, 0, 0, 0]
+                }}
+                transition={{
+                  duration: 7,
+                  times: [0, 0.2, 0.9, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 1,
+                  ease: "easeInOut"
+                }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <img 
+                    src={t(`${templateKey}.images.agentAvatar`)} 
+                    alt={t(`${templateKey}.chat.agentName`)}
+                    className="w-9 h-9 rounded-full object-cover"
+                  />
+                  <div>
+                    <span className="text-base font-medium text-white">{t(`${templateKey}.chat.agentName`)}</span>
+                    <p className="text-xs text-blue-200">{t(`${templateKey}.chat.messages.agentResponseTime`)}</p>
+                  </div>
+                </div>
+                <p className="text-base text-white whitespace-pre-line">{t(`${templateKey}.chat.messages.agentResponse`)}</p>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute bottom-8 right-8 bg-white rounded-lg shadow-lg p-4 max-w-md"
+                initial={{ opacity: 0, scale: 0, x: 50, y: 50 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  scale: [0, 1, 1, 0],
+                  x: [50, 0, 0, 50],
+                  y: [50, 0, 0, 50]
+                }}
+                transition={{
+                  duration: 7,
+                  times: [0, 0.2, 0.9, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 2,
+                  ease: "easeInOut"
+                }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <img 
+                    src={t(`${templateKey}.images.customerAvatar`)} 
+                    alt={t(`${templateKey}.chat.customerName`)}
+                    className="w-9 h-9 rounded-full object-cover"
+                  />
+                  <div>
+                    <span className="text-base font-medium text-gray-600">{t(`${templateKey}.chat.customerName`)}</span>
+                    <p className="text-xs text-gray-400">{t(`${templateKey}.chat.messages.customerThanksTime`)}</p>
+                  </div>
+                </div>
+                <p className="text-base text-gray-800 whitespace-pre-line">{t(`${templateKey}.chat.messages.customerThanks`)}</p>
+              </motion.div>
             </div>
-            <p className="text-base text-gray-800 whitespace-pre-line">{t('serviceTemplate.chat.messages.customerQuestion')}</p>
-          </motion.div>
-          
-          <motion.div 
-            className="absolute top-1/2 left-8 transform -translate-y-1/2 bg-blue-500 rounded-lg shadow-lg p-4 max-w-md"
-            initial={{ opacity: 0, scale: 0, x: -50, y: 0 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0],
-              scale: [0, 1, 1, 0],
-              x: [-50, 0, 0, -50],
-              y: [0, 0, 0, 0]
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.2, 0.9, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              delay: 1,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <img 
-                src={t('serviceTemplate.images.agentAvatar')} 
-                alt={t('serviceTemplate.chat.agentName')}
-                className="w-9 h-9 rounded-full object-cover"
-              />
-              <div>
-                <span className="text-base font-medium text-white">{t('serviceTemplate.chat.agentName')}</span>
-                <p className="text-xs text-blue-200">{t('serviceTemplate.chat.messages.agentResponseTime')}</p>
-              </div>
-            </div>
-            <p className="text-base text-white whitespace-pre-line">{t('serviceTemplate.chat.messages.agentResponse')}</p>
-          </motion.div>
-          
-          <motion.div 
-            className="absolute bottom-8 right-8 bg-white rounded-lg shadow-lg p-4 max-w-md"
-            initial={{ opacity: 0, scale: 0, x: 50, y: 50 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0],
-              scale: [0, 1, 1, 0],
-              x: [50, 0, 0, 50],
-              y: [50, 0, 0, 50]
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.2, 0.9, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              delay: 2,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <img 
-                src={t('serviceTemplate.images.customerAvatar')} 
-                alt={t('serviceTemplate.chat.customerName')}
-                className="w-9 h-9 rounded-full object-cover"
-              />
-              <div>
-                <span className="text-base font-medium text-gray-600">{t('serviceTemplate.chat.customerName')}</span>
-                <p className="text-xs text-gray-400">{t('serviceTemplate.chat.messages.customerThanksTime')}</p>
-              </div>
-            </div>
-            <p className="text-base text-gray-800 whitespace-pre-line">{t('serviceTemplate.chat.messages.customerThanks')}</p>
-          </motion.div>
-        </div>
 
-        {/* Mobile Layout - Clean chat interface design like reference */}
-        <div className="md:hidden w-full max-w-md mx-auto relative">
-          {/* Background phone image */}
-          <div className="w-full flex items-center justify-center">
-            <img
-              className="w-full max-w-full h-auto object-contain"
-              alt="AI Chatbot Interface"
-              src="https://res.cloudinary.com/effichat/image/upload/chatbot_phone.png"
-            />
-          </div>
-          
-          {/* Animated Chat bubbles overlay */}
-          <motion.div 
-            className="absolute top-12 right-4 bg-white rounded-lg shadow-lg p-2 max-w-[160px]"
-            initial={{ opacity: 0, scale: 0, x: 50, y: -50 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0],
-              scale: [0, 1, 1, 0],
-              x: [50, 0, 0, 50],
-              y: [-50, 0, 0, -50]
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.2, 0.9, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="flex items-center gap-1.5 mb-1">
-              <img 
-                src={t('serviceTemplate.images.customerAvatar')} 
-                alt={t('serviceTemplate.chat.customerName')}
-                className="w-4 h-4 rounded-full object-cover"
-              />
-              <span className="text-xs font-medium text-gray-600">{t('serviceTemplate.chat.customerName')}</span>
-              <span className="text-xs text-gray-400 ml-auto">{t('serviceTemplate.chat.messages.customerQuestionTime')}</span>
+            {/* Mobile Layout - Clean chat interface design like reference */}
+            <div className="md:hidden w-full max-w-md mx-auto relative">
+              {/* Background phone image */}
+              <div className="w-full flex items-center justify-center">
+                <img
+                  className="w-full max-w-full h-auto object-contain"
+                  alt="AI Chatbot Interface"
+                  src="https://res.cloudinary.com/effichat/image/upload/chatbot_phone.png"
+                />
+              </div>
+              
+              {/* Animated Chat bubbles overlay */}
+              <motion.div 
+                className="absolute top-12 right-4 bg-white rounded-lg shadow-lg p-2 max-w-[160px]"
+                initial={{ opacity: 0, scale: 0, x: 50, y: -50 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  scale: [0, 1, 1, 0],
+                  x: [50, 0, 0, 50],
+                  y: [-50, 0, 0, -50]
+                }}
+                transition={{
+                  duration: 7,
+                  times: [0, 0.2, 0.9, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  ease: "easeInOut"
+                }}
+              >
+                <div className="flex items-center gap-1.5 mb-1">
+                  <img 
+                    src={t(`${templateKey}.images.customerAvatar`)} 
+                    alt={t(`${templateKey}.chat.customerName`)}
+                    className="w-4 h-4 rounded-full object-cover"
+                  />
+                  <span className="text-xs font-medium text-gray-600">{t(`${templateKey}.chat.customerName`)}</span>
+                  <span className="text-xs text-gray-400 ml-auto">{t(`${templateKey}.chat.messages.customerQuestionTime`)}</span>
+                </div>
+                <p className="text-xs text-gray-800 leading-tight">{t(`${templateKey}.chat.messages.customerQuestion`)}</p>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute top-2/3 left-4 transform -translate-y-1/2 bg-blue-500 rounded-lg shadow-lg p-2 max-w-[160px]"
+                initial={{ opacity: 0, scale: 0, x: -50, y: 0 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  scale: [0, 1, 1, 0],
+                  x: [-50, 0, 0, -50],
+                  y: [0, 0, 0, 0]
+                }}
+                transition={{
+                  duration: 7,
+                  times: [0, 0.2, 0.9, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 1,
+                  ease: "easeInOut"
+                }}
+              >
+                <div className="flex items-center gap-1.5 mb-1">
+                  <img 
+                    src={t(`${templateKey}.images.agentAvatar`)} 
+                    alt={t(`${templateKey}.chat.agentName`)}
+                    className="w-4 h-4 rounded-full object-cover"
+                  />
+                  <span className="text-xs font-medium text-white">{t(`${templateKey}.chat.agentName`)}</span>
+                  <span className="text-xs text-blue-200 ml-auto">{t(`${templateKey}.chat.messages.agentResponseTime`)}</span>
+                </div>
+                <p className="text-xs text-white leading-tight">{t(`${templateKey}.chat.messages.agentResponse`)}</p>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg p-2 max-w-[160px]"
+                initial={{ opacity: 0, scale: 0, x: 50, y: 50 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  scale: [0, 1, 1, 0],
+                  x: [50, 0, 0, 50],
+                  y: [50, 0, 0, 50]
+                }}
+                transition={{
+                  duration: 7,
+                  times: [0, 0.2, 0.9, 1],
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 2,
+                  ease: "easeInOut"
+                }}
+              >
+                <div className="flex items-center gap-1.5 mb-1">
+                  <img 
+                    src={t(`${templateKey}.images.customerAvatar`)} 
+                    alt={t(`${templateKey}.chat.customerName`)}
+                    className="w-4 h-4 rounded-full object-cover"
+                  />
+                  <span className="text-xs font-medium text-gray-600">{t(`${templateKey}.chat.customerName`)}</span>
+                  <span className="text-xs text-gray-400 ml-auto">{t(`${templateKey}.chat.messages.customerThanksTime`)}</span>
+                </div>
+                <p className="text-xs text-gray-800 leading-tight">{t(`${templateKey}.chat.messages.customerThanks`)}</p>
+              </motion.div>
             </div>
-            <p className="text-xs text-gray-800 leading-tight">{t('serviceTemplate.chat.messages.customerQuestion')}</p>
-          </motion.div>
-          
-          <motion.div 
-            className="absolute top-2/3 left-4 transform -translate-y-1/2 bg-blue-500 rounded-lg shadow-lg p-2 max-w-[160px]"
-            initial={{ opacity: 0, scale: 0, x: -50, y: 0 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0],
-              scale: [0, 1, 1, 0],
-              x: [-50, 0, 0, -50],
-              y: [0, 0, 0, 0]
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.2, 0.9, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              delay: 1,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="flex items-center gap-1.5 mb-1">
-              <img 
-                src={t('serviceTemplate.images.agentAvatar')} 
-                alt={t('serviceTemplate.chat.agentName')}
-                className="w-4 h-4 rounded-full object-cover"
-              />
-              <span className="text-xs font-medium text-white">{t('serviceTemplate.chat.agentName')}</span>
-              <span className="text-xs text-blue-200 ml-auto">{t('serviceTemplate.chat.messages.agentResponseTime')}</span>
-            </div>
-            <p className="text-xs text-white leading-tight">{t('serviceTemplate.chat.messages.agentResponse')}</p>
-          </motion.div>
-          
-          <motion.div 
-            className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg p-2 max-w-[160px]"
-            initial={{ opacity: 0, scale: 0, x: 50, y: 50 }}
-            animate={{ 
-              opacity: [0, 1, 1, 0],
-              scale: [0, 1, 1, 0],
-              x: [50, 0, 0, 50],
-              y: [50, 0, 0, 50]
-            }}
-            transition={{
-              duration: 7,
-              times: [0, 0.2, 0.9, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              delay: 2,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="flex items-center gap-1.5 mb-1">
-              <img 
-                src={t('serviceTemplate.images.customerAvatar')} 
-                alt={t('serviceTemplate.chat.customerName')}
-                className="w-4 h-4 rounded-full object-cover"
-              />
-              <span className="text-xs font-medium text-gray-600">{t('serviceTemplate.chat.customerName')}</span>
-              <span className="text-xs text-gray-400 ml-auto">{t('serviceTemplate.chat.messages.customerThanksTime')}</span>
-            </div>
-            <p className="text-xs text-gray-800 leading-tight">{t('serviceTemplate.chat.messages.customerThanks')}</p>
-          </motion.div>
-        </div>
+          </>
+        )}
       </div>
     </main>
   </section>
@@ -339,7 +352,7 @@ const HeroSection = ({
 };
 
 // Key Features Section
-const KeyFeaturesSection = ({ openCalModal }: { openCalModal: () => Promise<void> }) => {
+const KeyFeaturesSection = ({ openCalModal, templateKey }: { openCalModal: () => Promise<void>, templateKey: string }) => {
   const { ref, isInView } = useInView();
   const { t } = useTranslation();
   
@@ -347,13 +360,13 @@ const KeyFeaturesSection = ({ openCalModal }: { openCalModal: () => Promise<void
     <section ref={ref} className="flex flex-col w-full items-center gap-16 px-4 md:px-[150px] py-20 bg-gray-50">
       <div className="text-center">
         <WordPullUp
-          words={t('serviceTemplate.features.title')}
+          words={t(`${templateKey}.features.title`)}
           className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           as="h2"
           animate={isInView}
         />
         <p className="text-lg text-gray-600">
-          {t('serviceTemplate.features.description')}
+          {t(`${templateKey}.features.description`)}
         </p>
       </div>
 
@@ -363,7 +376,7 @@ const KeyFeaturesSection = ({ openCalModal }: { openCalModal: () => Promise<void
 };
 
 // Features Overview Section
-const FeaturesOverviewSection = ({ openCalModal }: { openCalModal: () => Promise<void> }) => {
+const FeaturesOverviewSection = ({ openCalModal, templateKey }: { openCalModal: () => Promise<void>, templateKey: string }) => {
   const { ref, isInView } = useInView();
   const { t } = useTranslation();
   
@@ -372,28 +385,28 @@ const FeaturesOverviewSection = ({ openCalModal }: { openCalModal: () => Promise
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl items-center">
         <div ref={ref} className="text-left">
           <WordPullUp
-            words={t('serviceTemplate.multichannel.title')}
+            words={t(`${templateKey}.multichannel.title`)}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-left"
             as="h2"
             animate={isInView}
           />
           <p className="text-lg text-gray-600 mb-8 text-left">
-            {t('serviceTemplate.multichannel.description')}
+            {t(`${templateKey}.multichannel.description`)}
           </p>
         <div className="mb-8">
           <Button 
             onClick={openCalModal}
             className="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium"
           >
-            {t('serviceTemplate.multichannel.buttonText')}
+            {t(`${templateKey}.multichannel.buttonText`)}
           </Button>
         </div>
       </div>
       <div className="bg-white rounded-lg flex items-center justify-center overflow-hidden">
         <img
           className="w-full h-auto object-contain"
-          alt={t('serviceTemplate.multichannel.imageAlt')}
-          src={t('serviceTemplate.images.integration')}
+          alt={t(`${templateKey}.multichannel.imageAlt`)}
+          src={t(`${templateKey}.images.integration`)}
         />
       </div>
     </div>
@@ -402,7 +415,7 @@ const FeaturesOverviewSection = ({ openCalModal }: { openCalModal: () => Promise
 };
 
 // Main Content Section
-const MainContentSection = ({ openCalModal }: { openCalModal: () => Promise<void> }) => {
+const MainContentSection = ({ openCalModal, templateKey }: { openCalModal: () => Promise<void>, templateKey: string }) => {
   const { ref, isInView } = useInView();
   const { t } = useTranslation();
   
@@ -412,25 +425,25 @@ const MainContentSection = ({ openCalModal }: { openCalModal: () => Promise<void
               <div className="bg-white rounded-lg flex items-center justify-center overflow-hidden">
           <img
             className="w-full h-auto object-contain"
-            alt={t('serviceTemplate.sales.imageAlt')}
-            src={t('serviceTemplate.images.recommendations')}
+            alt={t(`${templateKey}.sales.imageAlt`)}
+            src={t(`${templateKey}.images.recommendations`)}
           />
         </div>
         <div ref={ref} className="text-left">
           <WordPullUp
-            words={t('serviceTemplate.sales.title')}
+            words={t(`${templateKey}.sales.title`)}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-left"
             as="h2"
             animate={isInView}
           />
           <p className="text-lg text-gray-600 mb-8">
-              {t('serviceTemplate.sales.description')}
+              {t(`${templateKey}.sales.description`)}
           </p>
           <Button 
             onClick={openCalModal}
             className="bg-black hover:bg-purple-700 text-white px-8 py-3 rounded-lg"
           >
-            {t('serviceTemplate.sales.buttonText')}
+            {t(`${templateKey}.sales.buttonText`)}
           </Button>
         </div>
       </div>
@@ -439,40 +452,40 @@ const MainContentSection = ({ openCalModal }: { openCalModal: () => Promise<void
 };
 
 // Pricing Plans Section
-const PricingPlansSection = ({ openCalModal }: { openCalModal: () => Promise<void> }) => {
+const PricingPlansSection = ({ openCalModal, templateKey }: { openCalModal: () => Promise<void>, templateKey: string }) => {
   const { ref, isInView } = useInView();
   const { t } = useTranslation();
   
   const starterFeatures = [
-    t('serviceTemplate.pricing.plans.starter.features.0'),
-    t('serviceTemplate.pricing.plans.starter.features.1'),
-    t('serviceTemplate.pricing.plans.starter.features.2'),
-    t('serviceTemplate.pricing.plans.starter.features.3'),
-    t('serviceTemplate.pricing.plans.starter.features.4'),
-    t('serviceTemplate.pricing.plans.starter.features.5'),
-    t('serviceTemplate.pricing.plans.starter.features.6'),
-    t('serviceTemplate.pricing.plans.starter.features.7')
+    t(`${templateKey}.pricing.plans.starter.features.0`),
+    t(`${templateKey}.pricing.plans.starter.features.1`),
+    t(`${templateKey}.pricing.plans.starter.features.2`),
+    t(`${templateKey}.pricing.plans.starter.features.3`),
+    t(`${templateKey}.pricing.plans.starter.features.4`),
+    t(`${templateKey}.pricing.plans.starter.features.5`),
+    t(`${templateKey}.pricing.plans.starter.features.6`),
+    t(`${templateKey}.pricing.plans.starter.features.7`)
   ];
 
   const enterpriseFeatures = [
-    t('serviceTemplate.pricing.plans.enterprise.features.0'),
-    t('serviceTemplate.pricing.plans.enterprise.features.1'),
-    t('serviceTemplate.pricing.plans.enterprise.features.2'),
-    t('serviceTemplate.pricing.plans.enterprise.features.3'),
-    t('serviceTemplate.pricing.plans.enterprise.features.4'),
-    t('serviceTemplate.pricing.plans.enterprise.features.5'),
-    t('serviceTemplate.pricing.plans.enterprise.features.6'),
-    t('serviceTemplate.pricing.plans.enterprise.features.7')
+    t(`${templateKey}.pricing.plans.enterprise.features.0`),
+    t(`${templateKey}.pricing.plans.enterprise.features.1`),
+    t(`${templateKey}.pricing.plans.enterprise.features.2`),
+    t(`${templateKey}.pricing.plans.enterprise.features.3`),
+    t(`${templateKey}.pricing.plans.enterprise.features.4`),
+    t(`${templateKey}.pricing.plans.enterprise.features.5`),
+    t(`${templateKey}.pricing.plans.enterprise.features.6`),
+    t(`${templateKey}.pricing.plans.enterprise.features.7`)
   ];
   
   return (
     <section ref={ref} className="flex flex-col w-full items-center gap-16 px-4 md:px-[150px] py-20 bg-gray-50">
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          {t('serviceTemplate.pricing.title')}
+          {t(`${templateKey}.pricing.title`)}
         </h2>
         <p className="text-lg text-gray-600">
-          {t('serviceTemplate.pricing.description')}
+          {t(`${templateKey}.pricing.description`)}
         </p>
       </div>
 
@@ -480,19 +493,19 @@ const PricingPlansSection = ({ openCalModal }: { openCalModal: () => Promise<voi
         <Card className="p-8 relative border-[#00ffb2] border-2">
           <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
             <span className="bg-[#00ffb2] text-black px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-lg">
-              {t('serviceTemplate.pricing.plans.starter.popular')}
+              {t(`${templateKey}.pricing.plans.starter.popular`)}
             </span>
           </div>
           <div className="text-center mb-8">
-            <h3 className="text-xl font-bold mb-2">{t('serviceTemplate.pricing.plans.starter.name')}</h3>
+            <h3 className="text-xl font-bold mb-2">{t(`${templateKey}.pricing.plans.starter.name`)}</h3>
             <div className="flex items-baseline justify-center gap-1">
               <WordPullUp
-                words={t('serviceTemplate.pricing.plans.starter.price')}
+                words={t(`${templateKey}.pricing.plans.starter.price`)}
                 className="text-4xl font-bold"
                 as="span"
                 animate={isInView}
               />
-              <span className="text-white">{t('serviceTemplate.pricing.plans.starter.period')}</span>
+              <span className="text-white">{t(`${templateKey}.pricing.plans.starter.period`)}</span>
             </div>
           </div>
           <ul className="space-y-3 mb-8">
@@ -507,21 +520,21 @@ const PricingPlansSection = ({ openCalModal }: { openCalModal: () => Promise<voi
             onClick={openCalModal}
             className="w-full bg-[#00ffb2] hover:bg-[#00b880] text-black"
           >
-            {t('serviceTemplate.pricing.buttonText')}
+            {t(`${templateKey}.pricing.buttonText`)}
           </Button>
         </Card>
 
         <Card className="p-8 relative">
           <div className="text-center mb-8">
-            <h3 className="text-xl font-bold mb-2">{t('serviceTemplate.pricing.plans.enterprise.name')}</h3>
+            <h3 className="text-xl font-bold mb-2">{t(`${templateKey}.pricing.plans.enterprise.name`)}</h3>
             <div className="flex items-baseline justify-center gap-1">
               <WordPullUp
-                words={t('serviceTemplate.pricing.plans.enterprise.price')}
+                words={t(`${templateKey}.pricing.plans.enterprise.price`)}
                 className="text-4xl font-bold"
                 as="span"
                 animate={isInView}
               />
-              <span className="text-white">{t('serviceTemplate.pricing.plans.enterprise.period')}</span>
+              <span className="text-white">{t(`${templateKey}.pricing.plans.enterprise.period`)}</span>
             </div>
           </div>
           <ul className="space-y-3 mb-8">
@@ -536,7 +549,7 @@ const PricingPlansSection = ({ openCalModal }: { openCalModal: () => Promise<voi
             onClick={openCalModal}
             className="w-full bg-gray-400 hover:bg-gray-200 text-black"
           >
-            {t('serviceTemplate.pricing.buttonText')}
+            {t(`${templateKey}.pricing.buttonText`)}
           </Button>
         </Card>
       </div>
@@ -545,7 +558,7 @@ const PricingPlansSection = ({ openCalModal }: { openCalModal: () => Promise<voi
 };
 
 // Call to Action Section
-const CallToActionSection = ({ openCalModal }: { openCalModal: () => Promise<void> }) => {
+const CallToActionSection = ({ openCalModal, templateKey }: { openCalModal: () => Promise<void>, templateKey: string }) => {
   const { ref, isInView } = useInView();
   const { t } = useTranslation();
 
@@ -553,20 +566,20 @@ const CallToActionSection = ({ openCalModal }: { openCalModal: () => Promise<voi
     <section ref={ref} className="flex flex-col w-full items-center gap-8 px-4 md:px-[150px] py-20 bg-gradient-to-br from-[#00ffb2] to-[#00b880]">
       <div className="text-center max-w-3xl">
         <WordPullUp
-          words={t('serviceTemplate.cta.title')}
+          words={t(`${templateKey}.cta.title`)}
           className="text-3xl md:text-4xl font-bold text-white mb-4"
           as="h2"
           animate={isInView}
         />
         <p className="text-lg text-gray-600 mb-8">
-          {t('serviceTemplate.cta.description')}
+          {t(`${templateKey}.cta.description`)}
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <Button 
             onClick={openCalModal}
             className="bg-white text-[#00b880] hover:bg-gray-100 px-8 py-3 rounded-lg font-medium"
           >
-            {t('serviceTemplate.cta.buttonText')}
+            {t(`${templateKey}.cta.buttonText`)}
           </Button>
         </div>
       </div>
@@ -602,11 +615,14 @@ function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationPr
 }
 
 // Main Service Template Component
-export const ServiceTemplate = () => {
+export const ServiceTemplate = ({ serviceType = "chat" }: { serviceType?: "chat" | "voice" }) => {
   const { openCalModal } = useCal();
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Choose the translation key based on service type
+  const templateKey = serviceType === "voice" ? "voiceServiceTemplate" : "serviceTemplate";
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -650,12 +666,14 @@ export const ServiceTemplate = () => {
         handleEmailSubmit={handleEmailSubmit}
         isSubmitting={isSubmitting}
         openCalModal={openCalModal}
+        templateKey={templateKey}
+        serviceType={serviceType}
       />
-      <KeyFeaturesSection openCalModal={openCalModal} />
-      <FeaturesOverviewSection openCalModal={openCalModal} />
-      <MainContentSection openCalModal={openCalModal} />
-      <CallToActionSection openCalModal={openCalModal} />
-      <PricingPlansSection openCalModal={openCalModal} />
+      <KeyFeaturesSection openCalModal={openCalModal} templateKey={templateKey} />
+      <FeaturesOverviewSection openCalModal={openCalModal} templateKey={templateKey} />
+      <MainContentSection openCalModal={openCalModal} templateKey={templateKey} />
+      <CallToActionSection openCalModal={openCalModal} templateKey={templateKey} />
+      <PricingPlansSection openCalModal={openCalModal} templateKey={templateKey} />
       <Footer />
     </main>
   );

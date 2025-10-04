@@ -111,29 +111,19 @@ export function SiteHeader() {
                       id="solutions"
                       options={[
                         {
-                          label: t('services.dataAI.name'),
-                          onClick: () => router.push(getLocalePath('/services/data-ai')),
-                          Icon: <BarChart3 className="h-4 w-4" />
-                        },
-                        {
-                          label: t('services.bookingSystem.name'),
-                          onClick: () => router.push(getLocalePath('/services/booking-system')),
-                          Icon: <Calendar className="h-4 w-4" />
-                        },
-                        {
-                          label: t('services.phoneAI.name'),
-                          onClick: () => router.push(getLocalePath('/coming-soon')),
-                          Icon: <Phone className="h-4 w-4" />
-                        },
-                        {
                           label: t('services.chatAI.name'),
                           onClick: () => router.push(getLocalePath('/services/ai-chatbot')),
                           Icon: <MessageCircle className="h-4 w-4" />
                         },
                         {
-                          label: t('services.crmAI.name'),
-                          onClick: () => router.push(getLocalePath('/coming-soon')),
-                          Icon: <Users className="h-4 w-4" />
+                          label: t('services.phoneAI.name'),
+                          onClick: () => router.push(getLocalePath('/services/voice-ai')),
+                          Icon: <Phone className="h-4 w-4" />
+                        },
+                        {
+                          label: t('services.dataAI.name'),
+                          onClick: () => router.push(getLocalePath('/services/data-ai')),
+                          Icon: <BarChart3 className="h-4 w-4" />
                         }
                       ]}
                     >

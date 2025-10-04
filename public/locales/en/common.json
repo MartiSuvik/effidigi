@@ -793,5 +793,48 @@
         "ai": "AI"
       }
     }
+  },
+  "voiceServiceTemplate": {
+    "hero": {
+      "title": "AI Voice Bot That Converts Callers Into Customers",
+      "description": "Automate phone support, capture leads, and increase sales with our intelligent AI voice bot. Available 24/7 to serve callers in multiple languages.",
+      "emailPlaceholder": "Enter your work email",
+      "signUpButton": "Start Free Trial",
+      "trialText": "Free 30-day trial period",
+      "auditText": "Free AI readiness audit"
+    },
+    "chat": {
+      "customerName": "Anna",
+      "agentName": "EFFI AI",
+      "messages": {
+        "customerQuestion": "Hi, can I make a reservation? 📞",
+        "customerQuestionTime": "6:57 PM",
+        "agentResponse": "Hello Anna! Yes, absolutely! When would you like to visit us? 🎙️",
+        "agentResponseTime": "6:57 PM",
+        "customerThanks": "Great! Tomorrow at 1 PM for four people.",
+        "customerThanksTime": "6:58 PM"
+      }
+    },
+    "features": {
+      "title": "Intelligent Voice Technologies for Better Customer Experience",
+      "description": "Everything you need to automate phone calls and grow your business"
+    },
+    "multichannel": {
+      "title": "Answer calls through every channel",
+      "description": "Integrate your AI voice bot with regular phone systems, VoIP, and mobile apps. Provide consistent support across all channels, 24/7.",
+      "buttonText": "Start Free Trial",
+      "imageAlt": "Multi-channel voice bot interface showing phone, VoIP and mobile app integration"
+    },
+    "sales": {
+      "title": "Convert callers into customers",
+      "description": "Actively engage during phone calls, qualify callers and guide them through intelligent voice flows.",
+      "buttonText": "Get Started",
+      "imageAlt": "AI voice bot interface showing lead qualification and sales call flow"
+    },
+    "cta": {
+      "title": "Ready for the Voice Revolution? 📞",
+      "description": "Join thousands of satisfied customers and transform your phone support today.",
+      "buttonText": "Contact Us for Free Trial"
+    }
   }
 }

@@ -85,31 +85,12 @@ export const BentoCard = ({
     )}
   >
     <div className="absolute inset-0 z-0">{background}</div>
-
-    {/* Hover overlay */}
-    <div className="absolute inset-0 z-10 rounded-xl bg-gradient-to-r from-[#00ffb2]/20 via-[#00b880]/20 to-[#00ffb2]/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-gradient-x" />
-
-    <div className="relative z-20 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300 transition-opacity duration-300 group-hover:opacity-0">
+    {/* Static content without hover CTA/button */}
+    <div className="relative z-20 flex transform-gpu flex-col gap-1 p-6">
+      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
-      <p className="max-w-lg text-neutral-400 transition-opacity duration-300 group-hover:opacity-0">{description}</p>
+      <p className="max-w-lg text-neutral-400">{description}</p>
     </div>
-
-    {/* CTA on hover */}
-    <div
-      className={cn(
-        "absolute inset-0 z-20 flex flex-col items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100",
-      )}
-    >
-      <Button variant="ghost" asChild size="sm" className="pointer-events-none bg-[#00ffb2] hover:bg-[#00b880] text-black">
-        <div className="flex items-center gap-2">
-          {cta}
-          <ArrowUpIcon className="h-4 w-4" />
-        </div>
-      </Button>
-    </div>
-
-    <div className="absolute inset-0 z-10 transform-gpu bg-black/[.03] opacity-0 transition-all duration-300 group-hover:opacity-100 dark:bg-neutral-800/10" />
   </a>
 );

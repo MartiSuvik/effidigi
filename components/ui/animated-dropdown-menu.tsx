@@ -48,6 +48,7 @@ type AnimatedDropdownMenuProps = {
     label: string;
     onClick: () => void;
     Icon?: React.ReactNode;
+    disabled?: boolean;
   }[];
   children: React.ReactNode;
   id: string; // Add unique ID for each dropdown
@@ -131,10 +132,30 @@ const AnimatedDropdownMenu = ({ options, children, id }: AnimatedDropdownMenuPro
                   }}
                   key={option.label}
                   onClick={() => {
-                    option.onClick();
-                    setActiveDropdown(null); // Close dropdown after clicking an option
+                    if (!option.disabled) {
+                      option.onClick();
+                      setActiveDropdown(null); // Close dropdown after clicking an option
+                    }
                   }}
-                  className="px-2 py-3 cursor-pointer text-foreground text-sm rounded-lg w-full text-left flex items-center gap-x-2 hover:text-foreground"
+                  className={`px-2 py-3 text-sm rounded-lg w-full text-left flex items-center gap-x-2 ${
+                    option.disabled 
+                      ? 'cursor-not-allowed text-muted-foreground/50 opacity-50' 
+                      : 'cursor-pointer text-foreground hover:text-foreground'
+                  }`}
+                  whileHover={option.disabled ? {} : {
+                    color: "hsl(var(--primary))",
+                    transition: {
+                      duration: 0.2,
+                      ease: "easeInOut",
+                    },
+                  }}
+                  whileTap={option.disabled ? {} : {
+                    scale: 0.95,
+                    transition: {
+                      duration: 0.2,
+                      ease: "easeInOut",
+                    },
+                  }}
                 >
                   {option.Icon}
                   {option.label}
