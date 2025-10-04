@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
-import { VoiceHeroClient } from './voice-hero-client';
+import { VoiceHeroScrollDemo } from '@/components/ui/voice-hero-scroll-demo';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the client-only hero component (default export)
+const VoiceHeroClient = dynamic(() => import('./voice-hero-client'), { ssr: false });
 
 export const metadata: Metadata = {
 	title: 'AI Voice Assistant - EFFI',
@@ -20,6 +24,6 @@ export const metadata: Metadata = {
 };
 
 export default function VoiceAiPage() {
-  return <VoiceHeroClient />;
+	return <VoiceHeroClient />;
 }
 

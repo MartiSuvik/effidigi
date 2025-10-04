@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { VoiceHeroClient } from '../../../services/voice-ai/voice-hero-client';
+import dynamic from 'next/dynamic';
+
+// Reuse the shared hero-only client component (default export)
+const VoiceHeroClient = dynamic(() => import('../../../services/voice-ai/voice-hero-client'), { ssr: false });
 
 export const metadata: Metadata = {
   title: 'AI Voice Assistant - EFFI',

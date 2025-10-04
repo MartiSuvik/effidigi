@@ -72,10 +72,12 @@ export function VoiceHeroClient() {
           </div>
         </div>
 
-        <div className="inline-flex flex-col items-center gap-2.5 px-2.5 relative w-full">
+        <div className="inline-flex flex-col items-center gap-2.5 px-2.5 pb-24 relative w-full">
           <VoiceHeroScrollDemo />
         </div>
       </main>
     </section>
   );
 }
+
+export default VoiceHeroClient;

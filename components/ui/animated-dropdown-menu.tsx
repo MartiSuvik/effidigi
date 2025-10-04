@@ -116,20 +116,6 @@ const AnimatedDropdownMenu = ({ options, children, id }: AnimatedDropdownMenuPro
                     ease: "easeInOut",
                     type: "spring",
                   }}
-                  whileHover={{
-                    color: "hsl(var(--primary))",
-                    transition: {
-                      duration: 0.2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                    transition: {
-                      duration: 0.2,
-                      ease: "easeInOut",
-                    },
-                  }}
                   key={option.label}
                   onClick={() => {
                     if (!option.disabled) {
