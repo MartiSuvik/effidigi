@@ -1,5 +1,5 @@
-import { ServiceTemplate } from '@/components/service-template';
 import type { Metadata } from 'next';
+import { VoiceHeroClient } from '../../../services/voice-ai/voice-hero-client';
 
 export const metadata: Metadata = {
   title: 'AI Voice Assistant - EFFI',
@@ -20,5 +20,5 @@ export const metadata: Metadata = {
 };
 
 export default function VoiceAiPage() {
-  return <ServiceTemplate serviceType="voice" />;
+  return <VoiceHeroClient />;
 }
