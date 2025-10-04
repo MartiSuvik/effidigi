@@ -204,7 +204,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="flex flex-wrap gap-4"
               >
-                <GradientButton 
+                {/*<GradientButton 
                   size="lg" 
                   className="gap-2 py-6 px-8 text-lg"
                   onClick={startVapiCall}
@@ -212,7 +212,7 @@ export function HeroSection() {
                 >
                   <PhoneCall className="w-6 h-6" />
                   {getButtonText()}
-                </GradientButton>
+                </GradientButton>*/}
                 <GradientButton 
                   size="lg" 
                   variant="outline"
